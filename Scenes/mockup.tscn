@@ -1,10 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://dlhv0x80p6b7l"]
+[gd_scene load_steps=5 format=3 uid="uid://dlhv0x80p6b7l"]
 
 [ext_resource type="Script" path="res://Scripts/mockup.gd" id="1_7bffn"]
 [ext_resource type="Texture2D" uid="uid://vp1lomtl81wx" path="res://Assets/Earth.png" id="2_cba6k"]
 [ext_resource type="Texture2D" uid="uid://cf20qovht3d7m" path="res://Assets/Sun.png" id="3_aw2bx"]
 [ext_resource type="Texture2D" uid="uid://cjy2td0ju07cc" path="res://Assets/Rock.png" id="4_5pi4h"]
-[ext_resource type="PackedScene" uid="uid://bacc7dxifa5lk" path="res://Scenes/drill.tscn" id="5_6y1wm"]
 
 [node name="Mockup" type="Node2D"]
 process_mode = 3
@@ -29,5 +28,3 @@ texture = ExtResource("4_5pi4h")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(576, 324)
-
-[node name="Drill" parent="." instance=ExtResource("5_6y1wm")]

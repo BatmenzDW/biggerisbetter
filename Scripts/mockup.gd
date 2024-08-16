@@ -1,6 +1,10 @@
 extends Node2D
 
-@onready var drill: Drill = $Drill
+var building: Building
+
+var building_pre = preload("res://Scenes/Buildings/drill.tscn")
+
+var built: Array[Building] = []
 
 #func _ready() -> void:
 	#get_tree().paused = true
@@ -15,7 +19,19 @@ extends Node2D
 			#var new_postion = get_viewport().get_mouse_position()
 			#placeable.global_position = snapped(new_postion, SNAP)
 
+#func _input(event: InputEvent) -> void:
+	#if event.is_action_pressed("ui_accept"):
+		#drill.show()
+		#drill.is_active = true
+
 func _input(event: InputEvent) -> void:
-	if event.is_action_pressed("ui_accept"):
-		drill.show()
-		drill.is_active = true
+	if event.is_action_pressed("start_building"):
+		#print("Started")
+		building = building_pre.instantiate()
+		add_child(building)
+	elif event.is_action_pressed("place_building"):
+		#print("Placing")
+		building.place()
+		built.append(building)
+		building = null
+		#print(built)
