@@ -1,0 +1,18 @@
+[gd_scene load_steps=5 format=3 uid="uid://bacc7dxifa5lk"]
+
+[ext_resource type="Script" path="res://Scenes/Drill.gd" id="1_i7qov"]
+[ext_resource type="Texture2D" uid="uid://csndkg5t82hag" path="res://Assets/Drill.png" id="1_jke4u"]
+[ext_resource type="Script" path="res://Scenes/CollisionShape2d.cs" id="3_a3ttc"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_x7hap"]
+size = Vector2(64, 64)
+
+[node name="Area2D" type="Area2D"]
+script = ExtResource("1_i7qov")
+
+[node name="Drill" type="Sprite2D" parent="."]
+texture = ExtResource("1_jke4u")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_x7hap")
+script = ExtResource("3_a3ttc")
