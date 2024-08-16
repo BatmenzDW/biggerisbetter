@@ -1,6 +1,7 @@
 extends Node
 
 signal clock
+signal score(amount: int)
 
 var _time_passed = 0.0
 

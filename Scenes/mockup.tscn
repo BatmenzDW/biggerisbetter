@@ -28,3 +28,10 @@ texture = ExtResource("4_5pi4h")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(576, 324)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Score" type="RichTextLabel" parent="CanvasLayer"]
+offset_right = 267.0
+offset_bottom = 121.0
+text = "Score: 0"

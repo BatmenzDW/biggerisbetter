@@ -6,6 +6,9 @@ var building_pre = preload("res://Scenes/Buildings/drill.tscn")
 
 var built: Array[Building] = []
 
+@onready var score_txt: RichTextLabel = $CanvasLayer/Score
+var score = 0
+
 #func _ready() -> void:
 	#get_tree().paused = true
 #
@@ -35,3 +38,10 @@ func _input(event: InputEvent) -> void:
 		built.append(building)
 		building = null
 		#print(built)
+
+func _increase_score(amount: int):
+	score += amount
+	score_txt.text = "Score: " + str(score)
+
+func _ready() -> void:
+	Game.score.connect(_increase_score)
