@@ -18,10 +18,6 @@ func _ready() -> void:
 	hide()
 	pos = global_position
 
-func _process(delta: float) -> void:
-	#print("wrong process")
-	pass
-
 func _physics_process(delta: float) -> void:
 	#print("right process")
 	if global_position == pos:

@@ -1,10 +1,10 @@
 [gd_scene load_steps=6 format=3 uid="uid://dlhv0x80p6b7l"]
 
 [ext_resource type="Script" path="res://Scripts/mockup.gd" id="1_7bffn"]
-[ext_resource type="Texture2D" uid="uid://vp1lomtl81wx" path="res://Assets/Earth.png" id="2_cba6k"]
+[ext_resource type="Texture2D" uid="uid://vp1lomtl81wx" path="res://Assets/programmer-art/Earth.png" id="2_cba6k"]
 [ext_resource type="PackedScene" uid="uid://cad2dree6f1ur" path="res://Scenes/planetscroll.tscn" id="3_1dblx"]
-[ext_resource type="Texture2D" uid="uid://cf20qovht3d7m" path="res://Assets/Sun.png" id="3_aw2bx"]
-[ext_resource type="Texture2D" uid="uid://cjy2td0ju07cc" path="res://Assets/Rock.png" id="4_5pi4h"]
+[ext_resource type="Texture2D" uid="uid://cf20qovht3d7m" path="res://Assets/programmer-art/Sun.png" id="3_aw2bx"]
+[ext_resource type="Texture2D" uid="uid://cjy2td0ju07cc" path="res://Assets/programmer-art/Rock.png" id="4_5pi4h"]
 
 [node name="Mockup" type="Node2D"]
 texture_filter = 1

@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://bacc7dxifa5lk"]
 
 [ext_resource type="Script" path="res://Scenes/Buildings/Building.gd" id="1_i7qov"]
-[ext_resource type="Texture2D" uid="uid://csndkg5t82hag" path="res://Assets/Drill.png" id="1_jke4u"]
+[ext_resource type="Texture2D" uid="uid://csndkg5t82hag" path="res://Assets/programmer-art/Drill.png" id="1_jke4u"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_x7hap"]
 size = Vector2(62, 62)

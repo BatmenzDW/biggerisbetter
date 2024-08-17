@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://csndkg5t82hag"
-path="res://.godot/imported/Drill.png-000ad14aefba1db5b319506383a5cde4.ctex"
+uid="uid://vp1lomtl81wx"
+path="res://.godot/imported/Earth.png-da6a56cb4a72282b4d9ec682c09e15d9.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Drill.png"
-dest_files=["res://.godot/imported/Drill.png-000ad14aefba1db5b319506383a5cde4.ctex"]
+source_file="res://Assets/programmer-art/Earth.png"
+dest_files=["res://.godot/imported/Earth.png-da6a56cb4a72282b4d9ec682c09e15d9.ctex"]
 
 [params]
 
