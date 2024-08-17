@@ -1,0 +1,26 @@
+[gd_scene load_steps=4 format=3 uid="uid://drsdmutvg8qaj"]
+
+[ext_resource type="Script" path="res://Scripts/Graphics/camera.gd" id="1_0pdcg"]
+[ext_resource type="PackedScene" uid="uid://qtmskbdl8k7o" path="res://Scenes/Prefabs/planetoid.tscn" id="2_3nwso"]
+[ext_resource type="PackedScene" uid="uid://dukcd67uwqgot" path="res://Scenes/ui.tscn" id="3_kk1at"]
+
+[node name="Lvl1" type="Node2D"]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+script = ExtResource("1_0pdcg")
+
+[node name="Planet" parent="." instance=ExtResource("2_3nwso")]
+position = Vector2(273, 134)
+
+[node name="Planet2" parent="." node_paths=PackedStringArray("orbiting") instance=ExtResource("2_3nwso")]
+position = Vector2(478, 161)
+scale = Vector2(0.5, 0.5)
+planetName = "Planet Y"
+planetPopulation = -1
+orbiting = NodePath("../Planet")
+orbitalRadius = 150
+
+[node name="UI" parent="." instance=ExtResource("3_kk1at")]
+offset_right = 1152.0
+offset_bottom = 648.0
+mouse_filter = 1
