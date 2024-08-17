@@ -3,7 +3,7 @@ extends Node2D
 @export var rotatespeed = 0.2 # How fast to rotate the planet?
 							  # No real unit, relative to how big the planet sprite is
 
-@onready var spr1 = $Mask/Sprite # Reference to the planet sprite.
+@onready var spr1 = $Sprite # Reference to the planet sprite.
 var spr2 : Sprite2D 			 # This gets created later
 
 var sprwidth = 0				 # Reference to how wide the planet sprite is
@@ -14,7 +14,7 @@ var scroll := 0.0				 # Scroll offset (From 0-1)
 func _ready():
 	# Duplicate the planet sprite
 	spr2 = spr1.duplicate()
-	$Mask.add_child(spr2)
+	add_child(spr2)
 	
 	# Get sprite width
 	sprwidth = spr1.texture.get_width()

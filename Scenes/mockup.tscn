@@ -19,7 +19,6 @@ texture = ExtResource("2_cba6k")
 [node name="Earth" parent="." instance=ExtResource("3_1dblx")]
 position = Vector2(559, 302)
 scale = Vector2(1.5, 1.5)
-rotatespeed = 0.07
 
 [node name="Sun" type="Sprite2D" parent="."]
 position = Vector2(-389, 311)

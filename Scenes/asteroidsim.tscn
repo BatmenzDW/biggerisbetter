@@ -1,0 +1,44 @@
+[gd_scene load_steps=5 format=3 uid="uid://by84cccubaqnv"]
+
+[ext_resource type="PackedScene" uid="uid://cad2dree6f1ur" path="res://Scenes/planetscroll.tscn" id="1_twew8"]
+[ext_resource type="Script" path="res://Scripts/orbitscript.gd" id="2_nj6xa"]
+[ext_resource type="PackedScene" uid="uid://d3772lhv6etts" path="res://Scenes/asteroid.tscn" id="3_pcat3"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_gj7v5"]
+
+[node name="Asteroidsim" type="Node2D"]
+
+[node name="Earth" parent="." instance=ExtResource("1_twew8")]
+position = Vector2(565, 294)
+script = ExtResource("2_nj6xa")
+
+[node name="Earth2" parent="." node_paths=PackedStringArray("orbiting") instance=ExtResource("1_twew8")]
+position = Vector2(777, 297)
+scale = Vector2(0.5, 0.5)
+script = ExtResource("2_nj6xa")
+orbiting = NodePath("../Earth")
+orbitalRadius = 200
+
+[node name="AsteroidField" type="Node2D" parent="."]
+
+[node name="Asteroid" parent="AsteroidField" instance=ExtResource("3_pcat3")]
+position = Vector2(198, 479)
+
+[node name="Asteroid2" parent="AsteroidField" instance=ExtResource("3_pcat3")]
+position = Vector2(665, 578)
+
+[node name="Asteroid3" parent="AsteroidField" instance=ExtResource("3_pcat3")]
+position = Vector2(169, 241)
+physics_material_override = SubResource("PhysicsMaterial_gj7v5")
+
+[node name="Label" type="Label" parent="."]
+offset_left = 164.0
+offset_top = -212.0
+offset_right = 665.0
+offset_bottom = -83.0
+text = "A basic gravity simulator
+
+Uses a bit of triginometry to figure out where the planets should be in their orbit, and uses the
+gravity  formula to move asteroids in the AsteroidField node
+
+To add asteroids, simply add a asteroid.tscn instance to the AsteroidField"
