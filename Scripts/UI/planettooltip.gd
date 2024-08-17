@@ -17,7 +17,7 @@ func _process(delta):
 	if shouldtooltip && ui:
 		shouldtooltip = false
 		ui.get_node("Planet Label").visible = true
-		ui.get_node("Planet Label").layout.transform.position = get_parent().position
+		ui.get_node("Planet Label").global_position = get_parent().position
 		
 	pass
 
@@ -30,5 +30,5 @@ func _on_mouse_entered():
 
 func _on_mouse_exited():
 	if ui:
-		ui.get_node("Planet Tooltip").visible = false
+		ui.get_node("Planet Label").visible = false
 	pass # Replace with function body.

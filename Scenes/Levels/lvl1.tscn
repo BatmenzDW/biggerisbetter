@@ -21,3 +21,4 @@ orbitalRadius = 150
 [node name="UI" parent="." instance=ExtResource("3_kk1at")]
 offset_right = 1152.0
 offset_bottom = 648.0
+mouse_filter = 1
