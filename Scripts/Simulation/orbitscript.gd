@@ -1,5 +1,9 @@
 extends Node2D
 
+@export var planetName := "Planet X"
+@export var planetHealth := 100
+@export var planetPopulation := 100 # -1 for inhabitable
+
 @export var orbiting : Node2D # Planet that this planet is orbiting. None for static
 
 @export var oribalPeriod := 0.1 # How fast planet orbits

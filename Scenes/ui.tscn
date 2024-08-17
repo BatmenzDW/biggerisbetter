@@ -24,7 +24,7 @@ offset_right = 142.0
 offset_bottom = 25.0
 text = "Planet X"
 
-[node name="Name2" type="Label" parent="Planet Label"]
+[node name="Health" type="Label" parent="Planet Label"]
 layout_mode = 0
 offset_left = 4.0
 offset_top = 23.0
@@ -32,7 +32,7 @@ offset_right = 142.0
 offset_bottom = 47.0
 text = "Health: 100"
 
-[node name="Name3" type="Label" parent="Planet Label"]
+[node name="Population" type="Label" parent="Planet Label"]
 layout_mode = 0
 offset_left = 4.0
 offset_top = 46.0
