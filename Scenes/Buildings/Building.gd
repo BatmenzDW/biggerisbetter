@@ -13,6 +13,7 @@ var clock_cycles = 0
 var max_cycles = 1
 
 const SNAP: Vector2 = Vector2(32, 32)
+const EPSILON = 0.5
 
 func _input(event: InputEvent) -> void:
 	if event is InputEventMouseMotion:
@@ -23,9 +24,11 @@ func _input(event: InputEvent) -> void:
 
 
 func place() -> void:
+	print("Placing " + name)
 	if _check_placement():
 		is_placing = false
 		Game.clock.connect(_clock)
+		_send_updates()
 	else:
 		print("Can't build due to overlap.")
 
@@ -45,8 +48,18 @@ func _check_placement() -> bool:
 func _send_updates() -> void:
 	var targets = updater.get_overlapping_areas()
 	for target in targets:
-		if target is Building and target != self:
+		print(target.name)
+		if target.has_method("update"):
 			target.update()
 
 func update() -> void:
 	pass
+
+func has_space(item: Item) -> bool:
+	return false
+
+func recieve_item(item: Item) -> void:
+	pass
+
+func has_contents() -> bool:
+	return false

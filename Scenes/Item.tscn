@@ -6,6 +6,7 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_yiqn3"]
 
 [node name="Item" type="Area2D"]
+z_index = 1
 texture_filter = 1
 script = ExtResource("1_kund2")
 

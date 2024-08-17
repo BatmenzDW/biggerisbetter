@@ -2,7 +2,8 @@ extends Node2D
 
 var building: Building
 
-var building_pre = preload("res://Scenes/Buildings/drill.tscn")
+var drill_pre = preload("res://Scenes/Buildings/drill.tscn")
+var conveyer_pre = preload("res://Scenes/Buildings/conveyer.tscn")
 
 var built: Array[Building] = []
 
@@ -29,15 +30,35 @@ var score = 0
 
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("start_building"):
-		#print("Started")
-		building = building_pre.instantiate()
-		add_child(building)
-	elif event.is_action_pressed("place_building"):
-		#print("Placing")
-		building.place()
-		built.append(building)
-		building = null
-		#print(built)
+		if building == null:
+			building = drill_pre.instantiate()
+			add_child(building)
+	else:
+		_place_building(event)
+
+func _place_building(event: InputEvent) -> void:
+	if event.is_action_pressed("place_drill"):
+		if building is Drill:
+			building.place()
+			built.append(building)
+			building = null
+		else:
+			if building != null:
+				remove_child(building)
+				building.queue_free()
+			building = drill_pre.instantiate()
+			add_child(building)
+	elif event.is_action_pressed("place_conveyer"):
+		if building is Conveyer:
+			building.place()
+			built.append(building)
+			building = null
+		else:
+			if building != null:
+				remove_child(building)
+				building.queue_free()
+			building = conveyer_pre.instantiate()
+			add_child(building)
 
 func _increase_score(amount: int):
 	score += amount

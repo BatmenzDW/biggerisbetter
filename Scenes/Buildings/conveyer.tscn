@@ -10,7 +10,7 @@ size = Vector2(30, 30)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_q4sm4"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_16840"]
-size = Vector2(50, 50)
+size = Vector2(80, 80)
 
 [node name="Conveyer" instance=ExtResource("1_3yrxj")]
 texture_filter = 1
@@ -24,6 +24,8 @@ shape = SubResource("RectangleShape2D_rt7n6")
 
 [node name="Target" type="Area2D" parent="." index="2"]
 position = Vector2(-27, 0)
+collision_layer = 0
+collision_mask = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Target" index="0"]
 shape = SubResource("RectangleShape2D_q4sm4")

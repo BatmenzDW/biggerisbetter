@@ -7,7 +7,6 @@
 [ext_resource type="Texture2D" uid="uid://cjy2td0ju07cc" path="res://Assets/Rock.png" id="4_5pi4h"]
 
 [node name="Mockup" type="Node2D"]
-process_mode = 3
 texture_filter = 1
 script = ExtResource("1_7bffn")
 
@@ -39,11 +38,13 @@ position = Vector2(576, 324)
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="Score" type="RichTextLabel" parent="CanvasLayer"]
+visible = false
 offset_right = 267.0
 offset_bottom = 121.0
 text = "Score: 0"
 
 [node name="Label" type="Label" parent="."]
+visible = false
 offset_left = 393.0
 offset_top = -213.0
 offset_right = 1211.0
