@@ -4,13 +4,11 @@
 [ext_resource type="Texture2D" uid="uid://bcaxg04ouc1cf" path="res://Assets/vinny-approval-awaiting/ballmask.png" id="2_tyn4i"]
 [ext_resource type="Texture2D" uid="uid://ehrxau6n6c5t" path="res://Assets/vinny-approval-awaiting/earth-programmer-art.png" id="3_3qjio"]
 
-[node name="PlanetScroll" type="Node2D"]
-
-[node name="Mask" type="Sprite2D" parent="."]
+[node name="Mask" type="Sprite2D"]
 clip_children = 1
 texture = ExtResource("2_tyn4i")
 script = ExtResource("1_uq0vx")
 
-[node name="Sprite" type="Sprite2D" parent="Mask"]
+[node name="Sprite" type="Sprite2D" parent="."]
 scale = Vector2(2, 2)
 texture = ExtResource("3_3qjio")

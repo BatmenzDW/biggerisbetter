@@ -7,9 +7,6 @@ var conveyer_pre = preload("res://Scenes/Buildings/conveyer.tscn")
 
 var built: Array[Building] = []
 
-@onready var score_txt: RichTextLabel = $CanvasLayer/Score
-var score = 0
-
 #func _ready() -> void:
 	#get_tree().paused = true
 #
@@ -59,10 +56,3 @@ func _place_building(event: InputEvent) -> void:
 				building.queue_free()
 			building = conveyer_pre.instantiate()
 			add_child(building)
-
-func _increase_score(amount: int):
-	score += amount
-	score_txt.text = "Score: " + str(score)
-
-func _ready() -> void:
-	Game.score.connect(_increase_score)

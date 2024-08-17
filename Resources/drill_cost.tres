@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="ProdCostResource" load_steps=2 format=3 uid="uid://ba7qo1yoguvvs"]
+
+[ext_resource type="Script" path="res://Resources/ProdCostResource.gd" id="1_5jpey"]
+
+[resource]
+script = ExtResource("1_5jpey")
+oil = 0
+metal = 0
+crystal = 1
+funds = 0
+maxPopulation = 0
+oil_output = 10
+metal_output = 0
+crystal_output = 0
+funds_output = 0

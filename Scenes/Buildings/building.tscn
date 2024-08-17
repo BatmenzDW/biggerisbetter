@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://bacc7dxifa5lk"]
+[gd_scene load_steps=6 format=3 uid="uid://bacc7dxifa5lk"]
 
 [ext_resource type="Script" path="res://Scenes/Buildings/Building.gd" id="1_i7qov"]
 [ext_resource type="Texture2D" uid="uid://csndkg5t82hag" path="res://Assets/programmer-art/Drill.png" id="1_jke4u"]
+[ext_resource type="Resource" uid="uid://ba7qo1yoguvvs" path="res://Resources/drill_cost.tres" id="2_r605v"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_x7hap"]
 size = Vector2(62, 62)
@@ -13,8 +14,10 @@ size = Vector2(80, 80)
 collision_layer = 4
 collision_mask = 4
 script = ExtResource("1_i7qov")
+productionCost = ExtResource("2_r605v")
 
 [node name="Sprite" type="Sprite2D" parent="."]
+rotation = -1.5708
 texture = ExtResource("1_jke4u")
 
 [node name="Collider" type="CollisionShape2D" parent="."]

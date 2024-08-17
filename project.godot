@@ -17,6 +17,7 @@ config/icon="res://icon.svg"
 [autoload]
 
 Game="*res://Scripts/Singleton/Game.gd"
+PlanetManager="*res://Scripts/Singleton/PlanetManager.gd"
 
 [dotnet]
 
@@ -53,16 +54,6 @@ zoom_out={
 camera_drag={
 "deadzone": 0.5,
 "events": [Object(InputEventMouseButton,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"button_mask":4,"position":Vector2(106, 18),"global_position":Vector2(113, 54),"factor":1.0,"button_index":3,"canceled":false,"pressed":true,"double_click":false,"script":null)
-]
-}
-place_drill={
-"deadzone": 0.5,
-"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":82,"key_label":0,"unicode":114,"location":0,"echo":false,"script":null)
-]
-}
-place_conveyer={
-"deadzone": 0.5,
-"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":84,"key_label":0,"unicode":116,"location":0,"echo":false,"script":null)
 ]
 }
 

@@ -3,13 +3,9 @@ extends Node2D
 var shouldtooltip = false # Whether or not to show a tooltip
 var tooltipoffset: Vector2 = Vector2(10, 0)
 
-var ui : Control # Reference to UI
+@onready var planet: Orbitable = $".."
 
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	ui = get_node("../../UI")
-	pass # Replace with function body.
-
+@onready var ui: Control = planet.ui # gets Reference to UI
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
@@ -18,22 +14,22 @@ func _process(delta):
 		shouldtooltip = false
 		var pl = ui.get_node("Planet Label")
 		
-		pl.get_node("Name").text = get_parent().planetName
-		pl.get_node("Health").text = "Health: " + str(get_parent().planetHealth)
+		pl.get_node("Name").text = planet.planetName
+		pl.get_node("Health").text = "Health: " + str(planet.planetHealth)
 		
-		if(get_parent().planetPopulation < 0):
+		if(planet.planetPopulation < 0):
 			pl.get_node("Population").text = "Inhabitable"
 		else:
-			pl.get_node("Population").text = "Population: " + str(get_parent().planetPopulation)
+			pl.get_node("Population").text = "Population: " + str(planet.planetPopulation)
 		
 		pl.visible = true
-		pl.global_position = get_parent().position
+		pl.global_position = planet.position
 		
 		
-	
-	if ui.get_node("Planet Label"):
-		if ui.get_node("Planet Label").visible:
-			ui.get_node("Planet Label").global_position = get_global_mouse_position() + tooltipoffset
+	if ui:
+		if ui.has_node("Planet Label"):
+			if ui.get_node("Planet Label").visible:
+				ui.get_node("Planet Label").global_position = get_global_mouse_position() + tooltipoffset
 	pass
 
 

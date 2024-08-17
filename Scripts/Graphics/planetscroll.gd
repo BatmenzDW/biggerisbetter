@@ -1,5 +1,7 @@
 extends Node2D
 
+class_name PlanetScroll
+
 @export var rotatespeed = 0.2 # How fast to rotate the planet?
 							  # No real unit, relative to how big the planet sprite is
 
