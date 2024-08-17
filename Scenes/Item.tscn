@@ -1,0 +1,16 @@
+[gd_scene load_steps=4 format=3 uid="uid://o2xg5me1hnu8"]
+
+[ext_resource type="Texture2D" uid="uid://dxr2vo88v6bio" path="res://Assets/Item_missing.png" id="1_gfnow"]
+[ext_resource type="Script" path="res://Scripts/Item.gd" id="1_kund2"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yiqn3"]
+
+[node name="Item" type="Area2D"]
+texture_filter = 1
+script = ExtResource("1_kund2")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_yiqn3")
+
+[node name="ItemMissing" type="Sprite2D" parent="."]
+texture = ExtResource("1_gfnow")
