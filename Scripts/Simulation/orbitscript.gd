@@ -17,7 +17,8 @@ var asteroidfield : Node2D # Reference to asteroid field
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	# Get reference to asteroid field if it exists
-	asteroidfield = get_node("../AsteroidField")
+	if has_node("../AsteroidField"):
+		asteroidfield = get_node("../AsteroidField")
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
