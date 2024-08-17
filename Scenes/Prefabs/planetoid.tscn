@@ -1,0 +1,23 @@
+[gd_scene load_steps=5 format=3 uid="uid://qtmskbdl8k7o"]
+
+[ext_resource type="Script" path="res://Scripts/Simulation/orbitscript.gd" id="1_r6tb5"]
+[ext_resource type="PackedScene" uid="uid://cad2dree6f1ur" path="res://Scenes/Prefabs/planetscroll.tscn" id="2_7nd82"]
+[ext_resource type="Script" path="res://Scripts/UI/planettooltip.gd" id="2_52vw1"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_8x8f8"]
+radius = 64.4981
+
+[node name="Planet" type="StaticBody2D"]
+input_pickable = true
+script = ExtResource("1_r6tb5")
+
+[node name="ToolTipHandler" type="Node2D" parent="."]
+script = ExtResource("2_52vw1")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_8x8f8")
+
+[node name="PlanetScroll" parent="." instance=ExtResource("2_7nd82")]
+
+[connection signal="mouse_entered" from="." to="ToolTipHandler" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="ToolTipHandler" method="_on_mouse_exited"]
