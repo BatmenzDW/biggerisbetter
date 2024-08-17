@@ -23,7 +23,6 @@ func _process(delta):
 
 
 func _on_mouse_entered():
-	print("hello")
 	shouldtooltip = true
 	pass # Replace with function body.
 
