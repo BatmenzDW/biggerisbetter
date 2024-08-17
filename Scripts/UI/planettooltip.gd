@@ -16,8 +16,18 @@ func _process(delta):
 	
 	if shouldtooltip && ui:
 		shouldtooltip = false
-		ui.get_node("Planet Label").visible = true
-		ui.get_node("Planet Label").global_position = get_parent().position
+		var pl = ui.get_node("Planet Label")
+		
+		pl.get_node("Name").text = get_parent().planetName
+		pl.get_node("Health").text = "Health: " + str(get_parent().planetHealth)
+		
+		if(get_parent().planetPopulation < 0):
+			pl.get_node("Population").text = "Inhabitable"
+		else:
+			pl.get_node("Population").text = "Population: " + str(get_parent().planetPopulation)
+		
+		pl.visible = true
+		pl.global_position = get_parent().position
 		
 	pass
 
