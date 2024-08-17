@@ -23,6 +23,14 @@ var orbitDelta := 0.0 # How far it is into a full orbit 0-1
 
 @export var mass := 1.0
 
+@export var buildingLevel := 1
+
+@export var buildCost : int
+
+@export_category("Production")
+
+@export var productionCost : ProdCostResource
+
 var is_placing: bool = true
 
 var contents: Array[Item] = []
@@ -55,16 +63,20 @@ func _input(event: InputEvent) -> void:
 
 
 func place() -> bool:
-	print("Placing " + name)
+	#print("Placing " + buildingName)
 	if _check_placement():
-		is_placing = false
-		orbiting = nearestOrbit
-		get_parent().remove_child(self)
-		orbiting.add_child(self)
-		scale = Vector2(1/orbiting.scale.x, 1/orbiting.scale.y)
-		#Game.clock.connect(_clock)
-		#_send_updates()
-		return true
+		if Game.spend_funds(buildCost):
+			is_placing = false
+			orbiting = nearestOrbit
+			get_parent().remove_child(self)
+			orbiting.add_child(self)
+			scale = Vector2(1/orbiting.scale.x, 1/orbiting.scale.y)		# counter-scale to keep size
+			Game.clock.connect(_clock)
+			#_send_updates()
+			return true
+		else:
+			print("Can't afford")
+			return false
 	else:
 		print("Can't build due to overlap.")
 		return false
@@ -77,7 +89,7 @@ func _ready() -> void:
 		_check_placement()
 
 func _clock() -> void:
-	pass
+	Game.produce_resources(productionCost, 0)
 
 func _check_placement() -> bool:
 	if len(get_overlapping_areas()) == 0 and nearestOrbit != null:

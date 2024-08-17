@@ -19,6 +19,8 @@ class_name Orbitable
 
 @export var mass := 1.0 # Mass of planet. Unit: Mass of Earth
 
+@export var ui : Control
+
 var gravity := 10000000.0 # Needs to be pretty big
 
 var asteroidfield : Node2D # Reference to asteroid field

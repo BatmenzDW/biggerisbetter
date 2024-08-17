@@ -2,6 +2,11 @@ extends Node2D
 
 @onready var planets: Node = $Planets
 
+@export var startingOil : int
+@export var startingMetal : int
+@export var startingCrystal : int
+@export var startingFunds : int = 5000
+
 var drill_pre = preload("res://Scenes/Buildings/drill.tscn")
 
 var building: Building
@@ -25,3 +30,8 @@ func _ready() -> void:
 			orbitables.append(orbitals[i] as Orbitable)
 	
 	PlanetManager.load_planets(orbitables)
+	
+	Game.set_oil(startingOil)
+	Game.set_metal(startingMetal)
+	Game.set_crystal(startingCrystal)
+	Game.set_funds(startingFunds)
