@@ -1,10 +1,15 @@
 extends Node2D
 
+class_name Orbitable
+
+@onready var planet_scroll: PlanetScroll = $PlanetScroll
+@onready var collider: CollisionShape2D = $CollisionShape2D
+
 @export var planetName := "Planet X"
 @export var planetHealth := 100
 @export var planetPopulation := 100 # -1 for inhabitable
 
-@export var orbiting : Node2D # Planet that this planet is orbiting. None for static
+@export var orbiting : Orbitable # Planet that this planet is orbiting. None for static
 
 @export var oribalPeriod := 0.1 # How fast planet orbits
 
@@ -18,6 +23,8 @@ var gravity := 10000000.0 # Needs to be pretty big
 
 var asteroidfield : Node2D # Reference to asteroid field
 
+var buildings : Array[Building] = []
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	# Get reference to asteroid field if it exists
@@ -26,7 +33,7 @@ func _ready():
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
+func _process(delta) -> void:
 	
 	# Handle orbit
 	if orbiting: 
@@ -47,3 +54,9 @@ func _process(delta):
 				
 				# Apply force in the direction of the planet
 				x.apply_central_force(f * x.position.direction_to(position))
+
+func get_size() -> Vector2:
+	return planet_scroll.sprwidth * scale
+
+func get_radius() -> float:
+	return collider.shape.radius * scale.x

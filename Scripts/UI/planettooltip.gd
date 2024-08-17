@@ -2,14 +2,7 @@ extends Node2D
 
 var shouldtooltip = false # Whether or not to show a tooltip
 var tooltipoffset: Vector2 = Vector2(10, 0)
-
-var ui : Control # Reference to UI
-
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	ui = get_node("../../UI")
-	pass # Replace with function body.
-
+@onready var ui: Control = $UI # gets Reference to UI
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
@@ -30,10 +23,10 @@ func _process(delta):
 		pl.global_position = get_parent().position
 		
 		
-	
-	if ui.get_node("Planet Label"):
-		if ui.get_node("Planet Label").visible:
-			ui.get_node("Planet Label").global_position = get_global_mouse_position() + tooltipoffset
+	if ui:
+		if ui.has_node("Planet Label"):
+			if ui.get_node("Planet Label").visible:
+				ui.get_node("Planet Label").global_position = get_global_mouse_position() + tooltipoffset
 	pass
 
 
