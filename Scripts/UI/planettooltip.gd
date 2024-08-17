@@ -1,7 +1,7 @@
 extends Node2D
 
 var shouldtooltip = false # Whether or not to show a tooltip
-var tooltipoffset: Vector2 
+var tooltipoffset: Vector2 = Vector2(10, 0)
 
 var ui : Control # Reference to UI
 
@@ -29,6 +29,11 @@ func _process(delta):
 		pl.visible = true
 		pl.global_position = get_parent().position
 		
+		
+	
+	if ui.get_node("Planet Label"):
+		if ui.get_node("Planet Label").visible:
+			ui.get_node("Planet Label").global_position = get_global_mouse_position() + tooltipoffset
 	pass
 
 
