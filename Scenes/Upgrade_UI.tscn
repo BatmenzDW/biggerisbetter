@@ -1,168 +1,117 @@
-[gd_scene load_steps=3 format=3 uid="uid://cndhc2lucp7yq"]
+[gd_scene load_steps=3 format=3 uid="uid://dfevoa8ogs4lr"]
 
-[ext_resource type="Texture2D" uid="uid://dmacetcd676w6" path="res://Assets/programmer-art/Upgrade_UI.png" id="1_auk3b"]
-[ext_resource type="Script" path="res://Scripts/UI/Upgrade_UI.gd" id="1_dive6"]
+[ext_resource type="Script" path="res://Scripts/UI/Upgrade_UI_Old.gd" id="1_dive6"]
+[ext_resource type="PackedScene" uid="uid://jj4kmr5i75l0" path="res://Scenes/Prefabs/upgrade.tscn" id="2_pqwi4"]
 
 [node name="Upgrade_UI" type="Control"]
 layout_mode = 3
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-grow_horizontal = 2
-grow_vertical = 2
+anchors_preset = 0
 script = ExtResource("1_dive6")
 
-[node name="NinePatch" type="NinePatchRect" parent="."]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -259.0
-offset_top = -306.0
-offset_right = 259.0
-offset_bottom = 306.0
-grow_horizontal = 2
-grow_vertical = 2
-texture = ExtResource("1_auk3b")
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 0
+offset_right = 576.0
+offset_bottom = 313.0
 
-[node name="GridContainer" type="GridContainer" parent="NinePatch"]
+[node name="Upgrades" type="Label" parent="Panel"]
 layout_mode = 1
-offset_top = 70.0
-offset_right = 518.0
-offset_bottom = 419.0
-theme_override_constants/h_separation = 10
-theme_override_constants/v_separation = 36
-columns = 3
+anchors_preset = -1
+anchor_left = 0.0679887
+anchor_top = 0.0511182
+anchor_right = 0.566572
+anchor_bottom = 0.153355
+theme_override_font_sizes/font_size = 20
+text = "Planet Upgrades"
+horizontal_alignment = 1
 metadata/_edit_use_anchors_ = true
 
-[node name="Label" type="Label" parent="NinePatch/GridContainer"]
-modulate = Color(0, 0, 0, 1)
-self_modulate = Color(0.054902, 0.521569, 0.329412, 1)
-custom_minimum_size = Vector2(170, 0)
-layout_mode = 2
-text = "Planet Health  
-(+ 20)"
-horizontal_alignment = 1
-
-[node name="Label4" type="Label" parent="NinePatch/GridContainer"]
-modulate = Color(0, 0, 0, 1)
-self_modulate = Color(0.054902, 0.521569, 0.329412, 1)
-custom_minimum_size = Vector2(170, 0)
-layout_mode = 2
-text = "Cost:
-Funds (15000)
-Metals( 2000)"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="Buy1" type="Button" parent="NinePatch/GridContainer"]
-modulate = Color(0.310831, 0.742322, 0.633299, 1)
-custom_minimum_size = Vector2(150, 0)
-layout_mode = 2
-theme_override_colors/font_pressed_color = Color(0.972549, 0.917647, 0, 1)
-theme_override_colors/font_color = Color(1, 1, 1, 1)
-theme_override_colors/icon_normal_color = Color(0.160308, 0.428709, 0.607444, 1)
-theme_override_colors/icon_pressed_color = Color(0, 0, 0.905882, 1)
-theme_override_font_sizes/font_size = 23
-text = "Buy"
-
-[node name="Label2" type="Label" parent="NinePatch/GridContainer"]
-modulate = Color(0, 0, 0, 1)
-self_modulate = Color(0.054902, 0.521569, 0.329412, 1)
-custom_minimum_size = Vector2(170, 0)
-layout_mode = 2
-text = "Population growth
- (+1%)"
-horizontal_alignment = 1
-
-[node name="Label5" type="Label" parent="NinePatch/GridContainer"]
-modulate = Color(0, 0, 0, 1)
-self_modulate = Color(0.054902, 0.521569, 0.329412, 1)
-custom_minimum_size = Vector2(170, 0)
-layout_mode = 2
-text = "Cost:
-Funds (25000)
-Oil (1000)
-Crystal (200)"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="Buy2" type="Button" parent="NinePatch/GridContainer"]
-modulate = Color(0.310831, 0.742322, 0.633299, 1)
-custom_minimum_size = Vector2(150, 0)
-layout_mode = 2
-theme_override_colors/font_pressed_color = Color(0.972549, 0.917647, 0, 1)
-theme_override_colors/font_color = Color(1, 1, 1, 1)
-theme_override_colors/icon_normal_color = Color(0.160308, 0.428709, 0.607444, 1)
-theme_override_colors/icon_pressed_color = Color(0, 0, 0.905882, 1)
-theme_override_font_sizes/font_size = 23
-text = "Buy"
-
-[node name="Label3" type="Label" parent="NinePatch/GridContainer"]
-modulate = Color(0, 0, 0, 1)
-self_modulate = Color(0.054902, 0.521569, 0.329412, 1)
-custom_minimum_size = Vector2(170, 0)
-layout_mode = 2
-text = "Dmg Resistance 
-(+20%)"
-horizontal_alignment = 1
-
-[node name="Label6" type="Label" parent="NinePatch/GridContainer"]
-modulate = Color(0, 0, 0, 1)
-self_modulate = Color(0.054902, 0.521569, 0.329412, 1)
-custom_minimum_size = Vector2(170, 0)
-layout_mode = 2
-text = "Cost:
-Funds (50000)
-Oil (10000)
-Metals (20000)"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="Buy3" type="Button" parent="NinePatch/GridContainer"]
-modulate = Color(0.310831, 0.742322, 0.633299, 1)
-custom_minimum_size = Vector2(150, 0)
-layout_mode = 2
-theme_override_colors/font_pressed_color = Color(0.972549, 0.917647, 0, 1)
-theme_override_colors/font_color = Color(1, 1, 1, 1)
-theme_override_colors/icon_normal_color = Color(0.160308, 0.428709, 0.607444, 1)
-theme_override_colors/icon_pressed_color = Color(0, 0, 0.905882, 1)
-theme_override_font_sizes/font_size = 23
-text = "Buy"
-
-[node name="Upgrade" type="RichTextLabel" parent="NinePatch"]
+[node name="ItemList" type="ItemList" parent="Panel"]
 layout_mode = 1
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -115.0
-offset_right = 115.0
-offset_bottom = 67.0
-grow_horizontal = 2
-theme_override_colors/default_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/normal_font_size = 48
-text = "Upgrades"
-fit_content = true
-scroll_active = false
-autowrap_mode = 2
+anchors_preset = -1
+anchor_left = 0.0679887
+anchor_top = 0.178914
+anchor_right = 0.498584
+anchor_bottom = 0.920128
+item_count = 3
+item_0/text = "Upgrade 1"
+item_1/text = "Upgrade 2"
+item_2/text = "Upgrade 3"
 metadata/_edit_use_anchors_ = true
 
-[node name="Button" type="Button" parent="NinePatch"]
+[node name="CostTitle" type="Label" parent="Panel"]
 layout_mode = 1
-anchors_preset = 1
-anchor_left = 1.0
-anchor_right = 1.0
-offset_left = -35.0
-offset_bottom = 35.0
-grow_horizontal = 0
+anchors_preset = -1
+anchor_left = 0.501424
+anchor_top = 0.176301
+anchor_right = 1.00001
+anchor_bottom = 0.278537
+offset_left = -1.00283
+offset_top = 0.817891
+offset_right = -1.00284
+offset_bottom = 0.81789
+theme_override_font_sizes/font_size = 20
+text = "Cost:"
+horizontal_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="Cost" type="Label" parent="Panel"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.501424
+anchor_top = 0.304096
+anchor_right = 1.00001
+anchor_bottom = 0.690678
+offset_left = -1.00283
+offset_top = 0.817891
+offset_right = -1.00284
+offset_bottom = 0.81789
+theme_override_colors/font_color = Color(1, 0.339239, 0.273092, 1)
+theme_override_font_sizes/font_size = 20
+horizontal_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="Buy" type="Button" parent="Panel"]
+layout_mode = 0
+anchor_left = 0.566572
+anchor_top = 0.766773
+anchor_right = 0.929178
+anchor_bottom = 0.920128
+text = "Buy"
+metadata/_edit_use_anchors_ = true
+
+[node name="Close" type="Button" parent="Panel"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.86119
+anchor_top = 0.0255591
+anchor_right = 0.974504
+anchor_bottom = 0.153355
+offset_left = -1.52588e-05
 text = "X"
 metadata/_edit_use_anchors_ = true
 
-[connection signal="pressed" from="NinePatch/GridContainer/Buy1" to="." method="_on_buy_1_pressed"]
-[connection signal="pressed" from="NinePatch/GridContainer/Buy2" to="." method="_on_buy_2_pressed"]
-[connection signal="pressed" from="NinePatch/GridContainer/Buy3" to="." method="_on_buy_3_pressed"]
-[connection signal="pressed" from="NinePatch/Button" to="." method="_on_button_pressed"]
+[node name="Upgrades" type="Node" parent="."]
+
+[node name="Health" parent="Upgrades" instance=ExtResource("2_pqwi4")]
+upgrade = "+20 Health"
+metal = 2000
+funds = 15000
+upgrade_id = "20health"
+
+[node name="Population Growth" parent="Upgrades" instance=ExtResource("2_pqwi4")]
+upgrade = "+1% Population Growth"
+oil = 1000
+crystal = 200
+funds = 25000
+upgrade_id = "1population"
+
+[node name="Resistiance" parent="Upgrades" instance=ExtResource("2_pqwi4")]
+upgrade = "+20% Resistiance"
+oil = 10000
+metal = 20000
+funds = 50000
+upgrade_id = "20resist"
+
+[connection signal="item_selected" from="Panel/ItemList" to="." method="_on_item_list_item_selected"]
+[connection signal="pressed" from="Panel/Buy" to="." method="_on_buy_pressed"]
+[connection signal="pressed" from="Panel/Close" to="." method="_on_close_pressed"]

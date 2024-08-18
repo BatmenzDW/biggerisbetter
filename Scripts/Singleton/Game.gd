@@ -100,3 +100,9 @@ func produce_resources(costs:ProdCostResource, population:int) -> bool:
 func _has_resources(costs:ProdCostResource, population:int) -> bool:
 	return _oil >= costs.oil and _metal >= costs.metal and _crystal >= costs.crystal \
 		and _funds >= costs.funds and (population <= costs.maxPopulation or costs.maxPopulation == -1)
+
+func _MONEYCHEATHECKYEAH():
+	_funds += 999999
+	_metal += 999999
+	_oil += 999999
+	_crystal += 999999
