@@ -127,6 +127,7 @@ func next_level(prev_level: Level)->void:
 	get_tree().root.remove_child(prev_level)
 	prev_level.queue_free()
 	get_tree().root.add_child(level)
+	(level as Level).start_level()
 
 
 func _MONEYCHEATHECKYEAH():
