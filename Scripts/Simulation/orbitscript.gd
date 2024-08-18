@@ -48,6 +48,7 @@ func _process(delta) -> void:
 		orbitDelta += delta * oribalPeriod
 		orbitDelta = wrapf(orbitDelta, 0, 1)
 		if(orbiting == null):#if centre planet dies before moon, mooon also dies
+			$ToolTipHandler.destroy()
 			queue_free()
 		else: 
 			position.x = orbiting.position.x + (cos(orbitDelta * TAU) * orbitalRadius)
@@ -73,13 +74,14 @@ func get_radius() -> float:
 	return collider.shape.radius * scale.x
 	
 func take_damage():
-	planetHealth -= 10 
+	planetHealth -= 10
 	
 	if planetPopulation >= 0:
 		planetPopulation = planetPopulation -  (.1 * planetPopulation)
 	
 	if(planetHealth <= 0 ):
 		planetPopulation = -1;
+		$ToolTipHandler.destroy()
 		queue_free()
 		
 		

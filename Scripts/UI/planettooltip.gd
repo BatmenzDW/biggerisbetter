@@ -10,6 +10,20 @@ var tooltipoffset: Vector2 = Vector2(10, 0)
 
 @onready var ui: Control = planet.ui # gets Reference to UI
 
+func destroy():
+	var pl
+	var upgrade
+	if ui:
+		if !pl && ui.has_node("Planet Label"):
+			pl = ui.get_node("Planet Label")
+		if !upgrade && ui.has_node("inv_UI"):
+			upgrade = ui.get_node("inv_UI")
+			
+	if updatetooltip:
+		pl.visible = false
+		
+	## TODO: Find if upgrade menu is open for this specific planet
+
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	
