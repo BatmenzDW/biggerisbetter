@@ -1,9 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://by84cccubaqnv"]
+[gd_scene load_steps=8 format=3 uid="uid://by84cccubaqnv"]
 
 [ext_resource type="PackedScene" uid="uid://cad2dree6f1ur" path="res://Scenes/Prefabs/planetscroll.tscn" id="1_imjg8"]
-[ext_resource type="Script" path="res://Scripts/Simulation/orbitscript.gd" id="2_o5tud"]
 [ext_resource type="PackedScene" uid="uid://d3772lhv6etts" path="res://Scenes/Prefabs/asteroid.tscn" id="3_2xbqj"]
 [ext_resource type="Script" path="res://Scripts/Graphics/camera.gd" id="4_064ij"]
+[ext_resource type="PackedScene" uid="uid://dq1l3u5vo3t8q" path="res://Scenes/Prefabs/asteroid_spawner.tscn" id="5_sholt"]
+[ext_resource type="PackedScene" uid="uid://qtmskbdl8k7o" path="res://Scenes/Prefabs/planetoid.tscn" id="6_veix8"]
+[ext_resource type="PackedScene" uid="uid://dukcd67uwqgot" path="res://Scenes/ui.tscn" id="7_d4t5c"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_gj7v5"]
 
@@ -11,26 +13,59 @@
 
 [node name="Earth" parent="." instance=ExtResource("1_imjg8")]
 position = Vector2(565, 294)
-script = ExtResource("2_o5tud")
 
-[node name="Earth2" parent="." node_paths=PackedStringArray("orbiting") instance=ExtResource("1_imjg8")]
+[node name="Earth2" parent="." instance=ExtResource("1_imjg8")]
 position = Vector2(846, 268)
 scale = Vector2(0.5, 0.5)
-script = ExtResource("2_o5tud")
-orbiting = NodePath("../Earth")
-orbitalRadius = 200
 
 [node name="AsteroidField" type="Node2D" parent="."]
 
 [node name="Asteroid" parent="AsteroidField" instance=ExtResource("3_2xbqj")]
-position = Vector2(198, 479)
+position = Vector2(831, 570)
 
 [node name="Asteroid2" parent="AsteroidField" instance=ExtResource("3_2xbqj")]
-position = Vector2(665, 578)
+position = Vector2(149, 274)
 
 [node name="Asteroid3" parent="AsteroidField" instance=ExtResource("3_2xbqj")]
-position = Vector2(169, 241)
+position = Vector2(685, 369)
 physics_material_override = SubResource("PhysicsMaterial_gj7v5")
+
+[node name="Asteroid4" parent="AsteroidField" instance=ExtResource("3_2xbqj")]
+position = Vector2(1025, 443)
+
+[node name="Asteroid5" parent="AsteroidField" instance=ExtResource("3_2xbqj")]
+position = Vector2(88, 497)
+
+[node name="Asteroid6" parent="AsteroidField" instance=ExtResource("3_2xbqj")]
+position = Vector2(617, 607)
+physics_material_override = SubResource("PhysicsMaterial_gj7v5")
+
+[node name="Asteroid7" parent="AsteroidField" instance=ExtResource("3_2xbqj")]
+position = Vector2(460, 128)
+
+[node name="Asteroid8" parent="AsteroidField" instance=ExtResource("3_2xbqj")]
+position = Vector2(243, 169)
+
+[node name="Asteroid9" parent="AsteroidField" instance=ExtResource("3_2xbqj")]
+position = Vector2(1096, 581)
+physics_material_override = SubResource("PhysicsMaterial_gj7v5")
+
+[node name="Asteroid10" parent="AsteroidField" instance=ExtResource("3_2xbqj")]
+position = Vector2(943, 69)
+
+[node name="Asteroid11" parent="AsteroidField" instance=ExtResource("3_2xbqj")]
+position = Vector2(872, 365)
+
+[node name="Asteroid12" parent="AsteroidField" instance=ExtResource("3_2xbqj")]
+position = Vector2(74, 595)
+physics_material_override = SubResource("PhysicsMaterial_gj7v5")
+
+[node name="Asteroid Spawner" parent="AsteroidField" instance=ExtResource("5_sholt")]
+position = Vector2(-100, 343)
+leftsidespawner = true
+
+[node name="Asteroid Spawner2" parent="AsteroidField" instance=ExtResource("5_sholt")]
+position = Vector2(1235, 370)
 
 [node name="Label" type="Label" parent="."]
 offset_left = 164.0
@@ -47,3 +82,21 @@ To add asteroids, simply add a asteroid.tscn instance to the AsteroidField"
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(580, 324)
 script = ExtResource("4_064ij")
+
+[node name="Planet" parent="." node_paths=PackedStringArray("ui") instance=ExtResource("6_veix8")]
+position = Vector2(440, 431)
+ui = NodePath("../UI")
+
+[node name="UI" parent="." instance=ExtResource("7_d4t5c")]
+offset_left = 183.0
+offset_top = 365.0
+offset_right = 183.0
+offset_bottom = 365.0
+
+[node name="Planet2" parent="." node_paths=PackedStringArray("orbiting", "ui") instance=ExtResource("6_veix8")]
+position = Vector2(450, 414)
+scale = Vector2(0.4, 0.4)
+orbiting = NodePath("../Planet")
+orbitalRadius = 100
+mass = 0.01
+ui = NodePath("../UI")

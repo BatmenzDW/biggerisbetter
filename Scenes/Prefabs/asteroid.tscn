@@ -1,16 +1,37 @@
-[gd_scene load_steps=4 format=3 uid="uid://d3772lhv6etts"]
+[gd_scene load_steps=5 format=3 uid="uid://d3772lhv6etts"]
 
 [ext_resource type="Script" path="res://Scripts/Simulation/asteroid.gd" id="1_eivx4"]
 [ext_resource type="Texture2D" uid="uid://bikaeofw87o54" path="res://Assets/vinny-approval-awaiting/asteroid.png" id="1_gqwtf"]
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_vjmfk"]
+radius = 11.0454
+
 [sub_resource type="CircleShape2D" id="CircleShape2D_128jm"]
-radius = 35.6
+radius = 28.0
 
 [node name="Asteroid" type="RigidBody2D"]
+collision_layer = 4
+collision_mask = 4
+gravity_scale = 3.0
 script = ExtResource("1_eivx4")
 
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_vjmfk")
+
 [node name="Asteroid" type="Sprite2D" parent="."]
+scale = Vector2(0.5, 0.5)
 texture = ExtResource("1_gqwtf")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="Timer" type="Timer" parent="."]
+wait_time = 25.0
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+scale = Vector2(0.5, 0.5)
 shape = SubResource("CircleShape2D_128jm")
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
