@@ -1,4 +1,4 @@
-[gd_scene format=3 uid="uid://dwqnegpapa1ni"]
+[gd_scene format=3 uid="uid://dl1oygf04w7ag"]
 
 [node name="Laser" type="Line2D"]
 texture_filter = 4
