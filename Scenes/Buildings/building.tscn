@@ -7,7 +7,7 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_x7hap"]
 size = Vector2(62, 62)
 
-[node name="Area2D" type="Area2D"]
+[node name="Building" type="Area2D"]
 collision_layer = 4
 collision_mask = 4
 script = ExtResource("1_i7qov")
@@ -19,3 +19,11 @@ texture = ExtResource("1_jke4u")
 
 [node name="Collider" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_x7hap")
+
+[node name="Tooltip" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_left = -31.0
+offset_top = -31.0
+offset_right = 31.0
+offset_bottom = 31.0
