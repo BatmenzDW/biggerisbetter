@@ -3,14 +3,14 @@
 [ext_resource type="Script" path="res://Scenes/Tests/Level.gd" id="1_hw2ry"]
 [ext_resource type="PackedScene" uid="uid://hei26womwwbo" path="res://Scenes/spacebg.tscn" id="2_tlof5"]
 [ext_resource type="Script" path="res://Scripts/Graphics/camera.gd" id="3_tmx8u"]
-[ext_resource type="PackedScene" uid="uid://qtmskbdl8k7o" path="res://Scenes/Prefabs/planetoid.tscn" id="4_j0k6o"]
+[ext_resource type="Script" path="res://Scripts/Simulation/SolarSystemGenerator.gd" id="4_laqh6"]
 [ext_resource type="PackedScene" uid="uid://dukcd67uwqgot" path="res://Scenes/ui.tscn" id="5_bh5wy"]
 [ext_resource type="PackedScene" uid="uid://bti1pvm65vyjw" path="res://Scenes/Prefabs/star.tscn" id="5_idcq7"]
 [ext_resource type="PackedScene" uid="uid://dq1l3u5vo3t8q" path="res://Scenes/Prefabs/asteroid_spawner.tscn" id="6_oqjlt"]
 [ext_resource type="Script" path="res://Scripts/ScoreLabel.gd" id="7_vh4m5"]
 [ext_resource type="PackedScene" uid="uid://bctacysimcl0t" path="res://Scenes/UI/BuildingUI.tscn" id="8_4hu5r"]
 
-[node name="Lvl1" type="Node2D"]
+[node name="SolarSystem" type="Node2D"]
 script = ExtResource("1_hw2ry")
 startingCrystal = 500
 
@@ -19,23 +19,15 @@ startingCrystal = 500
 [node name="Camera2D" type="Camera2D" parent="."]
 script = ExtResource("3_tmx8u")
 
-[node name="Planet" parent="." node_paths=PackedStringArray("orbiting", "ui") instance=ExtResource("4_j0k6o")]
-position = Vector2(2, 1)
-orbiting = NodePath("../Star")
-ui = NodePath("../UI")
-
-[node name="Planet2" parent="." node_paths=PackedStringArray("orbiting", "ui") instance=ExtResource("4_j0k6o")]
-position = Vector2(207, 28)
-scale = Vector2(0.5, 0.5)
-planetName = "Planet Y"
-planetPopulation = -1
-orbiting = NodePath("../Planet")
-orbitalRadius = 150
-ui = NodePath("../UI")
+[node name="SolarSystemGenerator" type="Node" parent="." node_paths=PackedStringArray("star", "solar_system")]
+script = ExtResource("4_laqh6")
+star = NodePath("../Star")
+solar_system = NodePath("../SolarSystem")
 
 [node name="Star" parent="." node_paths=PackedStringArray("ui") instance=ExtResource("5_idcq7")]
-position = Vector2(-190, -11)
 ui = NodePath("../UI")
+
+[node name="SolarSystem" type="Node2D" parent="."]
 
 [node name="Asteroid Spawner" parent="." instance=ExtResource("6_oqjlt")]
 position = Vector2(-1090, -46)
