@@ -1,4 +1,6 @@
-[gd_scene format=3 uid="uid://dukcd67uwqgot"]
+[gd_scene load_steps=2 format=3 uid="uid://dukcd67uwqgot"]
+
+[ext_resource type="PackedScene" uid="uid://cndhc2lucp7yq" path="res://Scenes/Upgrade_UI.tscn" id="1_eptve"]
 
 [node name="UI" type="Control"]
 layout_mode = 3
@@ -39,3 +41,7 @@ offset_top = 46.0
 offset_right = 142.0
 offset_bottom = 70.0
 text = "Population: 100"
+
+[node name="inv_UI" parent="." instance=ExtResource("1_eptve")]
+visible = false
+layout_mode = 1
