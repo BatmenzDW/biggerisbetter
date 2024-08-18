@@ -11,11 +11,11 @@
 script = ExtResource("1_0pdcg")
 
 [node name="Planet" parent="." node_paths=PackedStringArray("ui") instance=ExtResource("2_3nwso")]
-position = Vector2(-21, 56)
+position = Vector2(2, 1)
 ui = NodePath("../UI")
 
 [node name="Planet2" parent="." node_paths=PackedStringArray("orbiting", "ui") instance=ExtResource("2_3nwso")]
-position = Vector2(184, 83)
+position = Vector2(207, 28)
 scale = Vector2(0.5, 0.5)
 planetName = "Planet Y"
 planetPopulation = -1
