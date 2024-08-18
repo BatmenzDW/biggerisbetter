@@ -2,10 +2,10 @@
 
 [ext_resource type="Script" path="res://Scripts/Graphics/camera.gd" id="1_0pdcg"]
 [ext_resource type="Script" path="res://Scenes/Tests/Level.gd" id="1_16bsf"]
-[ext_resource type="PackedScene" uid="uid://hei26womwwbo" path="res://Scenes/spacebg.tscn" id="1_oi78m"]
+[ext_resource type="PackedScene" path="res://Scenes/spacebg.tscn" id="1_oi78m"]
 [ext_resource type="PackedScene" uid="uid://qtmskbdl8k7o" path="res://Scenes/Prefabs/planetoid.tscn" id="2_3nwso"]
 [ext_resource type="PackedScene" uid="uid://dukcd67uwqgot" path="res://Scenes/ui.tscn" id="3_kk1at"]
-[ext_resource type="PackedScene" uid="uid://dq1l3u5vo3t8q" path="res://Scenes/Prefabs/asteroid_spawner.tscn" id="4_3khkv"]
+[ext_resource type="PackedScene" path="res://Scenes/Prefabs/asteroid_spawner.tscn" id="4_3khkv"]
 [ext_resource type="Script" path="res://Scripts/ScoreLabel.gd" id="7_bfrvf"]
 [ext_resource type="PackedScene" uid="uid://bctacysimcl0t" path="res://Scenes/UI/BuildingUI.tscn" id="8_iju7e"]
 

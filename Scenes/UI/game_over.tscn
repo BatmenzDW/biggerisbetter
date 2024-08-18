@@ -1,0 +1,85 @@
+[gd_scene load_steps=6 format=3 uid="uid://diu876842o76p"]
+
+[ext_resource type="Script" path="res://Scripts/UI/GameOver.gd" id="1_5jwxx"]
+[ext_resource type="Texture2D" uid="uid://2oxgyejolgbb" path="res://Assets/Art/spacebg.png" id="1_8lf3b"]
+[ext_resource type="Texture2D" uid="uid://c8p0j0qp2m51k" path="res://Assets/programmer-art/Button.png" id="3_0srpk"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_lnthe"]
+blend_mode = 2
+
+[sub_resource type="LabelSettings" id="LabelSettings_dcvqd"]
+font_size = 128
+font_color = Color(1, 0, 1, 1)
+shadow_size = 16
+shadow_color = Color(0, 0, 0, 0.827451)
+shadow_offset = Vector2(8, 8)
+
+[node name="GameOver" type="CanvasLayer"]
+script = ExtResource("1_5jwxx")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+material = SubResource("CanvasItemMaterial_lnthe")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_8lf3b")
+stretch_mode = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_top = 128
+theme_override_constants/margin_bottom = 32
+
+[node name="Label" type="Label" parent="VBoxContainer/MarginContainer"]
+layout_mode = 2
+text = "GAME OVER"
+label_settings = SubResource("LabelSettings_dcvqd")
+horizontal_alignment = 1
+
+[node name="CenterContainer" type="CenterContainer" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="MarginContainer2" type="MarginContainer" parent="VBoxContainer/CenterContainer"]
+layout_mode = 2
+theme_override_constants/margin_top = 64
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/CenterContainer/MarginContainer2"]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/CenterContainer/MarginContainer2/HBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_right = 16
+
+[node name="Button" type="Button" parent="VBoxContainer/CenterContainer/MarginContainer2/HBoxContainer/MarginContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.00392157, 0.00784314, 0.00392157, 1)
+text = "Restart"
+icon = ExtResource("3_0srpk")
+flat = true
+icon_alignment = 1
+
+[node name="MarginContainer2" type="MarginContainer" parent="VBoxContainer/CenterContainer/MarginContainer2/HBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_right = 16
+
+[node name="Button" type="Button" parent="VBoxContainer/CenterContainer/MarginContainer2/HBoxContainer/MarginContainer2"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.00392157, 0.00784314, 0.00392157, 1)
+text = "Quit"
+icon = ExtResource("3_0srpk")
+flat = true
+icon_alignment = 1
+
+[connection signal="pressed" from="VBoxContainer/CenterContainer/MarginContainer2/HBoxContainer/MarginContainer/Button" to="." method="_on_restart_pressed"]
+[connection signal="pressed" from="VBoxContainer/CenterContainer/MarginContainer2/HBoxContainer/MarginContainer2/Button" to="." method="_on_quit_pressed"]

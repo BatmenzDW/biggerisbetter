@@ -81,7 +81,7 @@ func place() -> bool:
 
 func _ready() -> void:
 	tooltip.tooltip_text = _make_tooltip()
-	print(tooltip.tooltip_text)
+	#print(tooltip.tooltip_text)
 	
 	# debug
 	#if get_tree().root.get_node("Building") == self:
