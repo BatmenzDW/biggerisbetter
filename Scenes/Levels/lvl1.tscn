@@ -1,26 +1,35 @@
-[gd_scene load_steps=4 format=3 uid="uid://drsdmutvg8qaj"]
+[gd_scene load_steps=5 format=3 uid="uid://drsdmutvg8qaj"]
 
 [ext_resource type="Script" path="res://Scripts/Graphics/camera.gd" id="1_0pdcg"]
 [ext_resource type="PackedScene" uid="uid://qtmskbdl8k7o" path="res://Scenes/Prefabs/planetoid.tscn" id="2_3nwso"]
 [ext_resource type="PackedScene" uid="uid://dukcd67uwqgot" path="res://Scenes/ui.tscn" id="3_kk1at"]
+[ext_resource type="PackedScene" uid="uid://dq1l3u5vo3t8q" path="res://Scenes/Prefabs/asteroid_spawner.tscn" id="4_3khkv"]
 
 [node name="Lvl1" type="Node2D"]
 
 [node name="Camera2D" type="Camera2D" parent="."]
 script = ExtResource("1_0pdcg")
 
-[node name="Planet" parent="." instance=ExtResource("2_3nwso")]
+[node name="Planet" parent="." node_paths=PackedStringArray("ui") instance=ExtResource("2_3nwso")]
 position = Vector2(273, 134)
+ui = NodePath("../UI")
 
-[node name="Planet2" parent="." node_paths=PackedStringArray("orbiting") instance=ExtResource("2_3nwso")]
+[node name="Planet2" parent="." node_paths=PackedStringArray("orbiting", "ui") instance=ExtResource("2_3nwso")]
 position = Vector2(478, 161)
 scale = Vector2(0.5, 0.5)
 planetName = "Planet Y"
 planetPopulation = -1
 orbiting = NodePath("../Planet")
 orbitalRadius = 150
+ui = NodePath("../UI")
 
 [node name="UI" parent="." instance=ExtResource("3_kk1at")]
 offset_right = 1152.0
 offset_bottom = 648.0
 mouse_filter = 1
+
+[node name="Asteroid Spawner" parent="." instance=ExtResource("4_3khkv")]
+position = Vector2(-440, 63)
+leftsidespawner = true
+
+[node name="Asteroid Field" type="Node2D" parent="."]

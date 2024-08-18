@@ -1,0 +1,121 @@
+[gd_scene load_steps=3 format=3 uid="uid://cndhc2lucp7yq"]
+
+[ext_resource type="Texture2D" uid="uid://dmacetcd676w6" path="res://Assets/programmer-art/Upgrade_UI.png" id="1_auk3b"]
+[ext_resource type="Script" path="res://Scripts/UI/Upgrade_UI.gd" id="1_dive6"]
+
+[node name="inv_UI" type="Control"]
+layout_mode = 3
+anchor_left = 0.223958
+anchor_top = 0.472222
+anchor_right = 0.223958
+anchor_bottom = 0.472222
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_dive6")
+
+[node name="NinePatch" type="NinePatchRect" parent="."]
+layout_mode = 1
+offset_left = -258.0
+offset_top = -306.0
+offset_right = 86.0
+offset_bottom = 102.0
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("1_auk3b")
+
+[node name="GridContainer" type="GridContainer" parent="NinePatch"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.0116279
+anchor_top = 0.122549
+anchor_right = 0.988372
+anchor_bottom = 0.593137
+offset_bottom = -32.0
+grow_horizontal = 2
+theme_override_constants/h_separation = 36
+theme_override_constants/v_separation = 36
+columns = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="Label" type="Label" parent="NinePatch/GridContainer"]
+modulate = Color(0, 0, 0, 1)
+self_modulate = Color(0.054902, 0.521569, 0.329412, 1)
+custom_minimum_size = Vector2(250, 40)
+layout_mode = 2
+text = "Planet Health  (+ 20)"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Buy1" type="Button" parent="NinePatch/GridContainer"]
+modulate = Color(0.310831, 0.742322, 0.633299, 1)
+layout_mode = 2
+theme_override_colors/font_pressed_color = Color(0.972549, 0.917647, 0, 1)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/icon_normal_color = Color(0.160308, 0.428709, 0.607444, 1)
+theme_override_colors/icon_pressed_color = Color(0, 0, 0.905882, 1)
+theme_override_font_sizes/font_size = 23
+text = "Buy"
+
+[node name="Label2" type="Label" parent="NinePatch/GridContainer"]
+modulate = Color(0, 0, 0, 1)
+self_modulate = Color(0.054902, 0.521569, 0.329412, 1)
+custom_minimum_size = Vector2(250, 40)
+layout_mode = 2
+text = "Increase population growth "
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Buy2" type="Button" parent="NinePatch/GridContainer"]
+modulate = Color(0.310831, 0.742322, 0.633299, 1)
+layout_mode = 2
+theme_override_colors/font_pressed_color = Color(0.972549, 0.917647, 0, 1)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/icon_normal_color = Color(0.160308, 0.428709, 0.607444, 1)
+theme_override_colors/icon_pressed_color = Color(0, 0, 0.905882, 1)
+theme_override_font_sizes/font_size = 23
+text = "Buy"
+
+[node name="Label3" type="Label" parent="NinePatch/GridContainer"]
+modulate = Color(0, 0, 0, 1)
+self_modulate = Color(0.054902, 0.521569, 0.329412, 1)
+custom_minimum_size = Vector2(250, 40)
+layout_mode = 2
+text = "Planet Dmg Resistance (+20%)"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Buy3" type="Button" parent="NinePatch/GridContainer"]
+modulate = Color(0.310831, 0.742322, 0.633299, 1)
+layout_mode = 2
+theme_override_colors/font_pressed_color = Color(0.972549, 0.917647, 0, 1)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/icon_normal_color = Color(0.160308, 0.428709, 0.607444, 1)
+theme_override_colors/icon_pressed_color = Color(0, 0, 0.905882, 1)
+theme_override_font_sizes/font_size = 23
+text = "Buy"
+
+[node name="Upgrade" type="RichTextLabel" parent="."]
+layout_mode = 1
+offset_left = -126.0
+offset_top = -301.0
+offset_right = 103.0
+offset_bottom = -234.0
+grow_horizontal = 2
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/normal_font_size = 48
+text = "Upgrades"
+fit_content = true
+scroll_active = false
+autowrap_mode = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 0
+offset_left = 215.0
+offset_top = -296.0
+offset_right = 250.0
+offset_bottom = -261.0
+text = "X"
+metadata/_edit_use_anchors_ = true
+
+[connection signal="pressed" from="NinePatch/GridContainer/Buy1" to="." method="_on_buy_1_pressed"]
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
