@@ -3,21 +3,21 @@ extends Control
 var planet
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	self.visible = true;
+	visible = false;
 	
 	
 	
 
 func open():
-	self.visible = true;
+	visible = true;
 
 func close():
-	self.visible = false
+	visible = false
 	
 
 
 func _on_button_pressed() -> void:
-	self.visible = false;
+	visible = false;
 	
 
 

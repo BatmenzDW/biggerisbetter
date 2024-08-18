@@ -1,0 +1,30 @@
+[gd_scene load_steps=4 format=3 uid="uid://bn6vec5lxfvlq"]
+
+[ext_resource type="PackedScene" uid="uid://bacc7dxifa5lk" path="res://Scenes/Buildings/building.tscn" id="1_02lsy"]
+[ext_resource type="Script" path="res://Scenes/Buildings/Turret.gd" id="2_0fwn4"]
+[ext_resource type="Texture2D" uid="uid://b3wl1bbihkm6h" path="res://Assets/programmer-art/turret.png" id="3_xqvy1"]
+
+[node name="Area2D" instance=ExtResource("1_02lsy")]
+script = ExtResource("2_0fwn4")
+damage = 5.0
+crystal_cost = 1
+buildingName = "Turret"
+productionCost = null
+
+[node name="Sprite" parent="." index="0"]
+texture = ExtResource("3_xqvy1")
+
+[node name="FieldOfView" type="Area2D" parent="." index="2"]
+visible = false
+collision_layer = 0
+collision_mask = 8
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="FieldOfView" index="0"]
+polygon = PackedVector2Array(-25, 0, -750, 375, -750, -375)
+
+[node name="FOVVisual" type="Polygon2D" parent="." index="3"]
+color = Color(1, 0, 0, 0.0470588)
+polygon = PackedVector2Array(-25, 0, -750, 375, -750, -375)
+
+[node name="LaserEmitter" type="Node2D" parent="." index="4"]
+position = Vector2(-27, 0)

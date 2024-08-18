@@ -5,7 +5,6 @@ class_name Building
 @onready var collider: CollisionShape2D = $Collider
 
 @onready var sprite: Sprite2D = $Sprite
-@onready var updater: Area2D = $BuildingUpdater
 
 @export var buildingName := "Drill"
 @export var buildingHealth := 100
@@ -38,6 +37,7 @@ var max_cycles = 1
 
 #const SNAP: Vector2 = Vector2(32, 32)
 const EPSILON = 0.5
+const MAX_FLOAT = 1.79769e308
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta) -> void:
@@ -70,7 +70,6 @@ func place() -> bool:
 			orbiting.add_child(self)
 			scale = Vector2(1/orbiting.scale.x, 1/orbiting.scale.y)		# counter-scale to keep size
 			Game.clock.connect(_clock)
-			#_send_updates()
 			return true
 		else:
 			print("Can't afford")
@@ -96,13 +95,6 @@ func _check_placement() -> bool:
 	sprite.modulate = Color.RED
 	return false
 
-func _send_updates() -> void:
-	var targets = updater.get_overlapping_areas()
-	for target in targets:
-		print(target.name)
-		if target.has_method("update"):
-			target.update()
-
 func update() -> void:
 	pass
 
@@ -116,7 +108,7 @@ func has_contents() -> bool:
 	return false
 
 func get_nearest_placement(point: Vector2):
-	var min_dist = 1.79769e308 		# gdscript doesn't have Float.MAX_VALUE for some reason
+	var min_dist = MAX_FLOAT
 	var closest = null
 	
 	for p in PlanetManager.loadedPlanets:

@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://dwqnegpapa1ni"]
+
+[node name="Laser" type="Line2D"]
+texture_filter = 4
+points = PackedVector2Array(-27, 0, -500, 0)
+width = 4.0
+default_color = Color(1, 0, 0, 1)

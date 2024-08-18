@@ -18,6 +18,7 @@ func _on_timer_timeout() -> void:
 	item.global_position = global_position
 	item._set_leftspawner(leftsidespawner)
 	
-	get_parent().add_child(item)
+	if get_parent().has_node("Asteroid Field"):
+		get_parent().get_node("Asteroid Field").add_child(item)
 	
 	#print("asteroid spawned")
