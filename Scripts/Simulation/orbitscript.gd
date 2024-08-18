@@ -89,8 +89,8 @@ func take_damage():
 		queue_free()
 		
 		
-func gain_health():
-	planetHealth += 20 
+func gain_health(i = 20):
+	planetHealth += i 
 	if(planetHealth >= 100 ):
 		planetHealth = 100;
 	print("gained")

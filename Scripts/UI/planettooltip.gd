@@ -66,8 +66,9 @@ func _process(delta):
 			pl.visible = false
 		if upgrade:
 			if(upgrade.visible != true):
+				upgrade.open()
 				upgrade.visible = true
-				upgrade.global_position = Vector2(0,0)
+				upgrade.global_position = get_global_mouse_position() + tooltipoffset
 				upgrade.nplanet(planet)
 		
 	if pl:

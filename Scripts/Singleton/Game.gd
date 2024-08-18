@@ -103,3 +103,10 @@ func _has_resources(costs:ProdCostResource, population:int) -> bool:
 
 func game_over(level: Level)->void:
 	get_tree().paused = true
+
+
+func _MONEYCHEATHECKYEAH():
+	_funds += 999999
+	_metal += 999999
+	_oil += 999999
+	_crystal += 999999
