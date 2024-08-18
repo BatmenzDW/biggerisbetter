@@ -29,7 +29,6 @@ offset_bottom = 648.0
 mouse_filter = 1
 
 [node name="Asteroid Spawner" parent="." instance=ExtResource("4_3khkv")]
-position = Vector2(-440, 63)
 leftsidespawner = true
 
 [node name="Asteroid Field" type="Node2D" parent="."]
