@@ -120,7 +120,8 @@ func _set_leftspawner(lspawner:bool):
 
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
-	body.take_damage()
-	#print("entered")
-	destroy()
+	if body is Orbitable:
+		body.take_damage()
+		#print("entered")
+		destroy()
 	

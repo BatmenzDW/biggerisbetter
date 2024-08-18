@@ -43,6 +43,21 @@ offset_right = 142.0
 offset_bottom = 70.0
 text = "Population: 100"
 
+[node name="Star Label" type="Panel" parent="."]
+visible = false
+layout_mode = 0
+offset_right = 145.0
+offset_bottom = 26.0
+mouse_filter = 1
+
+[node name="Name" type="Label" parent="Star Label"]
+layout_mode = 0
+offset_left = 4.0
+offset_top = 1.0
+offset_right = 142.0
+offset_bottom = 25.0
+text = "Star X"
+
 [node name="Upgrade_UI" parent="." instance=ExtResource("1_eptve")]
 visible = false
 layout_mode = 1

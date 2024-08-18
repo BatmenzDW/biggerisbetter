@@ -8,7 +8,6 @@
 radius = 64.4981
 
 [node name="Planet" type="StaticBody2D"]
-position = Vector2(622, 324)
 collision_layer = 2
 collision_mask = 2
 input_pickable = true

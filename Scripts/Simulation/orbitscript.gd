@@ -11,7 +11,7 @@ const UPGRADE_UI = preload("res://Scenes/Upgrade_UI.tscn")
 @export var planetHealth := 100
 @export var planetPopulation := 100 # -1 for inhabitable
 
-@export var orbiting : Orbitable # Planet that this planet is orbiting. None for static
+@export var orbiting : Node2D # Planet or star that this planet is orbiting. None for static
 
 @export var oribalPeriod := 0.1 # How fast planet orbits
 
