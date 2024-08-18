@@ -1,0 +1,12 @@
+[gd_scene load_steps=4 format=3 uid="uid://b2qmi48lpk1n7"]
+
+[ext_resource type="PackedScene" uid="uid://bacc7dxifa5lk" path="res://Scenes/Buildings/building.tscn" id="1_wx6v6"]
+[ext_resource type="Resource" uid="uid://dpd515v3enhp6" path="res://Resources/crystalmine_cost_lvl1.tres" id="2_neqjp"]
+[ext_resource type="Texture2D" uid="uid://beng3g15enpe8" path="res://Assets/programmer-art/MineB.png" id="2_sk4a8"]
+
+[node name="Area2D" instance=ExtResource("1_wx6v6")]
+buildCost = 5
+productionCost = ExtResource("2_neqjp")
+
+[node name="Sprite" parent="." index="0"]
+texture = ExtResource("2_sk4a8")

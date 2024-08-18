@@ -2,8 +2,6 @@ extends Area2D
 
 class_name Building
 
-@export var self_preload = preload("res://Scenes/Buildings/building.tscn")
-
 @onready var collider: CollisionShape2D = $Collider
 
 @onready var sprite: Sprite2D = $Sprite

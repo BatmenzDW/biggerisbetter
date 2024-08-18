@@ -91,7 +91,7 @@ func produce_resources(costs:ProdCostResource, population:int) -> bool:
 	_oil += costs.oil_output - costs.oil
 	_metal += costs.metal_output - costs.metal
 	_crystal += costs.crystal_output - costs.crystal
-	_funds += costs.crystal_output - costs.crystal
+	_funds += costs.funds_output - costs.funds
 	
 	_update_score()
 	
@@ -99,4 +99,4 @@ func produce_resources(costs:ProdCostResource, population:int) -> bool:
 
 func _has_resources(costs:ProdCostResource, population:int) -> bool:
 	return _oil >= costs.oil and _metal >= costs.metal and _crystal >= costs.crystal \
-		and _funds >= costs.funds and population <= costs.maxPopulation
+		and _funds >= costs.funds and (population <= costs.maxPopulation or costs.maxPopulation == -1)

@@ -1,0 +1,14 @@
+[gd_scene load_steps=4 format=3 uid="uid://d0n7nmiu7pmjk"]
+
+[ext_resource type="PackedScene" uid="uid://bacc7dxifa5lk" path="res://Scenes/Buildings/building.tscn" id="1_g6e1a"]
+[ext_resource type="Texture2D" uid="uid://b757rssjb5scw" path="res://Assets/programmer-art/MineA.png" id="2_60uea"]
+[ext_resource type="Resource" uid="uid://dk0ewhplpwjaa" path="res://Resources/metalmine_cost_lvl1.tres" id="2_pkj5f"]
+
+[node name="Area2D" instance=ExtResource("1_g6e1a")]
+texture_filter = 1
+buildingName = "Metal Mine"
+buildCost = 5
+productionCost = ExtResource("2_pkj5f")
+
+[node name="Sprite" parent="." index="0"]
+texture = ExtResource("2_60uea")
