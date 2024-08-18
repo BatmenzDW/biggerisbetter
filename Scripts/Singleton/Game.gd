@@ -3,6 +3,11 @@ extends Node
 signal clock
 signal update_score
 
+var levels = [
+	preload("res://Scenes/Levels/lvl1.tscn"),
+]
+var level_index = 0
+
 var _time_passed = 0.0
 
 func _update_score():
@@ -103,6 +108,19 @@ func _has_resources(costs:ProdCostResource, population:int) -> bool:
 
 func game_over(level: Level)->void:
 	get_tree().paused = true
+
+func start_game(caller:Node)->void:
+	var level = levels[level_index].instantiate()
+	get_tree().root.remove_child(caller)
+	caller.queue_free()
+	get_tree().root.add_child(level)
+
+func next_level(prev_level: Level)->void:
+	level_index += 1
+	var level = levels[level_index].instantiate()
+	get_tree().root.remove_child(prev_level)
+	prev_level.queue_free()
+	get_tree().root.add_child(level)
 
 
 func _MONEYCHEATHECKYEAH():
