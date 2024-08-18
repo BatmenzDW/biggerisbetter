@@ -134,10 +134,10 @@ func _check_placement() -> bool:
 func update() -> void:
 	pass
 
-func has_space(item: Item) -> bool:
+func has_space(_item: Item) -> bool:
 	return false
 
-func recieve_item(item: Item) -> void:
+func recieve_item(_item: Item) -> void:
 	pass
 
 func has_contents() -> bool:
