@@ -53,7 +53,7 @@ func _input(event: InputEvent) -> void:
 
 func _ready() -> void:
 	SignalBus.building_selected_gui.connect(_select_building)
-	Game.clock.connect(_clock)
+	
 	#var orbitals = find_children("Planet*")
 	#var orbitables: Array[Orbitable] = []
 	#for i in range(len(orbitals)):
@@ -66,6 +66,9 @@ func _ready() -> void:
 	Game.set_metal(startingMetal)
 	Game.set_crystal(startingCrystal)
 	Game.set_funds(startingFunds)
+
+func start_level() -> void:
+	Game.clock.connect(_clock)
 
 func _select_building(index: int):
 	#print("selected: " + str(index))

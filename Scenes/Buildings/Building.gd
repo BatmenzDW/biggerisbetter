@@ -55,8 +55,11 @@ func _process(delta) -> void:
 func _input(event: InputEvent) -> void:
 	if event is InputEventMouseMotion:
 		if is_placing:
-			var new_postion = get_global_mouse_position()
-			global_position = get_nearest_placement(new_postion)
+			var new_position = get_global_mouse_position()
+			var next_position = get_nearest_placement(new_position)
+			if next_position == null:
+				return
+			global_position = next_position
 			look_at(nearestOrbit.global_position)
 			_check_placement()
 
@@ -81,7 +84,7 @@ func place() -> bool:
 
 func _ready() -> void:
 	tooltip.tooltip_text = _make_tooltip()
-	print(tooltip.tooltip_text)
+	#print(tooltip.tooltip_text)
 	
 	# debug
 	#if get_tree().root.get_node("Building") == self:
@@ -89,8 +92,10 @@ func _ready() -> void:
 		#return
 	
 	if is_placing:
-		var new_postion = get_global_mouse_position()
-		global_position = get_nearest_placement(new_postion)
+		var new_position = get_global_mouse_position()
+		var next_position = get_nearest_placement(new_position)
+		if next_position == null:
+			return
 		look_at(nearestOrbit.global_position)
 		_check_placement()
 
@@ -134,10 +139,10 @@ func _check_placement() -> bool:
 func update() -> void:
 	pass
 
-func has_space(item: Item) -> bool:
+func has_space(_item: Item) -> bool:
 	return false
 
-func recieve_item(item: Item) -> void:
+func recieve_item(_item: Item) -> void:
 	pass
 
 func has_contents() -> bool:

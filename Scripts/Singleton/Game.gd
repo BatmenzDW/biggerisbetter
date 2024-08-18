@@ -3,6 +3,9 @@ extends Node
 signal clock
 signal update_score
 
+var start_menu = preload("res://Scenes/UI/start_menu.tscn")
+var game_over_screen = preload("res://Scenes/UI/game_over.tscn")
+
 var levels = [
 	preload("res://Scenes/Levels/lvl1.tscn"),
 ]
@@ -107,7 +110,10 @@ func _has_resources(costs:ProdCostResource, population:int) -> bool:
 		and _funds >= costs.funds and (population > costs.minPopulation or costs.minPopulation == -1)
 
 func game_over(level: Level)->void:
-	get_tree().paused = true
+	var game_over_ = game_over_screen.instantiate()
+	get_tree().root.remove_child(level)
+	level.queue_free()
+	get_tree().root.add_child(game_over_)
 
 func start_game(caller:Node)->void:
 	var level = levels[level_index].instantiate()
@@ -121,6 +127,7 @@ func next_level(prev_level: Level)->void:
 	get_tree().root.remove_child(prev_level)
 	prev_level.queue_free()
 	get_tree().root.add_child(level)
+	(level as Level).start_level()
 
 
 func _MONEYCHEATHECKYEAH():

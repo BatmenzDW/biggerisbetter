@@ -9,7 +9,7 @@ class_name Orbitable
 const UPGRADE_UI = preload("res://Scenes/Upgrade_UI.tscn")
 @export var planetName := "Planet X"
 @export var planetHealth := 100
-@export var planetPopulation := 100 # -1 for inhabitable
+@export var planetPopulation := 100.0 # -1 for inhabitable
 
 @export var orbiting : Node2D # Planet or star that this planet is orbiting. None for static
 
