@@ -1,7 +1,6 @@
-[gd_scene load_steps=9 format=3 uid="uid://by84cccubaqnv"]
+[gd_scene load_steps=8 format=3 uid="uid://by84cccubaqnv"]
 
 [ext_resource type="PackedScene" uid="uid://cad2dree6f1ur" path="res://Scenes/Prefabs/planetscroll.tscn" id="1_imjg8"]
-[ext_resource type="Script" path="res://Scripts/Simulation/orbitscript.gd" id="2_o5tud"]
 [ext_resource type="PackedScene" uid="uid://d3772lhv6etts" path="res://Scenes/Prefabs/asteroid.tscn" id="3_2xbqj"]
 [ext_resource type="Script" path="res://Scripts/Graphics/camera.gd" id="4_064ij"]
 [ext_resource type="PackedScene" uid="uid://dq1l3u5vo3t8q" path="res://Scenes/Prefabs/asteroid_spawner.tscn" id="5_sholt"]
@@ -14,27 +13,10 @@
 
 [node name="Earth" parent="." instance=ExtResource("1_imjg8")]
 position = Vector2(565, 294)
-script = ExtResource("2_o5tud")
-planetName = "Planet X"
-planetHealth = 100
-planetPopulation = 100
-oribalPeriod = 0.1
-orbitalRadius = 500
-orbitDelta = 0.0
-mass = 1.0
 
-[node name="Earth2" parent="." node_paths=PackedStringArray("orbiting") instance=ExtResource("1_imjg8")]
+[node name="Earth2" parent="." instance=ExtResource("1_imjg8")]
 position = Vector2(846, 268)
 scale = Vector2(0.5, 0.5)
-script = ExtResource("2_o5tud")
-planetName = "Planet X"
-planetHealth = 100
-planetPopulation = 100
-orbiting = NodePath("../Earth")
-oribalPeriod = 0.1
-orbitalRadius = 200
-orbitDelta = 0.0
-mass = 1.0
 
 [node name="AsteroidField" type="Node2D" parent="."]
 
@@ -49,8 +31,11 @@ position = Vector2(169, 241)
 physics_material_override = SubResource("PhysicsMaterial_gj7v5")
 
 [node name="Asteroid Spawner" parent="AsteroidField" instance=ExtResource("5_sholt")]
-position = Vector2(114, 105)
+position = Vector2(-100, 343)
 leftsidespawner = true
+
+[node name="Asteroid Spawner2" parent="AsteroidField" instance=ExtResource("5_sholt")]
+position = Vector2(1235, 370)
 
 [node name="Label" type="Label" parent="."]
 offset_left = 164.0
@@ -69,7 +54,7 @@ position = Vector2(580, 324)
 script = ExtResource("4_064ij")
 
 [node name="Planet" parent="." node_paths=PackedStringArray("ui") instance=ExtResource("6_veix8")]
-position = Vector2(270, 119)
+position = Vector2(440, 431)
 ui = NodePath("../UI")
 
 [node name="UI" parent="." instance=ExtResource("7_d4t5c")]
@@ -77,3 +62,11 @@ offset_left = 183.0
 offset_top = 365.0
 offset_right = 183.0
 offset_bottom = 365.0
+
+[node name="Planet2" parent="." node_paths=PackedStringArray("orbiting", "ui") instance=ExtResource("6_veix8")]
+position = Vector2(450, 414)
+scale = Vector2(0.4, 0.4)
+orbiting = NodePath("../Planet")
+orbitalRadius = 100
+mass = 0.01
+ui = NodePath("../UI")

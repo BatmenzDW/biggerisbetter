@@ -67,6 +67,10 @@ camera_drag={
 ]
 }
 
+[layer_names]
+
+2d_render/layer_3="Asteroid"
+
 [physics]
 
 3d/default_gravity=0.0
