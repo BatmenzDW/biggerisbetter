@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://dej7dwmwl6vwy"]
+[gd_scene load_steps=9 format=3 uid="uid://dej7dwmwl6vwy"]
 
 [ext_resource type="Script" path="res://Scripts/Graphics/camera.gd" id="1_1cwfr"]
 [ext_resource type="Script" path="res://Scenes/Tests/Level.gd" id="1_6t1vi"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://dukcd67uwqgot" path="res://Scenes/ui.tscn" id="3_fqitc"]
 [ext_resource type="Script" path="res://Scripts/ScoreLabel.gd" id="5_wuj8f"]
 [ext_resource type="PackedScene" uid="uid://d3772lhv6etts" path="res://Scenes/Prefabs/asteroid.tscn" id="6_bo07h"]
+[ext_resource type="PackedScene" uid="uid://bctacysimcl0t" path="res://Scenes/UI/BuildingUI.tscn" id="6_ys18y"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_8ittx"]
 
@@ -39,6 +40,8 @@ mouse_filter = 1
 offset_right = 40.0
 offset_bottom = 23.0
 script = ExtResource("5_wuj8f")
+
+[node name="Control" parent="CanvasLayer" instance=ExtResource("6_ys18y")]
 
 [node name="AsteroidField" type="Node2D" parent="."]
 

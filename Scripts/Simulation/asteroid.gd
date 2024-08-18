@@ -33,7 +33,7 @@ func take_damage(amount):
 		destroy()
 
 func destroy():
-	get_parent().remove_child(self)
+	get_parent().call_deferred("remove_child", self)
 	queue_free()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
