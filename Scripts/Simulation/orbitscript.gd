@@ -4,6 +4,7 @@ class_name Orbitable
 
 @onready var planet_scroll: PlanetScroll = $PlanetScroll
 @onready var collider: CollisionShape2D = $CollisionShape2D
+#@onready var collider: CollisionShape2D = $Area2D/CollisionShape2D
 
 @export var planetName := "Planet X"
 @export var planetHealth := 100
@@ -62,3 +63,10 @@ func get_size() -> Vector2:
 
 func get_radius() -> float:
 	return collider.shape.radius * scale.x
+	
+func take_damage():
+	planetHealth -= 10 
+	planetPopulation = planetPopulation -  (.1 * planetPopulation)
+	if(planetHealth <= 0 ):
+		planetPopulation = 0;
+		queue_free()

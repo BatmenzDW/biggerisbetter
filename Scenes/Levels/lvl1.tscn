@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://drsdmutvg8qaj"]
+[gd_scene load_steps=5 format=3 uid="uid://drsdmutvg8qaj"]
 
 [ext_resource type="Script" path="res://Scripts/Graphics/camera.gd" id="1_0pdcg"]
 [ext_resource type="PackedScene" uid="uid://qtmskbdl8k7o" path="res://Scenes/Prefabs/planetoid.tscn" id="2_3nwso"]
 [ext_resource type="PackedScene" uid="uid://dukcd67uwqgot" path="res://Scenes/ui.tscn" id="3_kk1at"]
+[ext_resource type="PackedScene" uid="uid://dq1l3u5vo3t8q" path="res://Scenes/Prefabs/asteroid_spawner.tscn" id="4_3khkv"]
 
 [node name="Lvl1" type="Node2D"]
 
@@ -24,3 +25,7 @@ orbitalRadius = 150
 offset_right = 1152.0
 offset_bottom = 648.0
 mouse_filter = 1
+
+[node name="Asteroid Spawner" parent="." instance=ExtResource("4_3khkv")]
+position = Vector2(-440, 63)
+leftsidespawner = true
