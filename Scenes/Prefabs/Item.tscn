@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://o2xg5me1hnu8"]
 
 [ext_resource type="Script" path="res://Scripts/Item.gd" id="1_ginex"]
-[ext_resource type="Texture2D" uid="uid://dxr2vo88v6bio" path="res://Assets/programmer-art/Item_missing.png" id="2_yfym5"]
+[ext_resource type="Texture2D" uid="uid://dxr2vo88v6bio" path="res://Assets/programmer-art/Item_missing.png" id="2_jht5q"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_yiqn3"]
 
@@ -13,4 +13,4 @@ script = ExtResource("1_ginex")
 shape = SubResource("RectangleShape2D_yiqn3")
 
 [node name="ItemMissing" type="Sprite2D" parent="."]
-texture = ExtResource("2_yfym5")
+texture = ExtResource("2_jht5q")
