@@ -9,6 +9,7 @@ script = ExtResource("2_0fwn4")
 damage = 5.0
 crystal_cost = 1
 buildingName = "Turret"
+buildCost = 500
 productionCost = null
 
 [node name="Sprite" parent="." index="0"]

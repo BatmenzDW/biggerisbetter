@@ -99,7 +99,11 @@ func produce_resources(costs:ProdCostResource, population:int) -> bool:
 
 func _has_resources(costs:ProdCostResource, population:int) -> bool:
 	return _oil >= costs.oil and _metal >= costs.metal and _crystal >= costs.crystal \
-		and _funds >= costs.funds and (population <= costs.maxPopulation or costs.maxPopulation == -1)
+		and _funds >= costs.funds and (population > costs.minPopulation or costs.minPopulation == -1)
+
+func game_over(level: Level)->void:
+	get_tree().paused = true
+
 
 func _MONEYCHEATHECKYEAH():
 	_funds += 999999

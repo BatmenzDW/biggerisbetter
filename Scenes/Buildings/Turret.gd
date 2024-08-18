@@ -60,3 +60,8 @@ func _process(delta: float) -> void:
 		if laser_on_time <= 0:
 			get_tree().root.remove_child(laser)
 			laser.queue_free()
+
+func _make_tooltip() -> String:
+	return "Attack Cost: \n" +\
+		"	Crystal: " + str(crystal_cost) + "\n" +\
+		"Damage: " + str(damage)
