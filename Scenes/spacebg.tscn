@@ -3,11 +3,11 @@
 [ext_resource type="Texture2D" uid="uid://2oxgyejolgbb" path="res://Assets/Art/spacebg.png" id="1_dvh0v"]
 
 [node name="SpaceBG" type="Parallax2D"]
-scroll_offset = Vector2(-640, -640)
-repeat_size = Vector2(1280, 1280)
-repeat_times = 15
+scroll_offset = Vector2(-320, -320)
+repeat_size = Vector2(640, 640)
+repeat_times = 30
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture_repeat = 2
-scale = Vector2(5, 5)
+scale = Vector2(2.5, 2.5)
 texture = ExtResource("1_dvh0v")
