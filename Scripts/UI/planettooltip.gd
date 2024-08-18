@@ -16,8 +16,8 @@ func destroy():
 	if ui:
 		if !pl && ui.has_node("Planet Label"):
 			pl = ui.get_node("Planet Label")
-		if !upgrade && ui.has_node("inv_UI"):
-			upgrade = ui.get_node("inv_UI")
+		if !upgrade && ui.has_node("Upgrade_UI"):
+			upgrade = ui.get_node("Upgrade_UI")
 			
 	if updatetooltip:
 		pl.visible = false
@@ -32,8 +32,8 @@ func _process(delta):
 	if ui:
 		if ui.has_node("Planet Label"):
 			pl = ui.get_node("Planet Label")
-		if ui.has_node("inv_UI"):
-			upgrade = ui.get_node("inv_UI")
+		if ui.has_node("Upgrade_UI"):
+			upgrade = ui.get_node("Upgrade_UI")
 	
 	if shouldtooltip && ui && pl:
 		shouldtooltip = false
@@ -65,8 +65,10 @@ func _process(delta):
 		if pl:
 			pl.visible = false
 		if upgrade:
-			upgrade.visible = true
-			upgrade.global_position = planet.position
+			if(upgrade.visible != true):
+				upgrade.visible = true
+				upgrade.global_position = Vector2(0,0)
+				upgrade.nplanet(planet)
 		
 	if pl:
 		if pl.visible:

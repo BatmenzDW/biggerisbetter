@@ -14,11 +14,11 @@
 script = ExtResource("1_0pdcg")
 
 [node name="Planet" parent="." node_paths=PackedStringArray("ui") instance=ExtResource("2_3nwso")]
-position = Vector2(273, 134)
+position = Vector2(2, 1)
 ui = NodePath("../UI")
 
 [node name="Planet2" parent="." node_paths=PackedStringArray("orbiting", "ui") instance=ExtResource("2_3nwso")]
-position = Vector2(478, 161)
+position = Vector2(207, 28)
 scale = Vector2(0.5, 0.5)
 planetName = "Planet Y"
 planetPopulation = -1
@@ -32,6 +32,10 @@ offset_bottom = 648.0
 mouse_filter = 1
 
 [node name="Asteroid Spawner" parent="." instance=ExtResource("4_3khkv")]
+position = Vector2(-1090, -46)
 leftsidespawner = true
+
+[node name="Asteroid Spawner2" parent="." instance=ExtResource("4_3khkv")]
+position = Vector2(1198, -33)
 
 [node name="Asteroid Field" type="Node2D" parent="."]

@@ -31,6 +31,8 @@ var asteroidfield : Node2D # Reference to asteroid field
 
 var buildings : Array[Building] = []
 
+var damage = 25
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	# Get reference to asteroid field if it exists
@@ -74,7 +76,7 @@ func get_radius() -> float:
 	return collider.shape.radius * scale.x
 	
 func take_damage():
-	planetHealth -= 10
+	planetHealth -= damage
 	
 	if planetPopulation >= 0:
 		planetPopulation = planetPopulation -  (.1 * planetPopulation)
@@ -105,8 +107,9 @@ func _on_population_growth_timeout() -> void:
 #	body.apply_central_force(force * body.position.direction_to(position))
 
 
-func _on_button_pressed() -> void:
-	
-	var item = UPGRADE_UI.instantiate()
-	item.nplanet(self)
-	add_child(item)
+#func _on_button_pressed() -> void:
+	#
+	#var item = UPGRADE_UI.instantiate()
+	#print(self)
+	#item.nplanet(self)
+	#add_child(item)
