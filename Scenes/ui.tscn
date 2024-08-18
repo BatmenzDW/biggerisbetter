@@ -13,6 +13,7 @@ mouse_filter = 1
 metadata/_edit_use_anchors_ = true
 
 [node name="Planet Label" type="Panel" parent="."]
+visible = false
 layout_mode = 0
 offset_right = 145.0
 offset_bottom = 74.0
@@ -43,4 +44,5 @@ offset_bottom = 70.0
 text = "Population: 100"
 
 [node name="Upgrade_UI" parent="." instance=ExtResource("1_eptve")]
+visible = false
 layout_mode = 1
