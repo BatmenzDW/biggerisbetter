@@ -14,7 +14,7 @@ class_name ProdCostResource
 
 @export_category("Requirements")
 
-@export var maxPopulation : int
+@export var minPopulation : int
 
 
 @export_category("Output")
