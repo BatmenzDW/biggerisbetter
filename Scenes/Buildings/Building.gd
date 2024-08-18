@@ -55,8 +55,11 @@ func _process(delta) -> void:
 func _input(event: InputEvent) -> void:
 	if event is InputEventMouseMotion:
 		if is_placing:
-			var new_postion = get_global_mouse_position()
-			global_position = get_nearest_placement(new_postion)
+			var new_position = get_global_mouse_position()
+			var next_position = get_nearest_placement(new_position)
+			if next_position == null:
+				return
+			global_position = next_position
 			look_at(nearestOrbit.global_position)
 			_check_placement()
 
@@ -89,8 +92,10 @@ func _ready() -> void:
 		#return
 	
 	if is_placing:
-		var new_postion = get_global_mouse_position()
-		global_position = get_nearest_placement(new_postion)
+		var new_position = get_global_mouse_position()
+		var next_position = get_nearest_placement(new_position)
+		if next_position == null:
+			return
 		look_at(nearestOrbit.global_position)
 		_check_placement()
 
