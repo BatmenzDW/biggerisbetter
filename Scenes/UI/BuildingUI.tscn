@@ -23,7 +23,7 @@ anchors_preset = 11
 anchor_left = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -150.0
+offset_left = -197.0
 grow_horizontal = 0
 grow_vertical = 2
 theme_override_constants/margin_left = 15
@@ -38,20 +38,21 @@ alignment = 1
 [node name="ItemList" type="ItemList" parent="MarginContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
+allow_search = false
 text_overrun_behavior = 4
 item_count = 5
 same_column_width = true
 icon_mode = 0
 fixed_icon_size = Vector2i(64, 64)
-item_0/text = "Drill"
+item_0/text = "Drill ($250)"
 item_0/icon = ExtResource("1_e53a0")
-item_1/text = "Metal Mine"
+item_1/text = "Metal Mine ($300)"
 item_1/icon = ExtResource("3_arhd2")
-item_2/text = "Crystal Mine"
+item_2/text = "Crystal Mine ($500)"
 item_2/icon = ExtResource("4_skqya")
-item_3/text = "Factory"
+item_3/text = "Factory ($750)"
 item_3/icon = ExtResource("5_gbla3")
-item_4/text = "Turret"
+item_4/text = "Turret ($500)"
 item_4/icon = ExtResource("6_calyb")
 
 [connection signal="item_selected" from="MarginContainer/HBoxContainer/ItemList" to="." method="_on_item_list_item_selected"]

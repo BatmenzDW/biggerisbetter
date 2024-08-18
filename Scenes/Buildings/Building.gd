@@ -105,8 +105,8 @@ func _make_tooltip() -> String:
 	if productionCost.funds > 0:
 		tt += "    Funds: " + str(productionCost.funds) + "\n"
 		
-	if productionCost.maxPopulation > 0:
-		tt += "Requirements: \n    Maximum Population: " + str(productionCost.maxPopulation) + "\n"
+	if productionCost.minPopulation > 0:
+		tt += "Requirements: \n    Min. Population: " + str(productionCost.minPopulation) + "\n"
 	
 	tt += "Output: \n"
 	

@@ -53,13 +53,14 @@ func _input(event: InputEvent) -> void:
 
 func _ready() -> void:
 	SignalBus.building_selected_gui.connect(_select_building)
-	var orbitals = find_children("Planet*")
-	var orbitables: Array[Orbitable] = []
-	for i in range(len(orbitals)):
-		if orbitals[i] is Orbitable:
-			orbitables.append(orbitals[i] as Orbitable)
-	
-	PlanetManager.load_planets(orbitables)
+	Game.clock.connect(_clock)
+	#var orbitals = find_children("Planet*")
+	#var orbitables: Array[Orbitable] = []
+	#for i in range(len(orbitals)):
+		#if orbitals[i] is Orbitable:
+			#orbitables.append(orbitals[i] as Orbitable)
+	#
+	#PlanetManager.load_planets(orbitables)
 	
 	Game.set_oil(startingOil)
 	Game.set_metal(startingMetal)
@@ -74,3 +75,8 @@ func _select_building(index: int):
 		building.queue_free()
 	building = buildings_pre[buildingIndex].instantiate()
 	add_child(building)
+
+func _clock()->void:
+	var population = PlanetManager.get_total_population()
+	if population <= 0:
+		Game.game_over(self)

@@ -35,6 +35,7 @@ var damage = 25
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	PlanetManager.load_planet(self)
 	# Get reference to asteroid field if it exists
 	if has_node("../Asteroid Field"):
 		asteroidfield = get_node("../Asteroid Field")
@@ -83,6 +84,7 @@ func take_damage():
 	
 	if(planetHealth <= 0 ):
 		planetPopulation = -1;
+		PlanetManager.unload_planet(self)
 		$ToolTipHandler.destroy()
 		queue_free()
 		

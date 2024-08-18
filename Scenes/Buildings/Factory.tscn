@@ -5,6 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://bt536cqtjdaho" path="res://Assets/programmer-art/factory.png" id="3_goys5"]
 
 [node name="Area2D" instance=ExtResource("1_ywi4y")]
+buildCost = 750
 productionCost = ExtResource("2_lfkm7")
 
 [node name="Sprite" parent="." index="0"]
