@@ -2,8 +2,6 @@ extends Node2D
 
 class_name Level
 
-@onready var planets: Node = $Planets
-
 @export var startingOil : int
 @export var startingMetal : int
 @export var startingCrystal : int
@@ -55,7 +53,7 @@ func _input(event: InputEvent) -> void:
 
 func _ready() -> void:
 	SignalBus.building_selected_gui.connect(_select_building)
-	var orbitals = planets.get_children()
+	var orbitals = find_children("Planet*")
 	var orbitables: Array[Orbitable] = []
 	for i in range(len(orbitals)):
 		if orbitals[i] is Orbitable:
