@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://qtmskbdl8k7o"]
+[gd_scene load_steps=5 format=3 uid="uid://qtmskbdl8k7o"]
 
 [ext_resource type="Script" path="res://Scripts/Simulation/orbitscript.gd" id="1_r6tb5"]
 [ext_resource type="PackedScene" uid="uid://cad2dree6f1ur" path="res://Scenes/Prefabs/planetscroll.tscn" id="2_7nd82"]
@@ -7,24 +7,12 @@
 [sub_resource type="CircleShape2D" id="CircleShape2D_8x8f8"]
 radius = 64.4981
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_0u0ro"]
-radius = 185.068
-
 [node name="Planet" type="StaticBody2D"]
 position = Vector2(622, 324)
 collision_layer = 2
 collision_mask = 2
 input_pickable = true
 script = ExtResource("1_r6tb5")
-
-[node name="Button" type="Button" parent="."]
-modulate = Color(1, 1, 1, 0)
-offset_left = -65.0
-offset_top = -65.0
-offset_right = 65.0
-offset_bottom = 65.0
-theme_override_colors/icon_pressed_color = Color(0, 0, 0, 1)
-theme_override_colors/icon_hover_color = Color(0.564706, 0.639216, 0.945098, 1)
 
 [node name="ToolTipHandler" type="Node2D" parent="."]
 script = ExtResource("2_52vw1")
@@ -37,21 +25,6 @@ shape = SubResource("CircleShape2D_8x8f8")
 [node name="Population Growth" type="Timer" parent="."]
 wait_time = 10.0
 
-[node name="Gravity" type="Area2D" parent="."]
-light_mask = 0
-visibility_layer = 4
-collision_layer = 2
-collision_mask = 4
-gravity_space_override = 1
-gravity_point = true
-gravity_point_center = Vector2(0, 0)
-gravity_direction = Vector2(0, 0)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Gravity"]
-shape = SubResource("CircleShape2D_0u0ro")
-
 [connection signal="mouse_entered" from="." to="ToolTipHandler" method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="." to="ToolTipHandler" method="_on_mouse_exited"]
-[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
 [connection signal="timeout" from="Population Growth" to="." method="_on_population_growth_timeout"]
-[connection signal="body_entered" from="Gravity" to="." method="_on_area_2d_body_entered"]

@@ -22,6 +22,7 @@ const UPGRADE_UI = preload("res://Scenes/Upgrade_UI.tscn")
 @export var mass := 1.0 # Mass of planet. Unit: Mass of Earth
 
 @export var ui : Control
+
 var growth = 1 #for upgrade to increase population growth
 
 var gravity := 10000000.0 # Needs to be pretty big
@@ -33,8 +34,9 @@ var buildings : Array[Building] = []
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	# Get reference to asteroid field if it exists
-	if has_node("../AsteroidField"):
-		asteroidfield = get_node("../AsteroidField")
+	if has_node("../Asteroid Field"):
+		asteroidfield = get_node("../Asteroid Field")
+		print("yippee")
 	population_growth_timer.start()
 
 
@@ -54,16 +56,15 @@ func _process(delta) -> void:
 		
 		
 	# Gravity on Asteroids 
-	#if asteroidfield:
+	if asteroidfield:
 		## Get all asteroids
-		#for x in asteroidfield.get_children():
-			#if x is Asteroid:
-				#
-				## Get the force using the gravity formula
-				#var f = (gravity * mass * x.earthmass) / x.position.distance_squared_to(position)
-				#
-				## Apply force in the direction of the planet
-				#x.apply_central_force(f * x.position.direction_to(position))
+		for x in asteroidfield.get_children():
+			if x is Asteroid:
+				# Get the force using the gravity formula
+				var f = (gravity * mass * x.earthmass) / x.position.distance_squared_to(position)
+				
+				# Apply force in the direction of the planet
+				x.apply_central_force(f * x.position.direction_to(position))
 
 func get_size() -> Vector2:
 	return planet_scroll.sprwidth * scale
@@ -73,10 +74,15 @@ func get_radius() -> float:
 	
 func take_damage():
 	planetHealth -= 10 
-	planetPopulation = planetPopulation -  (.1 * planetPopulation)
+	
+	if planetPopulation >= 0:
+		planetPopulation = planetPopulation -  (.1 * planetPopulation)
+	
 	if(planetHealth <= 0 ):
-		planetPopulation = 0;
+		planetPopulation = -1;
 		queue_free()
+		
+		
 func gain_health():
 	planetHealth += 20 
 	if(planetHealth >= 100 ):
@@ -88,13 +94,13 @@ func _on_population_growth_timeout() -> void:
 	planetPopulation = planetPopulation + ((.1 * growth) * planetPopulation) 
 
 
-func _on_area_2d_body_entered(body: RigidBody2D) -> void:
-	#print(body)
-	#body.noPull = false
-	var force = (gravity * mass * body.earthmass) / body.position.distance_squared_to(position)
-	#print(force)
-	#print("pull")
-	body.apply_central_force(force * body.position.direction_to(position))
+#func _on_area_2d_body_entered(body: RigidBody2D) -> void:
+#	#print(body)
+#	#body.noPull = false
+#	var force = (gravity * mass * body.earthmass) / body.position.distance_squared_to(position)
+#	#print(force)
+#	#print("pull")
+#	body.apply_central_force(force * body.position.direction_to(position))
 
 
 func _on_button_pressed() -> void:
