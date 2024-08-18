@@ -17,6 +17,7 @@ config/icon="res://icon.svg"
 [autoload]
 
 Game="*res://Scripts/Singleton/Game.gd"
+SignalBus="*res://Scripts/Singleton/SignalBus.gd"
 PlanetManager="*res://Scripts/Singleton/PlanetManager.gd"
 
 [dotnet]
@@ -76,9 +77,6 @@ mouse_select={
 
 2d_render/layer_2="Planet"
 2d_render/layer_3="Asteroid"
-
-[layer_names]
-
 2d_physics/layer_3="Buildings"
 2d_physics/layer_4="Asteroids"
 

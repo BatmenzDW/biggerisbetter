@@ -1,0 +1,57 @@
+[gd_scene load_steps=7 format=3 uid="uid://bctacysimcl0t"]
+
+[ext_resource type="Texture2D" uid="uid://csndkg5t82hag" path="res://Assets/programmer-art/Drill.png" id="1_e53a0"]
+[ext_resource type="Script" path="res://Scenes/UI/BuildingUi.gd" id="1_o05qb"]
+[ext_resource type="Texture2D" uid="uid://b757rssjb5scw" path="res://Assets/programmer-art/MineA.png" id="3_arhd2"]
+[ext_resource type="Texture2D" uid="uid://beng3g15enpe8" path="res://Assets/programmer-art/MineB.png" id="4_skqya"]
+[ext_resource type="Texture2D" uid="uid://bt536cqtjdaho" path="res://Assets/programmer-art/factory.png" id="5_gbla3"]
+[ext_resource type="Texture2D" uid="uid://b3wl1bbihkm6h" path="res://Assets/programmer-art/turret.png" id="6_calyb"]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("1_o05qb")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 11
+anchor_left = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -150.0
+grow_horizontal = 0
+grow_vertical = 2
+theme_override_constants/margin_left = 15
+theme_override_constants/margin_top = 15
+theme_override_constants/margin_right = 15
+theme_override_constants/margin_bottom = 15
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="ItemList" type="ItemList" parent="MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text_overrun_behavior = 4
+item_count = 5
+same_column_width = true
+icon_mode = 0
+fixed_icon_size = Vector2i(64, 64)
+item_0/text = "Drill"
+item_0/icon = ExtResource("1_e53a0")
+item_1/text = "Metal Mine"
+item_1/icon = ExtResource("3_arhd2")
+item_2/text = "Crystal Mine"
+item_2/icon = ExtResource("4_skqya")
+item_3/text = "Factory"
+item_3/icon = ExtResource("5_gbla3")
+item_4/text = "Turret"
+item_4/icon = ExtResource("6_calyb")
+
+[connection signal="item_selected" from="MarginContainer/HBoxContainer/ItemList" to="." method="_on_item_list_item_selected"]

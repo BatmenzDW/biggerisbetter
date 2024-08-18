@@ -33,8 +33,8 @@ func take_damage(amount):
 		destroy()
 
 func destroy():
-	get_parent().remove_child(self)
-  queue_free()
+	get_parent().call_deferred("remove_child", self)
+	queue_free()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
@@ -122,5 +122,5 @@ func _set_leftspawner(lspawner:bool):
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	body.take_damage()
 	#print("entered")
-  destroy()
+	destroy()
 	
