@@ -4,6 +4,8 @@ extends RigidBody2D
 @export var earthmass := 96.3 # Unit: Mass of Earth
 @onready var timer: Timer = $Timer
 
+@export var health := 10
+
 @onready var col = $CollisionShape2D
 @onready var spr = $Asteroid
 var dir
@@ -13,14 +15,27 @@ var noPull: bool = true
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	#col.shape.radius = (spr.texture.get_width() +spr.texture.get_height()) / 4
+  #col.shape.radius = (spr.texture.get_width() +spr.texture.get_height()) / 4
 	dir  =  randi_range(1,10) # chosing a random direction
 	#print(dir)
 	timer.start()
 	
 	if (global_pos!=null): #stopping existing asteroids fromm resetting
 		_set_position(global_pos.x, global_pos.y)
-	
+
+func get_radius() -> float:
+	return (spr.texture.get_width() + spr.texture.get_height()) / 4
+
+func take_damage(amount):
+	health -= amount
+	print("took " + str(amount) + " damage")
+	if health <= 0:
+		destroy()
+
+func destroy():
+	get_parent().call_deferred("remove_child", self)
+	queue_free()
+
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	if(noPull):
@@ -107,4 +122,5 @@ func _set_leftspawner(lspawner:bool):
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	body.take_damage()
 	#print("entered")
-	queue_free()
+	destroy()
+	

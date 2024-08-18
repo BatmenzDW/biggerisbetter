@@ -4,10 +4,10 @@
 [ext_resource type="Texture2D" uid="uid://bcaxg04ouc1cf" path="res://Assets/vinny-approval-awaiting/ballmask.png" id="2_gdxjl"]
 
 [node name="Asteroid Spawner" type="Node2D"]
-position = Vector2(571, 311)
 script = ExtResource("1_b472u")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+visible = false
 texture = ExtResource("2_gdxjl")
 
 [node name="Timer" type="Timer" parent="."]
