@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://Scenes/Buildings/Building.gd" id="1_i7qov"]
 [ext_resource type="Texture2D" uid="uid://csndkg5t82hag" path="res://Assets/programmer-art/Drill.png" id="1_jke4u"]
-[ext_resource type="Resource" uid="uid://ba7qo1yoguvvs" path="res://Resources/drill_cost.tres" id="2_r605v"]
+[ext_resource type="Resource" uid="uid://ba7qo1yoguvvs" path="res://Resources/drill_cost_lvl1.tres" id="2_r605v"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_x7hap"]
 size = Vector2(62, 62)
