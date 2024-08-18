@@ -22,9 +22,17 @@ func _on_button_pressed() -> void:
 
 
 func _on_buy_1_pressed() -> void:
-	print(planet.name)
 	planet.gain_health()
 	
 func nplanet(body):
 	planet = body
+	
+
+
+func _on_buy_2_pressed() -> void:
+	planet.growth += 1 
+
+
+func _on_buy_3_pressed() -> void:
+	planet.damage -= (.2 * planet.damage)
 	
