@@ -6,7 +6,7 @@ class_name Orbitable
 @onready var collider: CollisionShape2D = $CollisionShape2D
 #@onready var collider: CollisionShape2D = $Area2D/CollisionShape2D
 @onready var population_growth_timer: Timer = $"Population Growth"
-
+const UPGRADE_UI = preload("res://Scenes/Upgrade_UI.tscn")
 @export var planetName := "Planet X"
 @export var planetHealth := 100
 @export var planetPopulation := 100 # -1 for inhabitable
@@ -45,9 +45,13 @@ func _process(delta) -> void:
 	if orbiting: 
 		orbitDelta += delta * oribalPeriod
 		orbitDelta = wrapf(orbitDelta, 0, 1)
+		if(orbiting == null):#if centre planet dies before moon, mooon also dies
+			queue_free()
+		else: 
+			position.x = orbiting.position.x + (cos(orbitDelta * TAU) * orbitalRadius)
+			position.y = orbiting.position.y + sin(orbitDelta * TAU) * (orbitalRadius)
 		
-		position.x = orbiting.position.x + (cos(orbitDelta * TAU) * orbitalRadius)
-		position.y = orbiting.position.y + sin(orbitDelta * TAU) * (orbitalRadius)
+		
 		
 	# Gravity on Asteroids 
 	#if asteroidfield:
@@ -72,7 +76,12 @@ func take_damage():
 	planetPopulation = planetPopulation -  (.1 * planetPopulation)
 	if(planetHealth <= 0 ):
 		planetPopulation = 0;
-		#queue_free()
+		queue_free()
+func gain_health():
+	planetHealth += 20 
+	if(planetHealth >= 100 ):
+		planetHealth = 100;
+	print("gained")
 
 
 func _on_population_growth_timeout() -> void:
@@ -86,3 +95,10 @@ func _on_area_2d_body_entered(body: RigidBody2D) -> void:
 	#print(force)
 	#print("pull")
 	body.apply_central_force(force * body.position.direction_to(position))
+
+
+func _on_button_pressed() -> void:
+	
+	var item = UPGRADE_UI.instantiate()
+	item.nplanet(self)
+	add_child(item)

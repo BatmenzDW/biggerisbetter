@@ -69,6 +69,7 @@ camera_drag={
 
 [layer_names]
 
+2d_render/layer_2="Planet"
 2d_render/layer_3="Asteroid"
 
 [physics]

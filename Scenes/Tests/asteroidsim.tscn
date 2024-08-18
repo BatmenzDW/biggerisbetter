@@ -21,13 +21,43 @@ scale = Vector2(0.5, 0.5)
 [node name="AsteroidField" type="Node2D" parent="."]
 
 [node name="Asteroid" parent="AsteroidField" instance=ExtResource("3_2xbqj")]
-position = Vector2(198, 479)
+position = Vector2(831, 570)
 
 [node name="Asteroid2" parent="AsteroidField" instance=ExtResource("3_2xbqj")]
-position = Vector2(665, 578)
+position = Vector2(149, 274)
 
 [node name="Asteroid3" parent="AsteroidField" instance=ExtResource("3_2xbqj")]
-position = Vector2(169, 241)
+position = Vector2(685, 369)
+physics_material_override = SubResource("PhysicsMaterial_gj7v5")
+
+[node name="Asteroid4" parent="AsteroidField" instance=ExtResource("3_2xbqj")]
+position = Vector2(1025, 443)
+
+[node name="Asteroid5" parent="AsteroidField" instance=ExtResource("3_2xbqj")]
+position = Vector2(88, 497)
+
+[node name="Asteroid6" parent="AsteroidField" instance=ExtResource("3_2xbqj")]
+position = Vector2(617, 607)
+physics_material_override = SubResource("PhysicsMaterial_gj7v5")
+
+[node name="Asteroid7" parent="AsteroidField" instance=ExtResource("3_2xbqj")]
+position = Vector2(460, 128)
+
+[node name="Asteroid8" parent="AsteroidField" instance=ExtResource("3_2xbqj")]
+position = Vector2(243, 169)
+
+[node name="Asteroid9" parent="AsteroidField" instance=ExtResource("3_2xbqj")]
+position = Vector2(1096, 581)
+physics_material_override = SubResource("PhysicsMaterial_gj7v5")
+
+[node name="Asteroid10" parent="AsteroidField" instance=ExtResource("3_2xbqj")]
+position = Vector2(943, 69)
+
+[node name="Asteroid11" parent="AsteroidField" instance=ExtResource("3_2xbqj")]
+position = Vector2(872, 365)
+
+[node name="Asteroid12" parent="AsteroidField" instance=ExtResource("3_2xbqj")]
+position = Vector2(74, 595)
 physics_material_override = SubResource("PhysicsMaterial_gj7v5")
 
 [node name="Asteroid Spawner" parent="AsteroidField" instance=ExtResource("5_sholt")]
