@@ -80,13 +80,12 @@ func take_damage():
 	planetHealth -= damage
 	
 	if planetPopulation >= 0:
-		planetPopulation = planetPopulation -  (.1 * planetPopulation)
+		planetPopulation *= 0.9
 	
 	if(planetHealth <= 0 ):
 		planetPopulation = -1;
 		PlanetManager.unload_planet(self)
 		$ToolTipHandler.destroy()
-		queue_free()
 		
 		
 func gain_health(i = 20):
@@ -97,7 +96,7 @@ func gain_health(i = 20):
 
 
 func _on_population_growth_timeout() -> void:
-	planetPopulation = planetPopulation + ((.1 * growth) * planetPopulation) 
+	planetPopulation += ((.1 * growth) * planetPopulation) 
 
 
 #func _on_area_2d_body_entered(body: RigidBody2D) -> void:
