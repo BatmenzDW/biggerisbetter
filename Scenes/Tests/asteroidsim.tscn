@@ -12,13 +12,26 @@
 [node name="Earth" parent="." instance=ExtResource("1_imjg8")]
 position = Vector2(565, 294)
 script = ExtResource("2_o5tud")
+planetName = "Planet X"
+planetHealth = 100
+planetPopulation = 100
+oribalPeriod = 0.1
+orbitalRadius = 500
+orbitDelta = 0.0
+mass = 1.0
 
 [node name="Earth2" parent="." node_paths=PackedStringArray("orbiting") instance=ExtResource("1_imjg8")]
 position = Vector2(846, 268)
 scale = Vector2(0.5, 0.5)
 script = ExtResource("2_o5tud")
+planetName = "Planet X"
+planetHealth = 100
+planetPopulation = 100
 orbiting = NodePath("../Earth")
+oribalPeriod = 0.1
 orbitalRadius = 200
+orbitDelta = 0.0
+mass = 1.0
 
 [node name="AsteroidField" type="Node2D" parent="."]
 
