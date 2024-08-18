@@ -77,6 +77,11 @@ mouse_select={
 2d_render/layer_2="Planet"
 2d_render/layer_3="Asteroid"
 
+[layer_names]
+
+2d_physics/layer_3="Buildings"
+2d_physics/layer_4="Asteroids"
+
 [physics]
 
 3d/default_gravity=0.0

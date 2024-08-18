@@ -10,8 +10,8 @@ radius = 11.0454
 radius = 28.0
 
 [node name="Asteroid" type="RigidBody2D"]
-collision_layer = 4
-collision_mask = 4
+collision_layer = 12
+collision_mask = 15
 gravity_scale = 3.0
 script = ExtResource("1_eivx4")
 

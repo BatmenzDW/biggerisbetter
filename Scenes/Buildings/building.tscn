@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://bacc7dxifa5lk"]
+[gd_scene load_steps=5 format=3 uid="uid://bacc7dxifa5lk"]
 
 [ext_resource type="Script" path="res://Scenes/Buildings/Building.gd" id="1_i7qov"]
 [ext_resource type="Texture2D" uid="uid://csndkg5t82hag" path="res://Assets/programmer-art/Drill.png" id="1_jke4u"]
@@ -6,9 +6,6 @@
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_x7hap"]
 size = Vector2(62, 62)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_452ce"]
-size = Vector2(80, 80)
 
 [node name="Area2D" type="Area2D"]
 collision_layer = 4
@@ -22,10 +19,3 @@ texture = ExtResource("1_jke4u")
 
 [node name="Collider" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_x7hap")
-
-[node name="BuildingUpdater" type="Area2D" parent="."]
-collision_layer = 0
-collision_mask = 4
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="BuildingUpdater"]
-shape = SubResource("RectangleShape2D_452ce")

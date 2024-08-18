@@ -1,5 +1,7 @@
 extends Node2D
 
+class_name Level
+
 @onready var planets: Node = $Planets
 
 @export var startingOil : int
@@ -12,6 +14,7 @@ var buildings_pre: Array[PackedScene] = [
 	preload("res://Scenes/Buildings/MetalMine.tscn"), 
 	preload("res://Scenes/Buildings/CrystalMine.tscn"),
 	preload("res://Scenes/Buildings/Factory.tscn"),
+	preload("res://Scenes/Buildings/Turret.tscn"),
 ]
 var buildingIndex: int = 0
 
@@ -22,6 +25,9 @@ func _input(event: InputEvent) -> void:
 		if building == null:
 			building = buildings_pre[buildingIndex].instantiate()
 			add_child(building)
+		else:
+			remove_child(building)
+			building.queue_free()
 	elif event.is_action_pressed("place_building"):
 		if building != null:
 			if building.place():
