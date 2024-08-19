@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://bcqa6janq7yg6"]
+[gd_scene load_steps=11 format=3 uid="uid://bcqa6janq7yg6"]
 
 [ext_resource type="Script" path="res://Scenes/Tests/Level.gd" id="1_hw2ry"]
 [ext_resource type="PackedScene" uid="uid://hei26womwwbo" path="res://Scenes/spacebg.tscn" id="2_tlof5"]
@@ -6,9 +6,10 @@
 [ext_resource type="Script" path="res://Scripts/Simulation/SolarSystemGenerator.gd" id="4_laqh6"]
 [ext_resource type="PackedScene" uid="uid://dukcd67uwqgot" path="res://Scenes/ui.tscn" id="5_bh5wy"]
 [ext_resource type="PackedScene" uid="uid://bti1pvm65vyjw" path="res://Scenes/Prefabs/star.tscn" id="5_idcq7"]
-[ext_resource type="PackedScene" path="res://Scenes/Prefabs/asteroid_spawner.tscn" id="6_oqjlt"]
+[ext_resource type="PackedScene" uid="uid://dq1l3u5vo3t8q" path="res://Scenes/Prefabs/asteroid_spawner.tscn" id="6_oqjlt"]
 [ext_resource type="Script" path="res://Scripts/ScoreLabel.gd" id="7_vh4m5"]
 [ext_resource type="PackedScene" uid="uid://bctacysimcl0t" path="res://Scenes/UI/BuildingUI.tscn" id="8_4hu5r"]
+[ext_resource type="AudioStream" uid="uid://b6msbv0f6lku4" path="res://Audio/MainBGM.mp3" id="10_aocfj"]
 
 [node name="SolarSystem" type="Node2D"]
 process_mode = 1
@@ -48,3 +49,7 @@ offset_bottom = 23.0
 script = ExtResource("7_vh4m5")
 
 [node name="BuildingUI" parent="CanvasLayer" instance=ExtResource("8_4hu5r")]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("10_aocfj")
+autoplay = true
