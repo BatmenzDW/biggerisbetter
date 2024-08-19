@@ -1,8 +1,14 @@
-[gd_scene load_steps=4 format=3 uid="uid://dph88mrjgebos"]
+[gd_scene load_steps=6 format=3 uid="uid://dph88mrjgebos"]
 
 [ext_resource type="Script" path="res://Scripts/UI/Upgrade_UI_Old.gd" id="1_dive6"]
 [ext_resource type="PackedScene" uid="uid://bvxbv1dvp2dto" path="res://Scenes/Prefabs/upgrade.tscn" id="2_pqwi4"]
 [ext_resource type="AudioStream" uid="uid://ryyeldklsb3d" path="res://Audio/Buy_Sound.mp3" id="3_ls66l"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_g2p31"]
+bg_color = Color(0.423651, 0.423651, 0.423651, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3rklw"]
+bg_color = Color(0.705531, 0, 0.0268144, 1)
 
 [node name="Upgrade_UI" type="Control"]
 layout_mode = 3
@@ -27,12 +33,18 @@ horizontal_alignment = 1
 metadata/_edit_use_anchors_ = true
 
 [node name="ItemList" type="ItemList" parent="Panel"]
+modulate = Color(0.325278, 0.651675, 0.466062, 1)
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.0679887
-anchor_top = 0.178914
-anchor_right = 0.498584
-anchor_bottom = 0.920128
+anchor_left = 0.0677083
+anchor_top = 0.179487
+anchor_right = 0.498264
+anchor_bottom = 0.477564
+offset_left = 1.0
+offset_right = 1.0
+theme_override_colors/guide_color = Color(0.847059, 1, 0, 1)
+theme_override_colors/font_selected_color = Color(0.0398584, 0.391035, 0.391032, 1)
+theme_override_colors/font_color = Color(0.315174, 0.717154, 0.512113, 1)
 item_count = 3
 item_0/text = "Upgrade 1"
 item_1/text = "Upgrade 2"
@@ -66,7 +78,7 @@ offset_left = -1.00283
 offset_top = 0.817891
 offset_right = -1.00284
 offset_bottom = 0.81789
-theme_override_colors/font_color = Color(1, 0.339239, 0.273092, 1)
+theme_override_colors/font_color = Color(0.851284, 0.480532, 0.417174, 1)
 theme_override_font_sizes/font_size = 20
 horizontal_alignment = 1
 metadata/_edit_use_anchors_ = true
@@ -84,6 +96,8 @@ offset_right = -26.1083
 offset_bottom = 239.233
 grow_horizontal = 2
 grow_vertical = 0
+theme_override_colors/font_disabled_color = Color(0.945098, 0, 0, 1)
+theme_override_colors/icon_disabled_color = Color(0.856494, 3.65794e-06, 8.66354e-07, 1)
 text = "Buy
 "
 metadata/_edit_use_anchors_ = true
@@ -98,6 +112,23 @@ anchor_bottom = 0.153355
 offset_left = -1.52588e-05
 text = "X"
 metadata/_edit_use_anchors_ = true
+
+[node name="PlanetInfo" type="Label" parent="Panel"]
+layout_mode = 0
+offset_left = 40.0
+offset_top = 190.0
+offset_right = 288.0
+offset_bottom = 290.0
+
+[node name="Healthbar" type="ProgressBar" parent="Panel"]
+layout_mode = 0
+offset_left = 40.0
+offset_top = 214.0
+offset_right = 288.0
+offset_bottom = 241.0
+theme_override_styles/background = SubResource("StyleBoxFlat_g2p31")
+theme_override_styles/fill = SubResource("StyleBoxFlat_3rklw")
+value = 60.0
 
 [node name="Upgrades" type="Node" parent="."]
 
