@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://bcqa6janq7yg6"]
+[gd_scene load_steps=17 format=3 uid="uid://bcqa6janq7yg6"]
 
 [ext_resource type="Script" path="res://Scenes/Tests/Level.gd" id="1_hw2ry"]
 [ext_resource type="PackedScene" uid="uid://hei26womwwbo" path="res://Scenes/spacebg.tscn" id="2_tlof5"]
@@ -15,6 +15,8 @@
 [ext_resource type="Texture2D" uid="uid://b56hdrw4fcvxe" path="res://Assets/programmer-art/Speed_Icon3.png" id="12_0hcdi"]
 [ext_resource type="Texture2D" uid="uid://c1fxwioql3a5y" path="res://Assets/programmer-art/Speed_Icon2_pressed.png" id="13_5vshh"]
 [ext_resource type="Texture2D" uid="uid://xvjngbpc6w5u" path="res://Assets/programmer-art/Speed_Icon3_pressed.png" id="15_ed5te"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_iaimi"]
 
 [node name="SolarSystem" type="Node2D"]
 process_mode = 1
@@ -94,6 +96,14 @@ texture_filter = 3
 layout_mode = 2
 texture_normal = ExtResource("12_0hcdi")
 texture_pressed = ExtResource("15_ed5te")
+
+[node name="Speed Label" type="Label" parent="CanvasLayer"]
+offset_left = 35.0
+offset_top = 532.0
+offset_right = 105.0
+offset_bottom = 555.0
+text = "1x Speed"
+label_settings = SubResource("LabelSettings_iaimi")
 
 [connection signal="pressed" from="CanvasLayer/Panel/MarginContainer/HBoxContainer/Slow" to="." method="_on_slow_pressed"]
 [connection signal="pressed" from="CanvasLayer/Panel/MarginContainer/HBoxContainer/Normal" to="." method="_on_normal_pressed"]
