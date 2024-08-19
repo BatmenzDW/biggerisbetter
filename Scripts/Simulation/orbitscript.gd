@@ -46,8 +46,12 @@ func _ready():
 	population_growth_timer.start()
 
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta) -> void:
+## Called every frame. 'delta' is the elapsed time since the previous frame.
+#func _process(delta) -> void:
+	#
+	#
+
+func _physics_process(delta: float) -> void:
 	
 	# Handle orbit
 	if orbiting: 
@@ -59,16 +63,14 @@ func _process(delta) -> void:
 		else: 
 			position.x = orbiting.position.x + (cos(orbitDelta * TAU) * orbitalRadius)
 			position.y = orbiting.position.y + sin(orbitDelta * TAU) * (orbitalRadius)
-		
-		
-		
+	
 	# Gravity on Asteroids 
 	if asteroidfield:
 		## Get all asteroids
 		for x in asteroidfield.get_children():
 			if x is Asteroid:
 				# Get the force using the gravity formula
-				var f = (gravity * mass * x.earthmass) / x.position.distance_squared_to(position)
+				var f = (gravity * mass * x.earthmass) / x.position.distance_squared_to(position) * Game.MASS_SCALE
 				
 				# Apply force in the direction of the planet
 				x.apply_central_force(f * x.position.direction_to(position))

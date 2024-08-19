@@ -17,7 +17,7 @@ class_name Building
 var orbiting : Orbitable # Planet that this is orbiting. None for static
 var nearestOrbit : Orbitable
 
-@export var oribalPeriod := 0.1 # How fast it orbits
+@export var oribalPeriod := -0.1 # How fast it orbits
 
 var orbitalRadius : float = 0.0 # How far from planet to orbit
 
@@ -45,7 +45,7 @@ const EPSILON = 0.5
 const MAX_FLOAT = 1.79769e308
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta) -> void:
+func _physics_process(delta: float) -> void:
 	if is_placing:
 		_update_placing_position()
 	# Handle orbit

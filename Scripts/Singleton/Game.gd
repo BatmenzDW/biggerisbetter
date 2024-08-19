@@ -14,6 +14,9 @@ var level_index = 0
 
 var _time_passed = 0.0
 
+#const MASS_SCALE = 5.972e+24
+const MASS_SCALE = 5.972e+3
+
 func _update_score():
 	update_score.emit()
 

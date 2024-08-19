@@ -31,7 +31,8 @@ func _clock() -> void:
 	
 	if chosen_target != null:
 		_fire_at(chosen_target)
-		audio_stream_player_2d.play()
+		if audio_stream_player_2d != null:
+			audio_stream_player_2d.play()
 
 var laser_on_time := 0.0
 
@@ -56,12 +57,12 @@ func _fire_at(target: Asteroid):
 		laser_on_time = 0.5
 
 func _process(delta: float) -> void:
-	super._process(delta)
 	if laser_on_time > 0:
 		laser_on_time -= delta
 		if laser_on_time <= 0:
 			get_tree().root.remove_child(laser)
 			laser.queue_free()
+
 
 func _make_tooltip() -> String:
 	return buildingName + str(buildingLevel) + "\n\n" + \
