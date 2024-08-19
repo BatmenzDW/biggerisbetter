@@ -30,6 +30,8 @@ func set_landing_pad(pad: LandingPad):
 	pad.parent = self
 
 func _clock() -> void:
+	if not landing_pad:
+		return
 	if loaded_population < max_load and landing_pad.orbiting:
 		#print("loading population")
 		_load_population()
