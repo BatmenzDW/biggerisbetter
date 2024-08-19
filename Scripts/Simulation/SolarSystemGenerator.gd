@@ -9,9 +9,10 @@ class_name SolarSystemGenerator
 @onready var starnames = preload("res://Resources/NameGen/starnames.tres")
 @onready var planetnames = preload("res://Resources/NameGen/planetnames.tres")
 
-@export var planetdistance = 150
+@export var planetdistance = 200
 
 @export var planetscale = 0.5
+@export var moonscale = 0.25
 
 @export_range (1, 3) var size: int
 
@@ -67,6 +68,31 @@ func generate_system():
 		newplan.orbitalPeriod = 0.025 * (planetct/(i+1))
 		
 		solar_system.add_child(newplan)
+		
+		var moonroll = randi_range(1,3)
+		if moonroll == 3:
+			var newmoon = planetprefab.instantiate()
+			newmoon.orbiting = newplan
+			newmoon.ui = newplan.ui
+			newmoon.scale *= moonscale
+			var mnameidx = randi_range(0, len(planetnames.text)-1)
+		
+			newmoon.planetName = planetnames.text[pnameidx]
+		
+			newmoon.orbitDelta = randf()
+			newmoon.orbitalRadius = 100
+			newmoon.orbitalPeriod = 0.3
+			
+			newmoon.mass = 0.4
+			newmoon.planetHealth = 50
+			newmoon.maxHealth = 50
+			newmoon.planetPopulation = -1
+			
+			if newmoon.has_node("Line2D"):
+				newmoon.get_node("Line2D").visible = false
+			
+			solar_system.add_child(newmoon)
+		
 		
 		pass
 	

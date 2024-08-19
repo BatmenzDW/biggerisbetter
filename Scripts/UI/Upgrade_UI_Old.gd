@@ -91,6 +91,7 @@ func _process(delta: float) -> void:
 		$Panel/PlanetInfo.text = "Planet Health :\n\n" 
 		$Panel/PlanetInfo.text += "Planet Polulation = " + str(planet.planetPopulation)
 		$Panel/Healthbar.value = planet.planetHealth
+		$Panel/Healthbar.max_value = planet.maxHealth
 func open():
 	updatelist()
 	visible = true;

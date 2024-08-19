@@ -9,6 +9,7 @@ class_name Orbitable
 const UPGRADE_UI = preload("res://Scenes/Upgrade_UI.tscn")
 @export var planetName := "Planet X"
 @export var planetHealth := 100
+@export var maxHealth := 100
 @export var planetPopulation := 100 # -1 for inhabitable
 @onready var audio_stream_player_2d: AudioStreamPlayer2D = $AudioStreamPlayer2D
 
@@ -103,8 +104,8 @@ func take_damage():
 		
 func gain_health(i = 20):
 	planetHealth += i 
-	if(planetHealth >= 100 ):
-		planetHealth = 100;
+	if(planetHealth >= maxHealth ):
+		planetHealth = maxHealth;
 	print("gained")
 
 
