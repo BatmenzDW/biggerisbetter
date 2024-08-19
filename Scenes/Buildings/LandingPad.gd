@@ -5,7 +5,7 @@ class_name LandingPad
 var parent: Rocket
 
 func _make_tooltip() -> String:
-	return buildingName
+	return buildingName + str(buildingLevel)
 
 func _clock() -> void:
 	pass

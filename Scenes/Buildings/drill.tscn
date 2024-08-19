@@ -1,8 +1,11 @@
-[gd_scene load_steps=3 format=3 uid="uid://du8e4xosobb7l"]
+[gd_scene load_steps=5 format=3 uid="uid://du8e4xosobb7l"]
 
 [ext_resource type="PackedScene" uid="uid://bacc7dxifa5lk" path="res://Scenes/Buildings/building.tscn" id="1_g7l55"]
 [ext_resource type="Script" path="res://Scenes/Buildings/Drill.gd" id="2_aggpx"]
+[ext_resource type="Script" path="res://Resources/upgrades/BuildingUpgradeResource.gd" id="3_0uuj1"]
+[ext_resource type="Resource" uid="uid://cga5nndhs1mpq" path="res://Resources/upgrades/drill_upgrade_level2.tres" id="4_s7mjg"]
 
 [node name="Drill" instance=ExtResource("1_g7l55")]
 script = ExtResource("2_aggpx")
+upgrades = Array[ExtResource("3_0uuj1")]([ExtResource("4_s7mjg")])
 buildCost = 250

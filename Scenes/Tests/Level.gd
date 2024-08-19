@@ -69,6 +69,9 @@ func _ready() -> void:
 	Game.set_metal(startingMetal)
 	Game.set_crystal(startingCrystal)
 	Game.set_funds(startingFunds)
+	
+	# testing
+	Game._MONEYCHEATHECKYEAH()
 
 func _select_building(index: int):
 	#print("selected: " + str(index))

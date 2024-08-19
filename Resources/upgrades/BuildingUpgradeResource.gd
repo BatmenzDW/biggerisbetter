@@ -5,6 +5,8 @@ class_name BuildingUpgradeCostResource
 
 @export var level : int = 2
 
+@export var description : String
+
 @export var new_texture : Texture
 
 @export_category("UpgradeCost")
