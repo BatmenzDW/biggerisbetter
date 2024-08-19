@@ -9,6 +9,10 @@ class_name SolarSystemGenerator
 @onready var starnames = preload("res://Resources/NameGen/starnames.tres")
 @onready var planetnames = preload("res://Resources/NameGen/planetnames.tres")
 
+@export var planetdistance = 150
+
+@export var planetscale = 0.5
+
 @export_range (1, 3) var size: int
 
 # Called when the node enters the scene tree for the first time.
@@ -23,7 +27,7 @@ func generate_system():
 	
 	var usednames = []
 	
-	var starname = starnames.text[randi_range(0, len(starnames.text))]
+	var starname = starnames.text[randi_range(0, len(starnames.text ) - 1)]
 	
 	star.starName = starname
 	
@@ -47,6 +51,7 @@ func generate_system():
 		var newplan = planetprefab.instantiate()
 		newplan.orbiting = star
 		newplan.ui = star.ui
+		newplan.scale *= planetscale
 		
 		var pnameidx = randi_range(0, len(planetnames.text)-1)
 		#while not usednames.has(pnameidx):
@@ -57,6 +62,9 @@ func generate_system():
 		newplan.planetName = planetnames.text[pnameidx]
 		
 		newplan.orbitDelta = randf()
+		newplan.orbitalRadius = (i + 1) * planetdistance
+		
+		newplan.orbitalPeriod = 0.1 * (planetct/(i+1))
 		
 		solar_system.add_child(newplan)
 		

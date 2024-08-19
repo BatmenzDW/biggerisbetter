@@ -31,11 +31,6 @@ ui = NodePath("../UI")
 [node name="SolarSystem" type="Node2D" parent="."]
 
 [node name="Asteroid Spawner" parent="." instance=ExtResource("6_oqjlt")]
-position = Vector2(-1090, -46)
-leftsidespawner = true
-
-[node name="Asteroid Spawner2" parent="." instance=ExtResource("6_oqjlt")]
-position = Vector2(1198, -33)
 
 [node name="Asteroid Field" type="Node2D" parent="."]
 

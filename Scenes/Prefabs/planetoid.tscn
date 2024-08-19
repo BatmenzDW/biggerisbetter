@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://qtmskbdl8k7o"]
+[gd_scene load_steps=6 format=3 uid="uid://qtmskbdl8k7o"]
 
 [ext_resource type="Script" path="res://Scripts/Simulation/orbitscript.gd" id="1_r6tb5"]
 [ext_resource type="PackedScene" uid="uid://cad2dree6f1ur" path="res://Scenes/Prefabs/planetscroll.tscn" id="2_7nd82"]
 [ext_resource type="Script" path="res://Scripts/UI/planettooltip.gd" id="2_52vw1"]
+[ext_resource type="Script" path="res://Scripts/Graphics/PlanetTrail.gd" id="4_a4obi"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_8x8f8"]
 radius = 64.4981
@@ -15,6 +16,9 @@ script = ExtResource("1_r6tb5")
 
 [node name="ToolTipHandler" type="Node2D" parent="."]
 script = ExtResource("2_52vw1")
+
+[node name="Line2D" type="Line2D" parent="."]
+script = ExtResource("4_a4obi")
 
 [node name="PlanetScroll" parent="." instance=ExtResource("2_7nd82")]
 
