@@ -1,9 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://bacc7dxifa5lk"]
+[gd_scene load_steps=6 format=3 uid="uid://bacc7dxifa5lk"]
 
 [ext_resource type="Script" path="res://Scenes/Buildings/Building.gd" id="1_i7qov"]
 [ext_resource type="Texture2D" uid="uid://csndkg5t82hag" path="res://Assets/programmer-art/Drill.png" id="1_jke4u"]
 [ext_resource type="Resource" uid="uid://ba7qo1yoguvvs" path="res://Resources/production/drill_cost_lvl1.tres" id="2_r605v"]
-[ext_resource type="PackedScene" uid="uid://bn8k5utg6x354" path="res://Scenes/UI/Building_Upgrade_UI.tscn" id="4_l8am0"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_x7hap"]
 size = Vector2(62, 62)
@@ -11,7 +10,6 @@ size = Vector2(62, 62)
 [sub_resource type="Theme" id="Theme_2t1cm"]
 
 [node name="Building" type="Area2D"]
-process_mode = 1
 collision_layer = 4
 collision_mask = 4
 script = ExtResource("1_i7qov")
@@ -34,7 +32,6 @@ offset_right = 31.0
 offset_bottom = 31.0
 
 [node name="Button" type="Button" parent="."]
-process_mode = 1
 offset_left = -31.0
 offset_top = -31.0
 offset_right = 31.0
@@ -42,7 +39,5 @@ offset_bottom = 31.0
 mouse_filter = 1
 theme = SubResource("Theme_2t1cm")
 theme_type_variation = &"FlatButton"
-
-[node name="Upgrade_UI" parent="." instance=ExtResource("4_l8am0")]
 
 [connection signal="pressed" from="Button" to="." method="_on_clicked"]

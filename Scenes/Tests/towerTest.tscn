@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://Scripts/Graphics/camera.gd" id="1_1cwfr"]
 [ext_resource type="Script" path="res://Scenes/Tests/Level.gd" id="1_6t1vi"]
 [ext_resource type="PackedScene" uid="uid://qtmskbdl8k7o" path="res://Scenes/Prefabs/planetoid.tscn" id="2_pfm7w"]
-[ext_resource type="PackedScene" uid="uid://dukcd67uwqgot" path="res://Scenes/ui.tscn" id="3_fqitc"]
+[ext_resource type="PackedScene" uid="uid://dukcd67uwqgot" path="res://Scenes/UI/ui.tscn" id="3_fqitc"]
 [ext_resource type="Script" path="res://Scripts/ScoreLabel.gd" id="5_wuj8f"]
 [ext_resource type="PackedScene" uid="uid://d3772lhv6etts" path="res://Scenes/Prefabs/asteroid.tscn" id="6_bo07h"]
 [ext_resource type="PackedScene" uid="uid://bctacysimcl0t" path="res://Scenes/UI/BuildingUI.tscn" id="6_ys18y"]

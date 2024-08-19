@@ -10,6 +10,10 @@ class_name Building
 @export var buildingName := "Drill"
 @export var buildingHealth := 100
 
+@export var upgrades : Array[BuildingUpgradeCostResource]
+@onready var upgrade_ui: BuildingUpgradeUI = $Upgrade_UI
+
+
 var orbiting : Orbitable # Planet that this is orbiting. None for static
 var nearestOrbit : Orbitable
 
@@ -42,7 +46,8 @@ const MAX_FLOAT = 1.79769e308
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta) -> void:
-	
+	if is_placing:
+		_update_placing_position()
 	# Handle orbit
 	if orbiting: 
 		orbitDelta += delta * oribalPeriod
@@ -55,14 +60,16 @@ func _process(delta) -> void:
 func _input(event: InputEvent) -> void:
 	if event is InputEventMouseMotion:
 		if is_placing:
-			var new_position = get_global_mouse_position()
-			var next_position = get_nearest_placement(new_position)
-			if next_position == null:
-				return
-			global_position = next_position
-			look_at(nearestOrbit.global_position)
-			_check_placement()
+			_update_placing_position()
 
+func _update_placing_position() -> void:
+	var new_position = get_global_mouse_position()
+	var next_position = get_nearest_placement(new_position)
+	if next_position == null:
+		return
+	global_position = next_position
+	look_at(nearestOrbit.global_position)
+	_check_placement()
 
 func place() -> bool:
 	#print("Placing " + buildingName)
@@ -191,3 +198,8 @@ func upgrade(data:BuildingUpgradeCostResource) -> bool:
 	
 	
 	return true
+
+
+func _on_clicked() -> void:
+	upgrade_ui.rotation = TAU - global_rotation
+	upgrade_ui.open()

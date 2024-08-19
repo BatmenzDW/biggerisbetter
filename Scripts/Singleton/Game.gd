@@ -145,3 +145,7 @@ func _MONEYCHEATHECKYEAH():
 	_metal += 999999
 	_oil += 999999
 	_crystal += 999999
+
+
+func toggle_pause():
+	get_tree().paused = not get_tree().paused
