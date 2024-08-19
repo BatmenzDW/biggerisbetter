@@ -76,3 +76,8 @@ func showitem(current_lvl:int):
 		$Panel/VBoxContainer/MarginContainer/UpgradeName.text = "Max Level"
 
 	$Panel/VBoxContainer/MarginContainer3/Cost.text = text
+
+
+func _on_sell_pressed() -> void:
+	Game.toggle_pause()
+	(get_parent() as Building).sell()

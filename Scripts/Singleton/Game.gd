@@ -7,7 +7,7 @@ var start_menu = preload("res://Scenes/UI/start_menu.tscn")
 var game_over_screen = preload("res://Scenes/UI/game_over.tscn")
 
 var levels = [
-	preload("res://Scenes/Levels/lvl1.tscn"),
+	preload("res://Scenes/Levels/randomsystem.tscn"),
 ]
 var level_index = 0
 

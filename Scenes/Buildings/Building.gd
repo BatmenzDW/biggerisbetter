@@ -92,7 +92,7 @@ func place() -> bool:
 func remove(refund:bool=true) -> void:
 	if refund:
 		_refund()
-	orbiting.remove_child(self)
+	get_parent().remove_child(self)
 	queue_free()
 
 func _ready() -> void:
@@ -219,3 +219,6 @@ func _refund() -> void:
 	Game.recieve_metal(metalCost/2)
 	Game.recieve_crystal(crystalCost/2)
 	Game.recieve_funds((buildCost + fundsCost)/2)
+
+func sell() -> void:
+	remove()

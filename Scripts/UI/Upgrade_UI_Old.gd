@@ -55,9 +55,9 @@ func showitem(i):
 		
 		var item = upgrades[i]
 		if (
-			Game.get_funds() >= item.funds &&
-			Game.get_metal() >= item.metal &&
-			Game.get_crystal() >= item.crystal &&
+			Game.get_funds() >= item.funds and
+			Game.get_metal() >= item.metal and
+			Game.get_crystal() >= item.crystal and
 			Game.get_oil() >= item.oil
 		):
 			$Panel/Buy.disabled = false
@@ -68,9 +68,9 @@ func buyitem(i):
 	if len(upgrades) >= i:
 		var item = upgrades[i]
 		if (
-			Game._funds >= item.funds &&
-			Game._metal >= item.metal &&
-			Game._crystal >= item.crystal &&
+			Game._funds >= item.funds and
+			Game._metal >= item.metal and
+			Game._crystal >= item.crystal and
 			Game._oil >= item.oil
 		):	
 			Game.spend_funds(item.funds)
