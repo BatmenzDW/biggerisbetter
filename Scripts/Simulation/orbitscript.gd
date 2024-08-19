@@ -34,6 +34,8 @@ var buildings : Array[Building] = []
 
 var damage = 10
 
+const EPSILON = 0.001
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	if get_parent().has_node("Asteroid Field"):
@@ -46,8 +48,12 @@ func _ready():
 	population_growth_timer.start()
 
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta) -> void:
+## Called every frame. 'delta' is the elapsed time since the previous frame.
+#func _process(delta) -> void:
+	#
+	#
+
+func _physics_process(delta: float) -> void:
 	
 	# Handle orbit
 	if orbiting: 
@@ -59,16 +65,18 @@ func _process(delta) -> void:
 		else: 
 			position.x = orbiting.position.x + (cos(orbitDelta * TAU) * orbitalRadius)
 			position.y = orbiting.position.y + sin(orbitDelta * TAU) * (orbitalRadius)
-		
-		
-		
+	
 	# Gravity on Asteroids 
 	if asteroidfield:
 		## Get all asteroids
 		for x in asteroidfield.get_children():
 			if x is Asteroid:
 				# Get the force using the gravity formula
-				var f = (gravity * mass * x.earthmass) / x.position.distance_squared_to(position)
+				var f = (gravity * mass * x.earthmass) / x.position.distance_squared_to(position) * Game.MASS_SCALE
+				
+				if f < EPSILON:
+					x.destroy()
+					continue
 				
 				# Apply force in the direction of the planet
 				x.apply_central_force(f * x.position.direction_to(position))
@@ -84,11 +92,13 @@ func take_damage():
 	audio_stream_player_2d.play()
 	if planetPopulation >= 0:
 		planetPopulation *= 0.9
+		Game.update_score.emit()
 	
 	if(planetHealth <= 0 ):
 		planetPopulation = -1;
 		PlanetManager.unload_planet(self)
 		$ToolTipHandler.destroy()
+		Game.update_score.emit()
 		
 		
 func gain_health(i = 20):

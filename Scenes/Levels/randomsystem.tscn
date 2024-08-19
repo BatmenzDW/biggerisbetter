@@ -18,6 +18,7 @@ startingCrystal = 500
 [node name="SpaceBG" parent="." instance=ExtResource("2_tlof5")]
 
 [node name="Camera2D" type="Camera2D" parent="."]
+process_mode = 3
 script = ExtResource("3_tmx8u")
 
 [node name="SolarSystemGenerator" type="Node" parent="." node_paths=PackedStringArray("star", "solar_system")]
@@ -39,12 +40,15 @@ ui = NodePath("../UI")
 process_mode = 3
 offset_right = 1152.0
 offset_bottom = 648.0
+mouse_filter = 2
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="ScoreLabel" type="Label" parent="CanvasLayer"]
-offset_right = 40.0
-offset_bottom = 23.0
+offset_left = 20.0
+offset_top = 21.0
+offset_right = 270.0
+offset_bottom = 44.0
 script = ExtResource("7_vh4m5")
 
 [node name="BuildingUI" parent="CanvasLayer" instance=ExtResource("8_4hu5r")]

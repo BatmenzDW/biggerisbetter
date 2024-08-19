@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://b0tlb4kny67rq"]
+[gd_scene load_steps=7 format=3 uid="uid://b0tlb4kny67rq"]
 
-[ext_resource type="Texture2D" uid="uid://2oxgyejolgbb" path="res://Assets/Art/spacebg.png" id="1_eapan"]
 [ext_resource type="Script" path="res://Scripts/UI/StartMenu.gd" id="1_ojfwq"]
+[ext_resource type="Texture2D" uid="uid://dc5ikw0mxa8iy" path="res://Assets/Art/spacebg2.png" id="2_rlqw6"]
 [ext_resource type="Texture2D" uid="uid://c8p0j0qp2m51k" path="res://Assets/programmer-art/Button.png" id="2_ugu4x"]
+[ext_resource type="Texture2D" uid="uid://dhbm6u3s8rxtl" path="res://Assets/SpaceForgeLogoTransparent.png" id="3_xjkli"]
 [ext_resource type="AudioStream" uid="uid://dle00pspqq3ie" path="res://Audio/JAM planet - menu Project.mp3" id="4_vee01"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_vs6cl"]
@@ -18,8 +19,16 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("1_eapan")
-stretch_mode = 1
+texture = ExtResource("2_rlqw6")
+stretch_mode = 6
+
+[node name="Title" type="TextureRect" parent="."]
+offset_left = 148.0
+offset_right = 604.0
+offset_bottom = 297.0
+scale = Vector2(1.68, 1)
+texture = ExtResource("3_xjkli")
+expand_mode = 1
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 anchors_preset = 15
@@ -27,8 +36,8 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_constants/margin_left = 25
-theme_override_constants/margin_top = 25
+theme_override_constants/margin_left = 450
+theme_override_constants/margin_top = 200
 theme_override_constants/margin_right = 25
 theme_override_constants/margin_bottom = 25
 
@@ -36,8 +45,10 @@ theme_override_constants/margin_bottom = 25
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 4
+alignment = 1
 
 [node name="Label" type="Label" parent="MarginContainer/VBoxContainer"]
+visible = false
 layout_mode = 2
 text = "StarForge"
 label_settings = SubResource("LabelSettings_vs6cl")

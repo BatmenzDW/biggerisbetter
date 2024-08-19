@@ -18,10 +18,9 @@ class_name SolarSystemGenerator
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	generate_system()
-	pass # Replace with function body.
 
 func generate_system():
-	if !star or !solar_system:
+	if not star or not solar_system:
 		print("no star and/or solar system")
 		return
 	
@@ -64,7 +63,8 @@ func generate_system():
 		newplan.orbitDelta = randf()
 		newplan.orbitalRadius = (i + 1) * planetdistance
 		
-		newplan.orbitalPeriod = 0.1 * (planetct/(i+1))
+		#newplan.orbitalPeriod = 0.1 * (planetct/(i+1))
+		newplan.orbitalPeriod = 0.025 * (planetct/(i+1))
 		
 		solar_system.add_child(newplan)
 		
