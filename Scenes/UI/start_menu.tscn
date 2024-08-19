@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://b0tlb4kny67rq"]
+[gd_scene load_steps=6 format=3 uid="uid://b0tlb4kny67rq"]
 
 [ext_resource type="Texture2D" uid="uid://2oxgyejolgbb" path="res://Assets/Art/spacebg.png" id="1_eapan"]
 [ext_resource type="Script" path="res://Scripts/UI/StartMenu.gd" id="1_ojfwq"]
 [ext_resource type="Texture2D" uid="uid://c8p0j0qp2m51k" path="res://Assets/programmer-art/Button.png" id="2_ugu4x"]
+[ext_resource type="AudioStream" uid="uid://dle00pspqq3ie" path="res://Audio/JAM planet - menu Project.mp3" id="4_vee01"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_vs6cl"]
 font_size = 64
@@ -59,6 +60,11 @@ text = "Quit"
 icon = ExtResource("2_ugu4x")
 flat = true
 icon_alignment = 1
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_vee01")
+volume_db = -15.0
+autoplay = true
 
 [connection signal="pressed" from="MarginContainer/VBoxContainer/VBoxContainer/Button" to="." method="_on_start_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/VBoxContainer/Quit" to="." method="_on_quit_pressed"]

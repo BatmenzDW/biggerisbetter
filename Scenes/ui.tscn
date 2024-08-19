@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://dukcd67uwqgot"]
 
-[ext_resource type="PackedScene" uid="uid://dfevoa8ogs4lr" path="res://Scenes/Upgrade_UI.tscn" id="1_eptve"]
+[ext_resource type="PackedScene" uid="uid://dph88mrjgebos" path="res://Scenes/Upgrade_UI.tscn" id="1_eptve"]
 
 [node name="UI" type="Control"]
 layout_mode = 3

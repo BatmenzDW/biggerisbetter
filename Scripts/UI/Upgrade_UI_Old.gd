@@ -71,7 +71,7 @@ func buyitem(i):
 			Game._metal >= item.metal &&
 			Game._crystal >= item.crystal &&
 			Game._oil >= item.oil
-		):
+		):	
 			Game.spend_funds(item.funds)
 			Game.spend_metal(item.metal)
 			Game.spend_crystal(item.crystal)
