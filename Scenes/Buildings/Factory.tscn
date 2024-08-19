@@ -4,8 +4,8 @@
 [ext_resource type="Script" path="res://Resources/upgrades/BuildingUpgradeResource.gd" id="2_3ycf2"]
 [ext_resource type="Resource" uid="uid://grb4mkldlg5r" path="res://Resources/production/factory_cost_lvl1.tres" id="2_lfkm7"]
 [ext_resource type="Texture2D" uid="uid://bt536cqtjdaho" path="res://Assets/programmer-art/factory.png" id="3_goys5"]
-[ext_resource type="Resource" uid="uid://p2fpc11pu4qi" path="res://Resources/upgrades/factory_upgrade_level2.tres" id="3_j0su3"]
-[ext_resource type="Resource" uid="uid://dvi24cwn07hsd" path="res://Resources/upgrades/factory_upgrade_level3.tres" id="4_go583"]
+[ext_resource type="Resource" uid="uid://p2fpc11pu4qi" path="res://Resources/upgrades/Factory/factory_upgrade_level2.tres" id="3_j0su3"]
+[ext_resource type="Resource" uid="uid://dvi24cwn07hsd" path="res://Resources/upgrades/Factory/factory_upgrade_level3.tres" id="4_go583"]
 
 [node name="Area2D" instance=ExtResource("1_ywi4y")]
 buildingName = "Factory"

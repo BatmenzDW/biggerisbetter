@@ -4,8 +4,8 @@
 [ext_resource type="Script" path="res://Scenes/Buildings/Turret.gd" id="2_0fwn4"]
 [ext_resource type="Script" path="res://Resources/upgrades/BuildingUpgradeResource.gd" id="3_6sthx"]
 [ext_resource type="Texture2D" uid="uid://b3wl1bbihkm6h" path="res://Assets/programmer-art/turret.png" id="3_xqvy1"]
-[ext_resource type="Resource" uid="uid://bw1wklnfa0fxe" path="res://Resources/upgrades/turret_upgrade_level2.tres" id="4_0w6se"]
-[ext_resource type="Resource" uid="uid://uetiynjwkbft" path="res://Resources/upgrades/turret_upgrade_level3.tres" id="5_kcbvf"]
+[ext_resource type="Resource" uid="uid://bw1wklnfa0fxe" path="res://Resources/upgrades/Turret/turret_upgrade_level2.tres" id="4_0w6se"]
+[ext_resource type="Resource" uid="uid://uetiynjwkbft" path="res://Resources/upgrades/Turret/turret_upgrade_level3.tres" id="5_kcbvf"]
 
 [node name="Area2D" instance=ExtResource("1_02lsy")]
 script = ExtResource("2_0fwn4")
