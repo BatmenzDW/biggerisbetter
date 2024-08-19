@@ -23,6 +23,7 @@ func open():
 		is_open = true
 
 func close():
+	data = null
 	visible = false
 	is_open = false
 	Game.toggle_pause()
@@ -64,16 +65,14 @@ func showitem(current_lvl:int):
 			text += "-" + format_number(data.funds) + " Funds\n" 
 		
 		$Panel/VBoxContainer/MarginContainer/UpgradeName.text = data.name + ":"
-	else:
-		$Panel/VBoxContainer/MarginContainer/UpgradeName.text = "Max Level"
-		return
-	
-	if (
+		if (
 			Game.get_funds() >= data.funds and
 			Game.get_metal() >= data.metal and
 			Game.get_crystal() >= data.crystal and
 			Game.get_oil() >= data.oil
 		):
 			$Panel/MarginContainer4/Buy.disabled = false
-		
+	else:
+		$Panel/VBoxContainer/MarginContainer/UpgradeName.text = "Max Level"
+
 	$Panel/VBoxContainer/MarginContainer3/Cost.text = text

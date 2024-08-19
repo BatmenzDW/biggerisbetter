@@ -4,6 +4,7 @@
 
 [node name="Upgrade_UI" type="Control"]
 process_mode = 3
+z_index = 1
 layout_mode = 3
 anchors_preset = 0
 mouse_filter = 1

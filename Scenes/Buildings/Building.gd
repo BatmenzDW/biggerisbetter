@@ -10,7 +10,7 @@ class_name Building
 @export var buildingName := "Drill"
 @export var buildingHealth := 100
 
-@export var upgrades : Array[BuildingUpgradeCostResource]
+@export var upgrades : Array[BuildingUpgradeCostResource] = []
 @onready var upgrade_ui: BuildingUpgradeUI = $Upgrade_UI
 
 
@@ -195,7 +195,7 @@ func upgrade(data:BuildingUpgradeCostResource) -> bool:
 	
 	buildingLevel = data.level
 	sprite.texture = data.new_texture
-	
+	productionCost = data.prodCost
 	
 	return true
 

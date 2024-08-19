@@ -141,10 +141,10 @@ func next_level(prev_level: Level)->void:
 
 
 func _MONEYCHEATHECKYEAH():
-	_funds += 999999
-	_metal += 999999
-	_oil += 999999
-	_crystal += 999999
+	set_funds(999999)
+	set_metal(999999)
+	set_oil(999999)
+	set_crystal(999999)
 
 
 func toggle_pause():
