@@ -3,6 +3,10 @@ extends Node2D
 class_name PlanetScroll
 
 @export var planettexture : Texture2D = preload("res://Assets/Art/Planets/earth-programmer-art.png")
+@export var planettexture1 : Texture2D = preload("res://Assets/Art/Planets/terra2.png")
+@export var planettexture2 : Texture2D = preload("res://Assets/Art/Planets/terra3.png")
+@export var planettexture3 : Texture2D = preload("res://Assets/Art/Planets/terra4.png")
+
 
 @export var rotatespeed = 0.2 # How fast to rotate the planet?
 							  # No real unit, relative to how big the planet sprite is
@@ -16,7 +20,10 @@ var scroll := 0.0				 # Scroll offset (From 0-1)
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	spr1.texture = planettexture
+	var skins = [planettexture,planettexture1, planettexture2,planettexture3]
+	var skinpick = randi()% skins.size()
+
+	spr1.texture = skins[skinpick]
 	
 	# Duplicate the planet sprite
 	spr2 = spr1.duplicate()
