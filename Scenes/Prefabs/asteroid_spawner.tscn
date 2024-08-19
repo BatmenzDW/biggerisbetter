@@ -11,6 +11,6 @@ visible = false
 texture = ExtResource("2_gdxjl")
 
 [node name="Timer" type="Timer" parent="."]
-wait_time = 7.5
+wait_time = 15.0
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

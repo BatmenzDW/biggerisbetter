@@ -10,6 +10,7 @@ const UPGRADE_UI = preload("res://Scenes/Upgrade_UI.tscn")
 @export var planetName := "Planet X"
 @export var planetHealth := 100
 @export var planetPopulation := 100 # -1 for inhabitable
+@onready var audio_stream_player_2d: AudioStreamPlayer2D = $AudioStreamPlayer2D
 
 @export var orbiting : Node2D # Planet or star that this planet is orbiting. None for static
 
@@ -31,7 +32,7 @@ var asteroidfield : Node2D # Reference to asteroid field
 
 var buildings : Array[Building] = []
 
-var damage = 25
+var damage = 10
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -80,7 +81,7 @@ func get_radius() -> float:
 	
 func take_damage():
 	planetHealth -= damage
-	
+	audio_stream_player_2d.play()
 	if planetPopulation >= 0:
 		planetPopulation *= 0.9
 	
