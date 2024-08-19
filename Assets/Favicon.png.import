@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cpxpc3bqv4co2"
-path="res://.godot/imported/Icon.svg-209197100d5fe6cba9c168636c60b76c.ctex"
+uid="uid://kh8vm8dsre88"
+path="res://.godot/imported/Favicon.png-f4b5c78663c7ef6d681655cab2ffa9f5.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Icon.svg"
-dest_files=["res://.godot/imported/Icon.svg-209197100d5fe6cba9c168636c60b76c.ctex"]
+source_file="res://Assets/Favicon.png"
+dest_files=["res://.godot/imported/Favicon.png-f4b5c78663c7ef6d681655cab2ffa9f5.ctex"]
 
 [params]
 
@@ -32,6 +32,3 @@ process/hdr_as_srgb=false
 process/hdr_clamp_exposure=false
 process/size_limit=0
 detect_3d/compress_to=1
-svg/scale=1.0
-editor/scale_with_editor_scale=false
-editor/convert_colors_with_editor_theme=false

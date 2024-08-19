@@ -3,8 +3,9 @@ extends Node
 signal clock
 signal update_score
 
-var start_menu = preload("res://Scenes/UI/start_menu.tscn")
-var game_over_screen = preload("res://Scenes/UI/game_over.tscn")
+const start_menu = preload("res://Scenes/UI/start_menu.tscn")
+const game_over_screen = preload("res://Scenes/UI/game_over.tscn")
+const WIN_SCREEN = preload("res://Scenes/UI/win_screen.tscn")
 
 var levels = [
 	preload("res://Scenes/Levels/randomsystem.tscn"),
@@ -120,8 +121,7 @@ func purchase_upgrade(data:BuildingUpgradeCostResource) -> bool:
 	return false
 
 func win(level: Level) -> void:
-	# TODO: replace with win screen
-	var win_screen_ = start_menu.instantiate()
+	var win_screen_ = WIN_SCREEN.instantiate()
 	get_tree().root.remove_child(level)
 	level.queue_free()
 	PlanetManager.unload_all()

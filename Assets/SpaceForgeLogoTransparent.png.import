@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cpxpc3bqv4co2"
-path="res://.godot/imported/Icon.svg-209197100d5fe6cba9c168636c60b76c.ctex"
+uid="uid://dhbm6u3s8rxtl"
+path="res://.godot/imported/SpaceForgeLogoTransparent.png-96137dfb2bf7f4b752b9d677e1d97478.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Icon.svg"
-dest_files=["res://.godot/imported/Icon.svg-209197100d5fe6cba9c168636c60b76c.ctex"]
+source_file="res://Assets/SpaceForgeLogoTransparent.png"
+dest_files=["res://.godot/imported/SpaceForgeLogoTransparent.png-96137dfb2bf7f4b752b9d677e1d97478.ctex"]
 
 [params]
 
@@ -32,6 +32,3 @@ process/hdr_as_srgb=false
 process/hdr_clamp_exposure=false
 process/size_limit=0
 detect_3d/compress_to=1
-svg/scale=1.0
-editor/scale_with_editor_scale=false
-editor/convert_colors_with_editor_theme=false
