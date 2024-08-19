@@ -62,6 +62,7 @@ func _process(delta: float) -> void:
 			laser.queue_free()
 
 func _make_tooltip() -> String:
-	return "Attack Cost: \n" +\
+	return buildingName + str(buildingLevel) + "\n\n" + \
+		"Attack Cost: \n" +\
 		"	Crystal: " + str(crystal_cost) + "\n" +\
 		"Damage: " + str(damage)

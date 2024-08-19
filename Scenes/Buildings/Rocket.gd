@@ -39,7 +39,8 @@ func _clock() -> void:
 		_launch()
 
 func _make_tooltip() -> String:
-	return "Loaded: \n" +\
+	return buildingName + str(buildingLevel) + "\n\n" + \
+		"Loaded: \n" +\
 		"	" + str(int(loaded_population)) + "/" + str(int(max_load))
 
 func _launch() -> void:

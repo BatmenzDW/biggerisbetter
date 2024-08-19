@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="ProdCostResource" load_steps=2 format=3 uid="uid://dk0ewhplpwjaa"]
 
-[ext_resource type="Script" path="res://Resources/ProdCostResource.gd" id="1_tt77x"]
+[ext_resource type="Script" path="res://Resources/production/ProdCostResource.gd" id="1_tt77x"]
 
 [resource]
 script = ExtResource("1_tt77x")

@@ -109,6 +109,16 @@ func _has_resources(costs:ProdCostResource, population:int) -> bool:
 	return _oil >= costs.oil and _metal >= costs.metal and _crystal >= costs.crystal \
 		and _funds >= costs.funds and (population > costs.minPopulation or costs.minPopulation == -1)
 
+func purchase_upgrade(data:BuildingUpgradeCostResource) -> bool:
+	if _oil >= data.oil and _metal >= data.metal and _crystal >= data.crystal \
+		and _funds >= data.funds:
+		_oil -= data.oil
+		_metal -= data.metal
+		_crystal -= data.crystal
+		_funds -= data.funds
+		return true
+	return false
+
 func game_over(level: Level)->void:
 	var game_over_ = game_over_screen.instantiate()
 	get_tree().root.remove_child(level)
