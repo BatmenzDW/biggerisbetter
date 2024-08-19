@@ -1,10 +1,15 @@
-[gd_scene load_steps=4 format=3 uid="uid://b2qmi48lpk1n7"]
+[gd_scene load_steps=7 format=3 uid="uid://b2qmi48lpk1n7"]
 
 [ext_resource type="PackedScene" uid="uid://bacc7dxifa5lk" path="res://Scenes/Buildings/building.tscn" id="1_wx6v6"]
+[ext_resource type="Script" path="res://Resources/upgrades/BuildingUpgradeResource.gd" id="2_m41g6"]
 [ext_resource type="Resource" uid="uid://dpd515v3enhp6" path="res://Resources/production/crystalmine_cost_lvl1.tres" id="2_neqjp"]
 [ext_resource type="Texture2D" uid="uid://beng3g15enpe8" path="res://Assets/programmer-art/MineB.png" id="2_sk4a8"]
+[ext_resource type="Resource" uid="uid://b0fo14dwce7mk" path="res://Resources/upgrades/crystalmine_upgrade_level2.tres" id="3_rq3df"]
+[ext_resource type="Resource" uid="uid://cue2c830lpiyr" path="res://Resources/upgrades/crystalmine_upgrade_level3.tres" id="4_irtjm"]
 
 [node name="Area2D" instance=ExtResource("1_wx6v6")]
+buildingName = "Crystal Mine"
+upgrades = Array[ExtResource("2_m41g6")]([ExtResource("3_rq3df"), ExtResource("4_irtjm")])
 buildCost = 500
 productionCost = ExtResource("2_neqjp")
 

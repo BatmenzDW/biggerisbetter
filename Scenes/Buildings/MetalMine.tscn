@@ -1,12 +1,16 @@
-[gd_scene load_steps=4 format=3 uid="uid://d0n7nmiu7pmjk"]
+[gd_scene load_steps=7 format=3 uid="uid://d0n7nmiu7pmjk"]
 
 [ext_resource type="PackedScene" uid="uid://bacc7dxifa5lk" path="res://Scenes/Buildings/building.tscn" id="1_g6e1a"]
 [ext_resource type="Texture2D" uid="uid://b757rssjb5scw" path="res://Assets/programmer-art/MineA.png" id="2_60uea"]
+[ext_resource type="Script" path="res://Resources/upgrades/BuildingUpgradeResource.gd" id="2_f1yja"]
 [ext_resource type="Resource" uid="uid://dk0ewhplpwjaa" path="res://Resources/production/metalmine_cost_lvl1.tres" id="2_pkj5f"]
+[ext_resource type="Resource" uid="uid://d3xns5f37046b" path="res://Resources/upgrades/metalmine_upgrade_level2.tres" id="3_tecfs"]
+[ext_resource type="Resource" uid="uid://blbsmi1foqwnt" path="res://Resources/upgrades/metalmine_upgrade_level3.tres" id="4_pkbf5"]
 
 [node name="Area2D" instance=ExtResource("1_g6e1a")]
 texture_filter = 1
 buildingName = "Metal Mine"
+upgrades = Array[ExtResource("2_f1yja")]([ExtResource("3_tecfs"), ExtResource("4_pkbf5")])
 buildCost = 300
 productionCost = ExtResource("2_pkj5f")
 
