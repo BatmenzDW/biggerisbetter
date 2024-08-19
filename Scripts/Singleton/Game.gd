@@ -3,8 +3,9 @@ extends Node
 signal clock
 signal update_score
 
-var start_menu = preload("res://Scenes/UI/start_menu.tscn")
-var game_over_screen = preload("res://Scenes/UI/game_over.tscn")
+const start_menu = preload("res://Scenes/UI/start_menu.tscn")
+const game_over_screen = preload("res://Scenes/UI/game_over.tscn")
+const WIN_SCREEN = preload("res://Scenes/UI/win_screen.tscn")
 
 var levels = [
 	preload("res://Scenes/Levels/randomsystem.tscn"),
@@ -12,11 +13,18 @@ var levels = [
 var level_index = 0
 
 var _time_passed = 0.0
+var in_game := false
+
+#const MASS_SCALE = 5.972e+24
+const MASS_SCALE = 5.972e+3
 
 func _update_score():
 	update_score.emit()
 
 func _process(delta: float) -> void:
+	if not in_game:
+		return
+	
 	_time_passed += delta
 	if _time_passed >= 1:
 		var t: int = floori(_time_passed)
@@ -120,14 +128,15 @@ func purchase_upgrade(data:BuildingUpgradeCostResource) -> bool:
 	return false
 
 func win(level: Level) -> void:
-	# TODO: replace with win screen
-	var win_screen_ = start_menu.instantiate()
+	in_game = false
+	var win_screen_ = WIN_SCREEN.instantiate()
 	get_tree().root.remove_child(level)
 	level.queue_free()
 	PlanetManager.unload_all()
 	get_tree().root.add_child(win_screen_)
 
 func game_over(level: Level)->void:
+	in_game = false
 	var game_over_ = game_over_screen.instantiate()
 	get_tree().root.remove_child(level)
 	level.queue_free()
@@ -135,6 +144,7 @@ func game_over(level: Level)->void:
 	get_tree().root.add_child(game_over_)
 
 func start_game(caller:Node)->void:
+	in_game = true
 	var level = levels[level_index].instantiate()
 	get_tree().root.remove_child(caller)
 	caller.queue_free()

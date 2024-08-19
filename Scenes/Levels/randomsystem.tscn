@@ -1,4 +1,5 @@
-[gd_scene load_steps=11 format=3 uid="uid://bcqa6janq7yg6"]
+[gd_scene load_steps=18 format=3 uid="uid://bcqa6janq7yg6"]
+
 
 [ext_resource type="Script" path="res://Scenes/Tests/Level.gd" id="1_hw2ry"]
 [ext_resource type="PackedScene" uid="uid://hei26womwwbo" path="res://Scenes/spacebg.tscn" id="2_tlof5"]
@@ -10,6 +11,14 @@
 [ext_resource type="Script" path="res://Scripts/ScoreLabel.gd" id="7_vh4m5"]
 [ext_resource type="PackedScene" uid="uid://bctacysimcl0t" path="res://Scenes/UI/BuildingUI.tscn" id="8_4hu5r"]
 [ext_resource type="AudioStream" uid="uid://b6msbv0f6lku4" path="res://Audio/MainBGM.mp3" id="10_aocfj"]
+[ext_resource type="Texture2D" uid="uid://di4el63i72m0i" path="res://Assets/programmer-art/Speed_Icon1.png" id="10_lbtiy"]
+[ext_resource type="Texture2D" uid="uid://b6l3w0d0xof50" path="res://Assets/programmer-art/Speed_Icon2.png" id="11_q8hro"]
+[ext_resource type="Texture2D" uid="uid://lo3gw6via6lh" path="res://Assets/programmer-art/Speed_Icon1_pressed.png" id="11_yoi4a"]
+[ext_resource type="Texture2D" uid="uid://b56hdrw4fcvxe" path="res://Assets/programmer-art/Speed_Icon3.png" id="12_0hcdi"]
+[ext_resource type="Texture2D" uid="uid://c1fxwioql3a5y" path="res://Assets/programmer-art/Speed_Icon2_pressed.png" id="13_5vshh"]
+[ext_resource type="Texture2D" uid="uid://xvjngbpc6w5u" path="res://Assets/programmer-art/Speed_Icon3_pressed.png" id="15_ed5te"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_iaimi"]
 
 [node name="SolarSystem" type="Node2D"]
 process_mode = 1
@@ -41,12 +50,15 @@ ui = NodePath("../UI")
 process_mode = 3
 offset_right = 1152.0
 offset_bottom = 648.0
+mouse_filter = 2
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="ScoreLabel" type="Label" parent="CanvasLayer"]
-offset_right = 40.0
-offset_bottom = 23.0
+offset_left = 20.0
+offset_top = 21.0
+offset_right = 270.0
+offset_bottom = 44.0
 script = ExtResource("7_vh4m5")
 
 [node name="BuildingUI" parent="CanvasLayer" instance=ExtResource("8_4hu5r")]
@@ -54,3 +66,51 @@ script = ExtResource("7_vh4m5")
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("10_aocfj")
 autoplay = true
+
+[node name="Panel" type="Panel" parent="CanvasLayer"]
+offset_left = 34.0
+offset_top = 557.0
+offset_right = 235.0
+offset_bottom = 622.0
+mouse_filter = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/Panel/MarginContainer"]
+layout_mode = 2
+
+[node name="Slow" type="TextureButton" parent="CanvasLayer/Panel/MarginContainer/HBoxContainer"]
+texture_filter = 3
+layout_mode = 2
+texture_normal = ExtResource("10_lbtiy")
+texture_pressed = ExtResource("11_yoi4a")
+
+[node name="Normal" type="TextureButton" parent="CanvasLayer/Panel/MarginContainer/HBoxContainer"]
+texture_filter = 3
+layout_mode = 2
+texture_normal = ExtResource("11_q8hro")
+texture_pressed = ExtResource("13_5vshh")
+
+[node name="Fast" type="TextureButton" parent="CanvasLayer/Panel/MarginContainer/HBoxContainer"]
+texture_filter = 3
+layout_mode = 2
+texture_normal = ExtResource("12_0hcdi")
+texture_pressed = ExtResource("15_ed5te")
+
+[node name="Speed Label" type="Label" parent="CanvasLayer"]
+offset_left = 35.0
+offset_top = 532.0
+offset_right = 105.0
+offset_bottom = 555.0
+text = "1x Speed"
+label_settings = SubResource("LabelSettings_iaimi")
+
+[connection signal="pressed" from="CanvasLayer/Panel/MarginContainer/HBoxContainer/Slow" to="." method="_on_slow_pressed"]
+[connection signal="pressed" from="CanvasLayer/Panel/MarginContainer/HBoxContainer/Normal" to="." method="_on_normal_pressed"]
+[connection signal="pressed" from="CanvasLayer/Panel/MarginContainer/HBoxContainer/Fast" to="." method="_on_fast_pressed"]
