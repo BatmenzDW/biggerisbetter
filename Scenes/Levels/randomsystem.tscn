@@ -11,6 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://bctacysimcl0t" path="res://Scenes/UI/BuildingUI.tscn" id="8_4hu5r"]
 
 [node name="SolarSystem" type="Node2D"]
+process_mode = 1
 script = ExtResource("1_hw2ry")
 startingCrystal = 500
 
@@ -35,6 +36,7 @@ ui = NodePath("../UI")
 [node name="Asteroid Field" type="Node2D" parent="."]
 
 [node name="UI" parent="." instance=ExtResource("5_bh5wy")]
+process_mode = 3
 offset_right = 1152.0
 offset_bottom = 648.0
 

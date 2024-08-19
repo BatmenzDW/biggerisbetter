@@ -26,7 +26,7 @@ func nplanet(body):
 
 func _on_buy_1_pressed() -> void:
 	
-	if (Game._metal >= 2000 && Game._funds >=15000):
+	if (Game._metal >= 2000 and Game._funds >=15000):
 		Game.spend_funds(15000)
 		Game.spend_metal(2000)
 		planet.gain_health(20)
@@ -36,7 +36,7 @@ func _on_buy_1_pressed() -> void:
 
 
 func _on_buy_2_pressed() -> void:
-	if (Game._oil >= 1000 && Game._funds >=25000 && Game._crystal >= 200):
+	if (Game._oil >= 1000 and Game._funds >=25000 and Game._crystal >= 200):
 		Game.spend_funds(25000)
 		Game.spend_oil(1000)
 		Game.spend_crystal(200)
@@ -48,7 +48,7 @@ func _on_buy_2_pressed() -> void:
 
 func _on_buy_3_pressed() -> void:
 	
-	if (Game._oil >= 10000 && Game._funds >=50000 && Game._metal >= 20000 && Game._crystal >= 250):
+	if (Game._oil >= 10000 and Game._funds >=50000 and Game._metal >= 20000 and Game._crystal >= 250):
 		Game.spend_funds(50000)
 		Game.spend_oil(10000)
 		Game.spend_metal(20000)

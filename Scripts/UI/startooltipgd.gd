@@ -12,7 +12,7 @@ var tooltipoffset: Vector2 = Vector2(10, 0)
 func destroy():
 	var pl
 	if ui:
-		if !pl && ui.has_node("Planet Label"):
+		if !pl and ui.has_node("Planet Label"):
 			pl = ui.get_node("Planet Label")
 			
 	if updatetooltip:
@@ -28,7 +28,7 @@ func _process(delta):
 		if ui.has_node("Star Label"):
 			pl = ui.get_node("Star Label")
 	
-	if shouldtooltip && ui && pl:
+	if shouldtooltip and ui and pl:
 		shouldtooltip = false
 		
 		pl.get_node("Name").text = star.starName

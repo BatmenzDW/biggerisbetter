@@ -21,7 +21,7 @@ func _ready():
 	pass # Replace with function body.
 
 func generate_system():
-	if !star || !solar_system:
+	if !star or !solar_system:
 		print("no star and/or solar system")
 		return
 	

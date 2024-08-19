@@ -14,9 +14,9 @@ func destroy():
 	var pl = null
 	var upgrade = null
 	if ui:
-		if !pl && ui.has_node("Planet Label"):
+		if !pl and ui.has_node("Planet Label"):
 			pl = ui.get_node("Planet Label")
-		if !upgrade && ui.has_node("Upgrade_UI"):
+		if !upgrade and ui.has_node("Upgrade_UI"):
 			upgrade = ui.get_node("Upgrade_UI")
 			
 	if updatetooltip:
@@ -35,7 +35,7 @@ func _process(_delta):
 		if ui.has_node("Upgrade_UI"):
 			upgrade = ui.get_node("Upgrade_UI")
 	
-	if shouldtooltip && ui && pl:
+	if shouldtooltip and ui and pl:
 		shouldtooltip = false
 		
 		pl.get_node("Name").text = planet.planetName
@@ -61,7 +61,7 @@ func _process(_delta):
 			pl.get_node("Population").text = "Population: " + str(int(planet.planetPopulation))
 		
 	
-	if mouseover && Input.is_action_just_pressed("mouse_select"):
+	if mouseover and Input.is_action_just_pressed("mouse_select"):
 		if pl:
 			pl.visible = false
 		if upgrade:
