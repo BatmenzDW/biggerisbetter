@@ -1,0 +1,48 @@
+[gd_scene load_steps=10 format=3 uid="uid://bcqa6janq7yg6"]
+
+[ext_resource type="Script" path="res://Scenes/Tests/Level.gd" id="1_hw2ry"]
+[ext_resource type="PackedScene" uid="uid://hei26womwwbo" path="res://Scenes/spacebg.tscn" id="2_tlof5"]
+[ext_resource type="Script" path="res://Scripts/Graphics/camera.gd" id="3_tmx8u"]
+[ext_resource type="Script" path="res://Scripts/Simulation/SolarSystemGenerator.gd" id="4_laqh6"]
+[ext_resource type="PackedScene" uid="uid://dukcd67uwqgot" path="res://Scenes/ui.tscn" id="5_bh5wy"]
+[ext_resource type="PackedScene" uid="uid://bti1pvm65vyjw" path="res://Scenes/Prefabs/star.tscn" id="5_idcq7"]
+[ext_resource type="PackedScene" uid="uid://dq1l3u5vo3t8q" path="res://Scenes/Prefabs/asteroid_spawner.tscn" id="6_oqjlt"]
+[ext_resource type="Script" path="res://Scripts/ScoreLabel.gd" id="7_vh4m5"]
+[ext_resource type="PackedScene" uid="uid://bctacysimcl0t" path="res://Scenes/UI/BuildingUI.tscn" id="8_4hu5r"]
+
+[node name="SolarSystem" type="Node2D"]
+script = ExtResource("1_hw2ry")
+startingCrystal = 500
+
+[node name="SpaceBG" parent="." instance=ExtResource("2_tlof5")]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+script = ExtResource("3_tmx8u")
+
+[node name="SolarSystemGenerator" type="Node" parent="." node_paths=PackedStringArray("star", "solar_system")]
+script = ExtResource("4_laqh6")
+star = NodePath("../Star")
+solar_system = NodePath("../SolarSystem")
+size = 1
+
+[node name="Star" parent="." node_paths=PackedStringArray("ui") instance=ExtResource("5_idcq7")]
+ui = NodePath("../UI")
+
+[node name="SolarSystem" type="Node2D" parent="."]
+
+[node name="Asteroid Spawner" parent="." instance=ExtResource("6_oqjlt")]
+
+[node name="Asteroid Field" type="Node2D" parent="."]
+
+[node name="UI" parent="." instance=ExtResource("5_bh5wy")]
+offset_right = 1152.0
+offset_bottom = 648.0
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="ScoreLabel" type="Label" parent="CanvasLayer"]
+offset_right = 40.0
+offset_bottom = 23.0
+script = ExtResource("7_vh4m5")
+
+[node name="BuildingUI" parent="CanvasLayer" instance=ExtResource("8_4hu5r")]
