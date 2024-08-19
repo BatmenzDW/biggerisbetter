@@ -22,7 +22,7 @@ var building: Building
 
 # testing
 @onready var asteroid_spawner: Node2D = $"Asteroid Spawner"
-@onready var asteroid_spawner_2: Node2D = $"Asteroid Spawner2"
+#@onready var asteroid_spawner_2: Node2D = $"Asteroid Spawner2"
 
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("start_building"):
