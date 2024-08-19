@@ -86,11 +86,13 @@ func take_damage():
 	audio_stream_player_2d.play()
 	if planetPopulation >= 0:
 		planetPopulation *= 0.9
+		Game.update_score.emit()
 	
 	if(planetHealth <= 0 ):
 		planetPopulation = -1;
 		PlanetManager.unload_planet(self)
 		$ToolTipHandler.destroy()
+		Game.update_score.emit()
 		
 		
 func gain_health(i = 20):
