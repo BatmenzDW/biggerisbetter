@@ -56,6 +56,8 @@ func _launch() -> void:
 func upgrade(data:BuildingUpgradeCostResource) -> bool:
 	if not Game.purchase_upgrade(data):
 		return false
+	if data.level == 4:
+		SignalBus.max_rocket_built.emit()
 	
 	buildingLevel = data.level
 	sprite.texture = data.new_texture
