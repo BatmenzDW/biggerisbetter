@@ -119,10 +119,19 @@ func purchase_upgrade(data:BuildingUpgradeCostResource) -> bool:
 		return true
 	return false
 
+func win(level: Level) -> void:
+	# TODO: replace with win screen
+	var win_screen_ = start_menu.instantiate()
+	get_tree().root.remove_child(level)
+	level.queue_free()
+	PlanetManager.unload_all()
+	get_tree().root.add_child(win_screen_)
+
 func game_over(level: Level)->void:
 	var game_over_ = game_over_screen.instantiate()
 	get_tree().root.remove_child(level)
 	level.queue_free()
+	PlanetManager.unload_all()
 	get_tree().root.add_child(game_over_)
 
 func start_game(caller:Node)->void:

@@ -19,9 +19,9 @@ func _load_population() -> void:
 		orbiting.planetPopulation -= to_load
 
 func remove(refund:bool=true) -> void:
-	super.remove(refund)
 	if refund:
-		Game.recieve_funds(buildCost)
+		_refund()
+		Game.recieve_funds(buildCost/2)
 	get_parent().remove_child(self)
 	queue_free()
 
@@ -52,3 +52,24 @@ func _launch() -> void:
 	
 	landing_pad.remove(false)
 	self.remove(false)
+
+func upgrade(data:BuildingUpgradeCostResource) -> bool:
+	if not Game.purchase_upgrade(data):
+		return false
+	if data.level == 4:
+		SignalBus.max_rocket_built.emit()
+	
+	buildingLevel = data.level
+	sprite.texture = data.new_texture
+	#productionCost = data.prodCost
+	
+	load_percent = data.load_percent
+	load_speed = data.load_speed
+	max_load = data.max_load
+	
+	oilCost += data.oil
+	metalCost += data.metal
+	crystalCost += data.crystal
+	fundsCost += data.funds
+	
+	return true

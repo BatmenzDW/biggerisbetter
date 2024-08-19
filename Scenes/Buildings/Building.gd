@@ -91,7 +91,7 @@ func place() -> bool:
 
 func remove(refund:bool=true) -> void:
 	if refund:
-		Game.recieve_funds(buildCost/2)
+		_refund()
 	orbiting.remove_child(self)
 	queue_free()
 
@@ -197,9 +197,25 @@ func upgrade(data:BuildingUpgradeCostResource) -> bool:
 	sprite.texture = data.new_texture
 	productionCost = data.prodCost
 	
+	oilCost += data.oil
+	metalCost += data.metal
+	crystalCost += data.crystal
+	fundsCost += data.funds
+	
 	return true
 
 
 func _on_clicked() -> void:
 	upgrade_ui.rotation = TAU - global_rotation
 	upgrade_ui.open()
+
+var oilCost = 0
+var metalCost = 0
+var crystalCost = 0
+var fundsCost = 0
+
+func _refund() -> void:
+	Game.recieve_oil(oilCost/2)
+	Game.recieve_metal(metalCost/2)
+	Game.recieve_crystal(crystalCost/2)
+	Game.recieve_funds((buildCost + fundsCost)/2)

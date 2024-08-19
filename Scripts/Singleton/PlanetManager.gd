@@ -13,6 +13,9 @@ func unload_planets(planets:Array[Orbitable])->void:
 		loadedPlanets.erase(p)
 		p.queue_free()
 
+func unload_all()->void:
+	loadedPlanets = []
+
 func unload_planet(planet: Orbitable)->void:
 	loadedPlanets.erase(planet)
 	planet.queue_free()

@@ -1,0 +1,33 @@
+[gd_resource type="Resource" script_class="BuildingUpgradeCostResource" load_steps=5 format=3 uid="uid://cbs73jtvegehk"]
+
+[ext_resource type="Texture2D" uid="uid://tyv2l3e7fqh0" path="res://Assets/programmer-art/Rocket_lvl3.png" id="1_lj3id"]
+[ext_resource type="Script" path="res://Resources/production/ProdCostResource.gd" id="2_datp6"]
+[ext_resource type="Script" path="res://Resources/upgrades/BuildingUpgradeResource.gd" id="3_cw117"]
+
+[sub_resource type="Resource" id="Resource_2r37d"]
+script = ExtResource("2_datp6")
+oil = 0
+metal = 0
+crystal = 0
+funds = 0
+minPopulation = 0
+oil_output = 0
+metal_output = 0
+crystal_output = 0
+funds_output = 0
+
+[resource]
+script = ExtResource("3_cw117")
+name = "Rocket Level 3"
+level = 3
+description = ""
+new_texture = ExtResource("1_lj3id")
+oil = 7500
+metal = 7500
+crystal = 7500
+funds = 7500
+prodCost = SubResource("Resource_2r37d")
+damage = 0
+load_percent = 0.5
+load_speed = 2.0
+max_load = 2000.0

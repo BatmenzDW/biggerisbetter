@@ -1,0 +1,33 @@
+[gd_resource type="Resource" script_class="BuildingUpgradeCostResource" load_steps=5 format=3 uid="uid://dvi24cwn07hsd"]
+
+[ext_resource type="Texture2D" uid="uid://cn8u658flfr01" path="res://Assets/programmer-art/factory_lvl2.png" id="1_fhavl"]
+[ext_resource type="Script" path="res://Resources/production/ProdCostResource.gd" id="2_35vkp"]
+[ext_resource type="Script" path="res://Resources/upgrades/BuildingUpgradeResource.gd" id="3_fqqk1"]
+
+[sub_resource type="Resource" id="Resource_2r37d"]
+script = ExtResource("2_35vkp")
+oil = 30
+metal = 30
+crystal = 2
+funds = 0
+minPopulation = 100
+oil_output = 0
+metal_output = 0
+crystal_output = 0
+funds_output = 5000
+
+[resource]
+script = ExtResource("3_fqqk1")
+name = "Factory Level 2"
+level = 2
+description = ""
+new_texture = ExtResource("1_fhavl")
+oil = 2000
+metal = 2000
+crystal = 2000
+funds = 2000
+prodCost = SubResource("Resource_2r37d")
+damage = 0
+load_percent = 0.0
+load_speed = 0.0
+max_load = 0.0

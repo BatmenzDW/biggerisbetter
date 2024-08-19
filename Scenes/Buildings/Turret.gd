@@ -66,3 +66,20 @@ func _make_tooltip() -> String:
 		"Attack Cost: \n" +\
 		"	Crystal: " + str(crystal_cost) + "\n" +\
 		"Damage: " + str(damage)
+
+func upgrade(data:BuildingUpgradeCostResource) -> bool:
+	if not Game.purchase_upgrade(data):
+		return false
+	
+	buildingLevel = data.level
+	sprite.texture = data.new_texture
+	
+	crystal_cost = data.prodCost.crystal
+	damage = data.damage
+	
+	oilCost += data.oil
+	metalCost += data.metal
+	crystalCost += data.crystal
+	fundsCost += data.funds
+	
+	return true

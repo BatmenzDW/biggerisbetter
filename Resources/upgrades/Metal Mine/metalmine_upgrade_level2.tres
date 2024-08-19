@@ -18,7 +18,7 @@ funds_output = 0
 
 [resource]
 script = ExtResource("3_xjiq7")
-name = "Mine Level 2"
+name = "Metal Mine Level 2"
 level = 2
 description = ""
 new_texture = ExtResource("1_5fwgg")
