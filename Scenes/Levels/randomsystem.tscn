@@ -34,7 +34,7 @@ script = ExtResource("3_tmx8u")
 script = ExtResource("4_laqh6")
 star = NodePath("../Star")
 solar_system = NodePath("../SolarSystem")
-size = 1
+size = 3
 
 [node name="Star" parent="." node_paths=PackedStringArray("ui") instance=ExtResource("5_idcq7")]
 ui = NodePath("../UI")
