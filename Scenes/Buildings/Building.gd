@@ -206,8 +206,9 @@ func upgrade(data:BuildingUpgradeCostResource) -> bool:
 
 
 func _on_clicked() -> void:
-	upgrade_ui.rotation = TAU - global_rotation
-	upgrade_ui.open()
+	if not is_placing:
+		upgrade_ui.rotation = TAU - global_rotation
+		upgrade_ui.open()
 
 var oilCost = 0
 var metalCost = 0
