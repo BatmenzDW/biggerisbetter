@@ -45,7 +45,11 @@ func _input(event: InputEvent) -> void:
 				else:
 					building = buildings_pre[buildingIndex].instantiate()
 				add_child(building)
-	if (event.is_action_pressed("next_building") or event.is_action_pressed("previous_building")) and building is not LandingPad:
+	if (event.is_action_pressed("next_building") or event.is_action_pressed("previous_building")):
+		if building == null:
+			return
+		if building is LandingPad:
+			return
 		if event.is_action_pressed("next_building"):
 			buildingIndex += 1
 			if buildingIndex >= len(buildings_pre):
