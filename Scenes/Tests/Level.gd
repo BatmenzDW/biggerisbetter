@@ -24,6 +24,8 @@ var building: Building
 @onready var asteroid_spawner: Node2D = $"Asteroid Spawner"
 #@onready var asteroid_spawner_2: Node2D = $"Asteroid Spawner2"
 
+@onready var speed_label: Label = $"CanvasLayer/Speed Label"
+
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("start_building"):
 		if building == null:
@@ -94,3 +96,17 @@ func _clock()->void:
 
 func _on_rocket_maxed()->void:
 	Game.win(self)
+
+
+func _on_slow_pressed() -> void:
+	Engine.time_scale = 0.5
+	speed_label.text = "0.5x Speed"
+
+
+func _on_normal_pressed() -> void:
+	Engine.time_scale = 1
+	speed_label.text = "1x Speed"
+
+func _on_fast_pressed() -> void:
+	Engine.time_scale = 2
+	speed_label.text = "2x Speed"
