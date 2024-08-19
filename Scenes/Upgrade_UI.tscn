@@ -2,6 +2,10 @@
 
 [ext_resource type="Script" path="res://Scripts/UI/Upgrade_UI_Old.gd" id="1_dive6"]
 [ext_resource type="PackedScene" uid="uid://bvxbv1dvp2dto" path="res://Scenes/Prefabs/upgrade.tscn" id="2_pqwi4"]
+<<<<<<< Updated upstream
+=======
+[ext_resource type="AudioStream" uid="uid://c7d7kd6pw4wm6" path="res://Audio/Money.mp3" id="3_p65cv"]
+>>>>>>> Stashed changes
 
 [node name="Upgrade_UI" type="Control"]
 layout_mode = 3
@@ -112,6 +116,12 @@ metal = 20000
 funds = 50000
 upgrade_id = "20resist"
 
+<<<<<<< Updated upstream
+=======
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_p65cv")
+
+>>>>>>> Stashed changes
 [connection signal="item_selected" from="Panel/ItemList" to="." method="_on_item_list_item_selected"]
 [connection signal="pressed" from="Panel/Buy" to="." method="_on_buy_pressed"]
 [connection signal="pressed" from="Panel/Close" to="." method="_on_close_pressed"]
