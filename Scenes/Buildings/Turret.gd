@@ -6,6 +6,7 @@ class_name Turret
 @onready var emitter: Node2D = $LaserEmitter
 
 const LASER = preload("res://Scenes/Prefabs/laser.tscn")
+@onready var audio_stream_player_2d: AudioStreamPlayer2D = $AudioStreamPlayer2D
 
 var laser: Line2D
 
@@ -30,6 +31,7 @@ func _clock() -> void:
 	
 	if chosen_target != null:
 		_fire_at(chosen_target)
+		audio_stream_player_2d.play()
 
 var laser_on_time := 0.0
 

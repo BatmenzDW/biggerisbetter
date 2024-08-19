@@ -2,6 +2,7 @@ extends Control
 
 var planet
 # Called when the node enters the scene tree for the first time.
+@onready var audio_stream_player: AudioStreamPlayer = $AudioStreamPlayer
 
 var upgrades = []
 var currentitem = -1
@@ -71,13 +72,14 @@ func buyitem(i):
 			Game._metal >= item.metal &&
 			Game._crystal >= item.crystal &&
 			Game._oil >= item.oil
-		):
+		):	
 			Game.spend_funds(item.funds)
 			Game.spend_metal(item.metal)
 			Game.spend_crystal(item.crystal)
 			Game.spend_oil(item.oil)
-			
+			audio_stream_player.play()
 			handleupgrade(item.upgrade_id)
+	
 
 func _ready():
 	# Game._MONEYCHEATHECKYEAH()
@@ -87,12 +89,15 @@ func _ready():
 func open():
 	updatelist()
 	visible = true;
+	Game.toggle_pause()
 
 func close():
 	visible = false
 	
+	
 func _on_close_pressed():
 	visible = false;
+	Game.toggle_pause()
 	
 func nplanet(body):
 	planet = body
@@ -109,4 +114,4 @@ func _on_item_list_item_selected(index):
 
 func _on_buy_pressed():
 	buyitem(currentitem)
-	pass # Replace with function body.
+	

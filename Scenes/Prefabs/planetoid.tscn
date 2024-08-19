@@ -1,9 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://qtmskbdl8k7o"]
+[gd_scene load_steps=8 format=3 uid="uid://qtmskbdl8k7o"]
 
 [ext_resource type="Script" path="res://Scripts/Simulation/orbitscript.gd" id="1_r6tb5"]
 [ext_resource type="PackedScene" uid="uid://cad2dree6f1ur" path="res://Scenes/Prefabs/planetscroll.tscn" id="2_7nd82"]
 [ext_resource type="Script" path="res://Scripts/UI/planettooltip.gd" id="2_52vw1"]
 [ext_resource type="Script" path="res://Scripts/Graphics/PlanetTrail.gd" id="4_a4obi"]
+[ext_resource type="Texture2D" uid="uid://5psx4hpsej3o" path="res://Assets/Art/Planets/terra1.png" id="5_sjet3"]
+[ext_resource type="AudioStream" uid="uid://b0bw41067vnua" path="res://Audio/Asteroid_Hit.mp3" id="6_ouohm"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_8x8f8"]
 radius = 64.4981
@@ -21,12 +23,16 @@ script = ExtResource("2_52vw1")
 script = ExtResource("4_a4obi")
 
 [node name="PlanetScroll" parent="." instance=ExtResource("2_7nd82")]
+planettexture = ExtResource("5_sjet3")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_8x8f8")
 
 [node name="Population Growth" type="Timer" parent="."]
 wait_time = 10.0
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("6_ouohm")
 
 [connection signal="mouse_entered" from="." to="ToolTipHandler" method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="." to="ToolTipHandler" method="_on_mouse_exited"]

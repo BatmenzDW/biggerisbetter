@@ -63,8 +63,8 @@ func _input(event: InputEvent) -> void:
 
 func _ready() -> void:
 	# testing
-	asteroid_spawner.process_mode = Node.PROCESS_MODE_DISABLED
-	asteroid_spawner_2.process_mode = Node.PROCESS_MODE_DISABLED
+	#asteroid_spawner.process_mode = Node.PROCESS_MODE_DISABLED
+	#asteroid_spawner_2.process_mode = Node.PROCESS_MODE_DISABLED
 	
 	SignalBus.building_selected_gui.connect(_select_building)
 	SignalBus.max_rocket_built.connect(_on_rocket_maxed)
@@ -76,7 +76,7 @@ func _ready() -> void:
 	Game.set_funds(startingFunds)
 	
 	# testing
-	Game._MONEYCHEATHECKYEAH()
+	#Game._MONEYCHEATHECKYEAH()
 
 func _select_building(index: int):
 	#print("selected: " + str(index))

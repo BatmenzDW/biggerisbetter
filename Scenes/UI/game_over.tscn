@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://diu876842o76p"]
+[gd_scene load_steps=7 format=3 uid="uid://diu876842o76p"]
 
 [ext_resource type="Script" path="res://Scripts/UI/GameOver.gd" id="1_5jwxx"]
 [ext_resource type="Texture2D" uid="uid://2oxgyejolgbb" path="res://Assets/Art/spacebg.png" id="1_8lf3b"]
 [ext_resource type="Texture2D" uid="uid://c8p0j0qp2m51k" path="res://Assets/programmer-art/Button.png" id="3_0srpk"]
+[ext_resource type="AudioStream" uid="uid://dud8hfbic32bi" path="res://Audio/Game Over Sound.mp3" id="4_cxkgx"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_lnthe"]
 blend_mode = 2
@@ -80,6 +81,10 @@ text = "Quit"
 icon = ExtResource("3_0srpk")
 flat = true
 icon_alignment = 1
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_cxkgx")
+volume_db = -10.0
 
 [connection signal="pressed" from="VBoxContainer/CenterContainer/MarginContainer2/HBoxContainer/MarginContainer/Button" to="." method="_on_restart_pressed"]
 [connection signal="pressed" from="VBoxContainer/CenterContainer/MarginContainer2/HBoxContainer/MarginContainer2/Button" to="." method="_on_quit_pressed"]

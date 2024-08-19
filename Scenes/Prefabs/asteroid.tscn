@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://d3772lhv6etts"]
+[gd_scene load_steps=6 format=3 uid="uid://d3772lhv6etts"]
 
 [ext_resource type="Script" path="res://Scripts/Simulation/asteroid.gd" id="1_eivx4"]
 [ext_resource type="Texture2D" uid="uid://bikaeofw87o54" path="res://Assets/vinny-approval-awaiting/asteroid.png" id="1_gqwtf"]
+[ext_resource type="AudioStream" uid="uid://cvplv2wo7xkmn" path="res://Audio/Asteroidtravelsound.mp3" id="3_rnwgh"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_vjmfk"]
 radius = 11.0454
@@ -33,6 +34,10 @@ collision_mask = 2
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 scale = Vector2(0.5, 0.5)
 shape = SubResource("CircleShape2D_128jm")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_rnwgh")
+volume_db = 5.0
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

@@ -5,6 +5,7 @@ extends RigidBody2D
 @onready var timer: Timer = $Timer
 
 @export var health := 10
+@onready var audio_stream_player_2d: AudioStreamPlayer2D = $AudioStreamPlayer2D
 
 @onready var col = $CollisionShape2D
 @onready var spr = $Asteroid
@@ -19,7 +20,7 @@ func _ready():
 	#dir  =  randi_range(1,10) # chosing a random direction
 	#print(dir)
 	timer.start()
-	
+	audio_stream_player_2d.play()
 	#if (global_pos!=null): #stopping existing asteroids fromm resetting
 	#	_set_position(global_pos.x, global_pos.y)
 
@@ -30,6 +31,7 @@ func take_damage(amount):
 	health -= amount
 	print("took " + str(amount) + " damage")
 	if health <= 0:
+		audio_stream_player_2d.stop()
 		destroy()
 
 func destroy():
