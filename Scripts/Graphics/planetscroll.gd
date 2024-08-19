@@ -2,10 +2,16 @@ extends Node2D
 
 class_name PlanetScroll
 
-@export var planettexture : Texture2D = preload("res://Assets/Art/Planets/earth-programmer-art.png")
-@export var planettexture1 : Texture2D = preload("res://Assets/Art/Planets/terra2.png")
-@export var planettexture2 : Texture2D = preload("res://Assets/Art/Planets/terra3.png")
-@export var planettexture3 : Texture2D = preload("res://Assets/Art/Planets/terra4.png")
+@export var ptext : Texture2D = preload("res://Assets/Art/Planets/earth-programmer-art.png")
+@export var ptext1 : Texture2D = preload("res://Assets/Art/Planets/terra2.png")
+@export var ptext2 : Texture2D = preload("res://Assets/Art/Planets/terra3.png")
+@export var ptext3 : Texture2D = preload("res://Assets/Art/Planets/terra4.png")
+@export var ptext4 : Texture2D = preload("res://Assets/Art/Planets/terra5.png")
+@export var ptext5 : Texture2D = preload("res://Assets/Art/Planets/terra6.png")
+@export var ptext6 : Texture2D = preload("res://Assets/Art/Planets/terra7.png")
+@export var ptext7 : Texture2D = preload("res://Assets/Art/Planets/terra8.png")
+@export var ptext8 : Texture2D = preload("res://Assets/Art/Planets/terra9.png")
+@export var ptext9 : Texture2D = preload("res://Assets/Art/Planets/terra10.png")
 
 
 @export var rotatespeed = 0.2 # How fast to rotate the planet?
@@ -20,7 +26,7 @@ var scroll := 0.0				 # Scroll offset (From 0-1)
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	var skins = [planettexture,planettexture1, planettexture2,planettexture3]
+	var skins = [ptext,ptext1, ptext2,ptext3,ptext4,ptext5,ptext6,ptext7,ptext8,ptext9]
 	var skinpick = randi()% skins.size()
 
 	spr1.texture = skins[skinpick]
