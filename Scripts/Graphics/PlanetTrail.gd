@@ -12,6 +12,7 @@ var total_delta := 0.0
 func _physics_process(delta: float) -> void:
 	total_delta += delta
 	if total_delta < MIN_DELTA:
+		points = curve.get_baked_points()
 		return
 	
 	var scalemod = Vector2(1 / get_parent().scale.x, 1 / get_parent().scale.y)

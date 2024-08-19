@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://bcqa6janq7yg6"]
+[gd_scene load_steps=16 format=3 uid="uid://bcqa6janq7yg6"]
 
 [ext_resource type="Script" path="res://Scenes/Tests/Level.gd" id="1_hw2ry"]
 [ext_resource type="PackedScene" uid="uid://hei26womwwbo" path="res://Scenes/spacebg.tscn" id="2_tlof5"]
@@ -11,7 +11,10 @@
 [ext_resource type="PackedScene" uid="uid://bctacysimcl0t" path="res://Scenes/UI/BuildingUI.tscn" id="8_4hu5r"]
 [ext_resource type="Texture2D" uid="uid://di4el63i72m0i" path="res://Assets/programmer-art/Speed_Icon1.png" id="10_lbtiy"]
 [ext_resource type="Texture2D" uid="uid://b6l3w0d0xof50" path="res://Assets/programmer-art/Speed_Icon2.png" id="11_q8hro"]
+[ext_resource type="Texture2D" uid="uid://lo3gw6via6lh" path="res://Assets/programmer-art/Speed_Icon1_pressed.png" id="11_yoi4a"]
 [ext_resource type="Texture2D" uid="uid://b56hdrw4fcvxe" path="res://Assets/programmer-art/Speed_Icon3.png" id="12_0hcdi"]
+[ext_resource type="Texture2D" uid="uid://c1fxwioql3a5y" path="res://Assets/programmer-art/Speed_Icon2_pressed.png" id="13_5vshh"]
+[ext_resource type="Texture2D" uid="uid://xvjngbpc6w5u" path="res://Assets/programmer-art/Speed_Icon3_pressed.png" id="15_ed5te"]
 
 [node name="SolarSystem" type="Node2D"]
 process_mode = 1
@@ -78,16 +81,19 @@ layout_mode = 2
 texture_filter = 3
 layout_mode = 2
 texture_normal = ExtResource("10_lbtiy")
+texture_pressed = ExtResource("11_yoi4a")
 
 [node name="Normal" type="TextureButton" parent="CanvasLayer/Panel/MarginContainer/HBoxContainer"]
 texture_filter = 3
 layout_mode = 2
 texture_normal = ExtResource("11_q8hro")
+texture_pressed = ExtResource("13_5vshh")
 
 [node name="Fast" type="TextureButton" parent="CanvasLayer/Panel/MarginContainer/HBoxContainer"]
 texture_filter = 3
 layout_mode = 2
 texture_normal = ExtResource("12_0hcdi")
+texture_pressed = ExtResource("15_ed5te")
 
 [connection signal="pressed" from="CanvasLayer/Panel/MarginContainer/HBoxContainer/Slow" to="." method="_on_slow_pressed"]
 [connection signal="pressed" from="CanvasLayer/Panel/MarginContainer/HBoxContainer/Normal" to="." method="_on_normal_pressed"]
