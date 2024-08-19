@@ -1,0 +1,33 @@
+[gd_resource type="Resource" script_class="BuildingUpgradeCostResource" load_steps=5 format=3 uid="uid://cue2c830lpiyr"]
+
+[ext_resource type="Texture2D" uid="uid://bn8l2xv67oqdc" path="res://Assets/programmer-art/MineB_lvl3.png" id="1_qvyix"]
+[ext_resource type="Script" path="res://Resources/production/ProdCostResource.gd" id="2_no2gp"]
+[ext_resource type="Script" path="res://Resources/upgrades/BuildingUpgradeResource.gd" id="3_3lguk"]
+
+[sub_resource type="Resource" id="Resource_2r37d"]
+script = ExtResource("2_no2gp")
+oil = 10
+metal = 10
+crystal = 5
+funds = 0
+minPopulation = 0
+oil_output = 0
+metal_output = 0
+crystal_output = 50
+funds_output = 0
+
+[resource]
+script = ExtResource("3_3lguk")
+name = "Crystal Mine Level 3"
+level = 3
+description = ""
+new_texture = ExtResource("1_qvyix")
+oil = 3500
+metal = 3500
+crystal = 0
+funds = 3500
+prodCost = SubResource("Resource_2r37d")
+damage = 0
+load_percent = 0.0
+load_speed = 0.0
+max_load = 0.0

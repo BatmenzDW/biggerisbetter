@@ -1,8 +1,12 @@
-[gd_scene load_steps=4 format=3 uid="uid://fvxxdlniy6v7"]
+[gd_scene load_steps=8 format=3 uid="uid://fvxxdlniy6v7"]
 
 [ext_resource type="PackedScene" uid="uid://bacc7dxifa5lk" path="res://Scenes/Buildings/building.tscn" id="1_1pn24"]
 [ext_resource type="Script" path="res://Scenes/Buildings/Rocket.gd" id="2_vbbr6"]
+[ext_resource type="Script" path="res://Resources/upgrades/BuildingUpgradeResource.gd" id="3_ggbwb"]
 [ext_resource type="Texture2D" uid="uid://cyfe645u8ox2q" path="res://Assets/programmer-art/Rocket.png" id="3_ku0rv"]
+[ext_resource type="Resource" uid="uid://bufjtps6bsr0e" path="res://Resources/upgrades/Rocket/rocket_upgrade_level2.tres" id="4_3vmqy"]
+[ext_resource type="Resource" uid="uid://cbs73jtvegehk" path="res://Resources/upgrades/Rocket/rocket_upgrade_level3.tres" id="5_c45x3"]
+[ext_resource type="Resource" uid="uid://b6o0kn0w1js3d" path="res://Resources/upgrades/Rocket/rocket_upgrade_level4.tres" id="6_l8wq7"]
 
 [node name="Building" instance=ExtResource("1_1pn24")]
 script = ExtResource("2_vbbr6")
@@ -10,6 +14,7 @@ load_percent = 0.1
 load_speed = 0.1
 max_load = 100.0
 buildingName = "Rocket"
+upgrades = Array[ExtResource("3_ggbwb")]([ExtResource("4_3vmqy"), ExtResource("5_c45x3"), ExtResource("6_l8wq7")])
 buildCost = 1000
 productionCost = null
 

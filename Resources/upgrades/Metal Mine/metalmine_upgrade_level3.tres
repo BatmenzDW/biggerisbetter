@@ -18,7 +18,7 @@ funds_output = 0
 
 [resource]
 script = ExtResource("3_arinq")
-name = "Mine Level 3"
+name = "Metal Mine Level 3"
 level = 3
 description = ""
 new_texture = ExtResource("1_5vdfy")

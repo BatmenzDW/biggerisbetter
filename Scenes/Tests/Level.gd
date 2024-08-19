@@ -45,7 +45,11 @@ func _input(event: InputEvent) -> void:
 				else:
 					building = buildings_pre[buildingIndex].instantiate()
 				add_child(building)
-	if (event.is_action_pressed("next_building") or event.is_action_pressed("previous_building")) and building is not LandingPad:
+	if (event.is_action_pressed("next_building") or event.is_action_pressed("previous_building")):
+		if building == null:
+			return
+		if building is LandingPad:
+			return
 		if event.is_action_pressed("next_building"):
 			buildingIndex += 1
 			if buildingIndex >= len(buildings_pre):
@@ -63,6 +67,7 @@ func _ready() -> void:
 	#asteroid_spawner_2.process_mode = Node.PROCESS_MODE_DISABLED
 	
 	SignalBus.building_selected_gui.connect(_select_building)
+	SignalBus.max_rocket_built.connect(_on_rocket_maxed)
 	Game.clock.connect(_clock)
 	
 	Game.set_oil(startingOil)
@@ -86,3 +91,6 @@ func _clock()->void:
 	var population = PlanetManager.get_total_population()
 	if population <= 0:
 		Game.game_over(self)
+
+func _on_rocket_maxed()->void:
+	Game.win(self)
