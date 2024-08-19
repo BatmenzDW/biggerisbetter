@@ -9,6 +9,8 @@ func _process(delta: float) -> void:
 	var scalemod = Vector2(1 / get_parent().scale.x, 1 / get_parent().scale.y)
 	var radius = get_parent().orbitalRadius
 	
+	if (get_parent() as Orbitable).orbiting == null:
+		return
 	var offset = get_parent().position.direction_to(get_parent().orbiting.position) * radius
 	
 	position = offset * scalemod
