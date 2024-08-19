@@ -40,6 +40,7 @@ ui = NodePath("../UI")
 process_mode = 3
 offset_right = 1152.0
 offset_bottom = 648.0
+mouse_filter = 2
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 

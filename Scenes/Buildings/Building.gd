@@ -17,7 +17,7 @@ class_name Building
 var orbiting : Orbitable # Planet that this is orbiting. None for static
 var nearestOrbit : Orbitable
 
-@export var oribalPeriod := -0.1 # How fast it orbits
+@export var oribalPeriod := -0.25 # How fast it orbits
 
 var orbitalRadius : float = 0.0 # How far from planet to orbit
 

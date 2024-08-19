@@ -34,6 +34,8 @@ var buildings : Array[Building] = []
 
 var damage = 10
 
+const EPSILON = 0.001
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	if get_parent().has_node("Asteroid Field"):
@@ -71,6 +73,10 @@ func _physics_process(delta: float) -> void:
 			if x is Asteroid:
 				# Get the force using the gravity formula
 				var f = (gravity * mass * x.earthmass) / x.position.distance_squared_to(position) * Game.MASS_SCALE
+				
+				if f < EPSILON:
+					x.destroy()
+					continue
 				
 				# Apply force in the direction of the planet
 				x.apply_central_force(f * x.position.direction_to(position))
