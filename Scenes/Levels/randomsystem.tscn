@@ -1,6 +1,5 @@
 [gd_scene load_steps=18 format=3 uid="uid://bcqa6janq7yg6"]
 
-
 [ext_resource type="Script" path="res://Scenes/Tests/Level.gd" id="1_hw2ry"]
 [ext_resource type="PackedScene" uid="uid://hei26womwwbo" path="res://Scenes/spacebg.tscn" id="2_tlof5"]
 [ext_resource type="Script" path="res://Scripts/Graphics/camera.gd" id="3_tmx8u"]
@@ -63,10 +62,6 @@ script = ExtResource("7_vh4m5")
 
 [node name="BuildingUI" parent="CanvasLayer" instance=ExtResource("8_4hu5r")]
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("10_aocfj")
-autoplay = true
-
 [node name="Panel" type="Panel" parent="CanvasLayer"]
 offset_left = 34.0
 offset_top = 557.0
@@ -110,6 +105,10 @@ offset_right = 105.0
 offset_bottom = 555.0
 text = "1x Speed"
 label_settings = SubResource("LabelSettings_iaimi")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("10_aocfj")
+autoplay = true
 
 [connection signal="pressed" from="CanvasLayer/Panel/MarginContainer/HBoxContainer/Slow" to="." method="_on_slow_pressed"]
 [connection signal="pressed" from="CanvasLayer/Panel/MarginContainer/HBoxContainer/Normal" to="." method="_on_normal_pressed"]
