@@ -161,3 +161,7 @@ func _MONEYCHEATHECKYEAH():
 
 func toggle_pause():
 	get_tree().paused = not get_tree().paused
+
+
+func get_physics_ratio():
+	return 60 / Engine.get_frames_per_second()

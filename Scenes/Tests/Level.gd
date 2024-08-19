@@ -94,3 +94,15 @@ func _clock()->void:
 
 func _on_rocket_maxed()->void:
 	Game.win(self)
+
+
+func _on_slow_pressed() -> void:
+	Engine.time_scale = 0.5
+
+
+func _on_normal_pressed() -> void:
+	Engine.time_scale = 1
+
+
+func _on_fast_pressed() -> void:
+	Engine.time_scale = 2
