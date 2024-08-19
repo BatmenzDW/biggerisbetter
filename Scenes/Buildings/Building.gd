@@ -79,6 +79,12 @@ func place() -> bool:
 		print("Can't build due to overlap.")
 		return false
 
+func remove(refund:bool=true) -> void:
+	if refund:
+		Game.recieve_funds(buildCost/2)
+	orbiting.remove_child(self)
+	queue_free()
+
 func _ready() -> void:
 	tooltip.tooltip_text = _make_tooltip()
 	#print(tooltip.tooltip_text)
@@ -122,7 +128,8 @@ func _make_tooltip() -> String:
 	return tt.trim_suffix("\n")
 
 func _clock() -> void:
-	Game.produce_resources(productionCost, 0)
+	if orbiting:
+		Game.produce_resources(productionCost, orbiting.planetPopulation)
 
 func _check_placement() -> bool:
 	if len(get_overlapping_areas()) == 0 and nearestOrbit != null:

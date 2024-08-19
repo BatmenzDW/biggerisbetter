@@ -44,7 +44,7 @@ func _process(_delta):
 		if(planet.planetPopulation < 0):
 			pl.get_node("Population").text = "Inhabitable"
 		else:
-			pl.get_node("Population").text = "Population: " + str(planet.planetPopulation)
+			pl.get_node("Population").text = "Population: " + str(int(planet.planetPopulation))
 		
 		updatetooltip = true
 		
@@ -58,7 +58,7 @@ func _process(_delta):
 		if(planet.planetPopulation < 0):
 			pl.get_node("Population").text = "Inhabitable"
 		else:
-			pl.get_node("Population").text = "Population: " + str(planet.planetPopulation)
+			pl.get_node("Population").text = "Population: " + str(int(planet.planetPopulation))
 		
 	
 	if mouseover && Input.is_action_just_pressed("mouse_select"):
