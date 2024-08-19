@@ -28,6 +28,7 @@ startingCrystal = 500
 
 [node name="Camera2D" type="Camera2D" parent="."]
 process_mode = 3
+editor_draw_screen = false
 script = ExtResource("3_tmx8u")
 
 [node name="SolarSystemGenerator" type="Node" parent="." node_paths=PackedStringArray("star", "solar_system")]
