@@ -9,11 +9,11 @@ class_name Orbitable
 const UPGRADE_UI = preload("res://Scenes/Upgrade_UI.tscn")
 @export var planetName := "Planet X"
 @export var planetHealth := 100
-@export var planetPopulation := 100.0 # -1 for inhabitable
+@export var planetPopulation := 100 # -1 for inhabitable
 
-@export var orbiting : Orbitable # Planet that this planet is orbiting. None for static
+@export var orbiting : Node2D # Planet or star that this planet is orbiting. None for static
 
-@export var oribalPeriod := 0.1 # How fast planet orbits
+@export var orbitalPeriod := 0.1 # How fast planet orbits
 
 @export var orbitalRadius := 500 # How far from planet to orbit
 
@@ -25,7 +25,7 @@ const UPGRADE_UI = preload("res://Scenes/Upgrade_UI.tscn")
 
 var growth = 1 #for upgrade to increase population growth
 
-var gravity := 10000000.0 # Needs to be pretty big
+var gravity := 150000.0 # Needs to be pretty big
 
 var asteroidfield : Node2D # Reference to asteroid field
 
@@ -35,11 +35,13 @@ var damage = 25
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	if get_parent().has_node("Asteroid Field"):
+		asteroidfield = get_parent().get_node("Asteroid Field")
+	elif get_parent().get_parent().has_node("Asteroid Field"):
+		asteroidfield = get_parent().get_parent().get_node("Asteroid Field")
+		
 	PlanetManager.load_planet(self)
 	# Get reference to asteroid field if it exists
-	if has_node("../Asteroid Field"):
-		asteroidfield = get_node("../Asteroid Field")
-		print("yippee")
 	population_growth_timer.start()
 
 
@@ -48,7 +50,7 @@ func _process(delta) -> void:
 	
 	# Handle orbit
 	if orbiting: 
-		orbitDelta += delta * oribalPeriod
+		orbitDelta += delta * orbitalPeriod
 		orbitDelta = wrapf(orbitDelta, 0, 1)
 		if(orbiting == null):#if centre planet dies before moon, mooon also dies
 			$ToolTipHandler.destroy()
