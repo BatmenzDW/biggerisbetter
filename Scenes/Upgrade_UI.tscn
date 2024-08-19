@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://dph88mrjgebos"]
+[gd_scene load_steps=4 format=3 uid="uid://dph88mrjgebos"]
 
 [ext_resource type="Script" path="res://Scripts/UI/Upgrade_UI_Old.gd" id="1_dive6"]
 [ext_resource type="PackedScene" uid="uid://bvxbv1dvp2dto" path="res://Scenes/Prefabs/upgrade.tscn" id="2_pqwi4"]
+[ext_resource type="AudioStream" uid="uid://d2jm3d6v0x2yg" path="res://Audio/planet - Money 2.mp3" id="3_6ey1u"]
 
 [node name="Upgrade_UI" type="Control"]
 layout_mode = 3
@@ -11,7 +12,7 @@ script = ExtResource("1_dive6")
 [node name="Panel" type="Panel" parent="."]
 layout_mode = 0
 offset_right = 576.0
-offset_bottom = 313.0
+offset_bottom = 312.0
 
 [node name="Upgrades" type="Label" parent="Panel"]
 layout_mode = 1
@@ -71,12 +72,20 @@ horizontal_alignment = 1
 metadata/_edit_use_anchors_ = true
 
 [node name="Buy" type="Button" parent="Panel"]
-layout_mode = 0
-anchor_left = 0.566572
-anchor_top = 0.766773
-anchor_right = 0.929178
-anchor_bottom = 0.920128
-text = "Buy"
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.86119
+anchor_top = 0.0255591
+anchor_right = 0.974504
+anchor_bottom = 0.153355
+offset_left = -169.7
+offset_top = 231.259
+offset_right = -26.1083
+offset_bottom = 239.233
+grow_horizontal = 2
+grow_vertical = 0
+text = "Buy
+"
 metadata/_edit_use_anchors_ = true
 
 [node name="Close" type="Button" parent="Panel"]
@@ -111,6 +120,9 @@ oil = 10000
 metal = 20000
 funds = 50000
 upgrade_id = "20resist"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_6ey1u")
 
 [connection signal="item_selected" from="Panel/ItemList" to="." method="_on_item_list_item_selected"]
 [connection signal="pressed" from="Panel/Buy" to="." method="_on_buy_pressed"]
