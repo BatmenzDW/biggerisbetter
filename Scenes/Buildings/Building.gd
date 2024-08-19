@@ -82,6 +82,12 @@ func place() -> bool:
 		print("Can't build due to overlap.")
 		return false
 
+func remove(refund:bool=true) -> void:
+	if refund:
+		Game.recieve_funds(buildCost/2)
+	orbiting.remove_child(self)
+	queue_free()
+
 func _ready() -> void:
 	tooltip.tooltip_text = _make_tooltip()
 	#print(tooltip.tooltip_text)
@@ -100,7 +106,8 @@ func _ready() -> void:
 		_check_placement()
 
 func _make_tooltip() -> String:
-	var tt = "Production Cost: \n"
+	var tt = buildingName + str(buildingLevel) + "\n\n" +\
+		"Production Cost: \n"
 	if productionCost.oil > 0:
 		tt += "    Oil: " + str(productionCost.oil) + "\n"
 	if productionCost.metal > 0:
@@ -127,7 +134,8 @@ func _make_tooltip() -> String:
 	return tt.trim_suffix("\n")
 
 func _clock() -> void:
-	Game.produce_resources(productionCost, 0)
+	if orbiting:
+		Game.produce_resources(productionCost, orbiting.planetPopulation)
 
 func _check_placement() -> bool:
 	if len(get_overlapping_areas()) == 0 and nearestOrbit != null:
@@ -173,3 +181,13 @@ func get_nearest_placement(point: Vector2):
 
 func get_size():
 	return collider.shape.size
+
+func upgrade(data:BuildingUpgradeCostResource) -> bool:
+	if not Game.purchase_upgrade(data):
+		return false
+	
+	buildingLevel = data.level
+	sprite.texture = data.new_texture
+	
+	
+	return true

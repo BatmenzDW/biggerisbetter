@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://bctacysimcl0t"]
+[gd_scene load_steps=8 format=3 uid="uid://bctacysimcl0t"]
 
 [ext_resource type="Texture2D" uid="uid://csndkg5t82hag" path="res://Assets/programmer-art/Drill.png" id="1_e53a0"]
 [ext_resource type="Script" path="res://Scenes/UI/BuildingUi.gd" id="1_o05qb"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://beng3g15enpe8" path="res://Assets/programmer-art/MineB.png" id="4_skqya"]
 [ext_resource type="Texture2D" uid="uid://bt536cqtjdaho" path="res://Assets/programmer-art/factory.png" id="5_gbla3"]
 [ext_resource type="Texture2D" uid="uid://b3wl1bbihkm6h" path="res://Assets/programmer-art/turret.png" id="6_calyb"]
+[ext_resource type="Texture2D" uid="uid://cyfe645u8ox2q" path="res://Assets/programmer-art/Rocket.png" id="7_clrac"]
 
 [node name="Control" type="Control"]
 layout_mode = 3
@@ -40,7 +41,7 @@ layout_mode = 2
 size_flags_horizontal = 3
 allow_search = false
 text_overrun_behavior = 4
-item_count = 5
+item_count = 6
 same_column_width = true
 icon_mode = 0
 fixed_icon_size = Vector2i(64, 64)
@@ -54,5 +55,7 @@ item_3/text = "Factory ($750)"
 item_3/icon = ExtResource("5_gbla3")
 item_4/text = "Turret ($500)"
 item_4/icon = ExtResource("6_calyb")
+item_5/text = "Rocket ($1000)"
+item_5/icon = ExtResource("7_clrac")
 
 [connection signal="item_selected" from="MarginContainer/HBoxContainer/ItemList" to="." method="_on_item_list_item_selected"]

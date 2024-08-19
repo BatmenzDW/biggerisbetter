@@ -1,7 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://dfevoa8ogs4lr"]
+[gd_scene load_steps=3 format=3 uid="uid://dph88mrjgebos"]
 
 [ext_resource type="Script" path="res://Scripts/UI/Upgrade_UI_Old.gd" id="1_dive6"]
-[ext_resource type="PackedScene" uid="uid://jj4kmr5i75l0" path="res://Scenes/Prefabs/upgrade.tscn" id="2_pqwi4"]
+[ext_resource type="PackedScene" uid="uid://bvxbv1dvp2dto" path="res://Scenes/Prefabs/upgrade.tscn" id="2_pqwi4"]
 
 [node name="Upgrade_UI" type="Control"]
 layout_mode = 3
