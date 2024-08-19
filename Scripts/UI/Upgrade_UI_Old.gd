@@ -63,6 +63,7 @@ func showitem(i):
 			$Panel/Buy.disabled = false
 		
 	$Panel/Cost.text = text
+	
 
 func buyitem(i):
 	if len(upgrades) >= i:
@@ -85,7 +86,11 @@ func _ready():
 	# Game._MONEYCHEATHECKYEAH()
 	updatelist()
 	visible = false;
-
+func _process(delta: float) -> void:
+	if(planet !=null):
+		$Panel/PlanetInfo.text = "Planet Health :\n\n" 
+		$Panel/PlanetInfo.text += "Planet Polulation = " + str(planet.planetPopulation)
+		$Panel/Healthbar.value = planet.planetHealth
 func open():
 	updatelist()
 	visible = true;

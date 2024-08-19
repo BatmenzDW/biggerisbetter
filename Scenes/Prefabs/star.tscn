@@ -3,10 +3,10 @@
 [ext_resource type="Script" path="res://Scripts/Simulation/star.gd" id="1_k7ec0"]
 [ext_resource type="Script" path="res://Scripts/UI/startooltipgd.gd" id="2_er88m"]
 [ext_resource type="PackedScene" uid="uid://cad2dree6f1ur" path="res://Scenes/Prefabs/planetscroll.tscn" id="3_q40oa"]
-[ext_resource type="Texture2D" uid="uid://bcaxg04ouc1cf" path="res://Assets/vinny-approval-awaiting/ballmask.png" id="4_dfnkk"]
+[ext_resource type="Texture2D" uid="uid://c8polufdykq3a" path="res://Assets/vinny-approval-awaiting/Star2.png" id="4_wtf2q"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_8x8f8"]
-radius = 64.4981
+radius = 64.0
 
 [node name="Star" type="StaticBody2D"]
 collision_layer = 2
@@ -24,7 +24,7 @@ visible = false
 shape = SubResource("CircleShape2D_8x8f8")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("4_dfnkk")
+texture = ExtResource("4_wtf2q")
 
 [connection signal="mouse_entered" from="." to="ToolTipHandler" method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="." to="ToolTipHandler" method="_on_mouse_exited"]

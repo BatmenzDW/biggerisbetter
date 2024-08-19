@@ -32,7 +32,7 @@ var asteroidfield : Node2D # Reference to asteroid field
 
 var buildings : Array[Building] = []
 
-var damage = 10
+var damage = 15
 
 const EPSILON = 0.001
 
