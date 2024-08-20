@@ -38,6 +38,7 @@ layout_mode = 2
 alignment = 1
 
 [node name="ItemList" type="ItemList" parent="MarginContainer/HBoxContainer"]
+texture_filter = 1
 layout_mode = 2
 size_flags_horizontal = 3
 allow_search = false

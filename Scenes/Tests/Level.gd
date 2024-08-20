@@ -26,6 +26,7 @@ var building: Building
 #@onready var asteroid_spawner_2: Node2D = $"Asteroid Spawner2"
 
 @onready var speed_label: Label = $"CanvasLayer/Speed Label"
+@onready var info_panel: Control = $CanvasLayer/InfoPanel
 
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("start_building"):
@@ -63,6 +64,17 @@ func _input(event: InputEvent) -> void:
 				buildingIndex = len(buildings_pre) - 1
 		SignalBus.building_selected_input.emit(buildingIndex)
 		_select_building(buildingIndex)
+	if event.is_action_pressed("info"):
+		info_panel.show()
+		info_pause = not get_tree().paused
+		if info_pause:
+			Game.toggle_pause(true)
+	elif event.is_action_released("info"):
+		info_panel.hide()
+		if info_pause:
+			Game.toggle_pause(false)
+
+var info_pause = false
 
 func _ready() -> void:
 	# testing
