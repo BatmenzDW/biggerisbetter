@@ -65,7 +65,7 @@ func generate_system():
 		newplan.orbitalRadius = (i + 1) * planetdistance
 		
 		#newplan.orbitalPeriod = 0.1 * (planetct/(i+1))
-		newplan.orbitalPeriod = 0.025 * (planetct/(i+1))
+		newplan.orbitalPeriod = 0.01 * (planetct/(i+1))
 		
 		solar_system.add_child(newplan)
 		

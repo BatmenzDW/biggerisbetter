@@ -10,9 +10,12 @@ config_version=5
 
 [application]
 
-config/name="BiggerIsBetter"
+config/name="Space Forge"
+config/version="v0.0.0.1"
 run/main_scene="res://Scenes/UI/start_menu.tscn"
 config/features=PackedStringArray("4.3", "GL Compatibility")
+boot_splash/bg_color=Color(0.128389, 0.0131979, 0.170915, 1)
+boot_splash/image="res://Assets/SpaceForgeLogo.png"
 config/icon="res://icon.svg"
 
 [autoload]
