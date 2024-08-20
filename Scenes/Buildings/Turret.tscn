@@ -30,7 +30,7 @@ collision_mask = 8
 polygon = PackedVector2Array(-25, 0, -750, 375, -750, -375)
 
 [node name="FOVVisual" type="Polygon2D" parent="." index="3"]
-color = Color(1, 0, 0, 0.0470588)
+color = Color(1, 0, 0, 0.235294)
 polygon = PackedVector2Array(-25, 0, -750, 375, -750, -375)
 
 [node name="LaserEmitter" type="Node2D" parent="." index="4"]
