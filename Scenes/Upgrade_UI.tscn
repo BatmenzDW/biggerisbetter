@@ -155,6 +155,7 @@ upgrade_id = "20resist"
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("3_ls66l")
 
+[connection signal="gui_input" from="Panel" to="." method="_on_panel_gui_input"]
 [connection signal="item_selected" from="Panel/ItemList" to="." method="_on_item_list_item_selected"]
 [connection signal="pressed" from="Panel/Buy" to="." method="_on_buy_pressed"]
 [connection signal="pressed" from="Panel/Close" to="." method="_on_close_pressed"]

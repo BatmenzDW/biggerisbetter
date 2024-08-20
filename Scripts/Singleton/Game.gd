@@ -143,9 +143,11 @@ func game_over(level: Level)->void:
 	PlanetManager.unload_all()
 	get_tree().root.add_child(game_over_)
 
-func start_game(caller:Node)->void:
+func start_game(caller:Node, solarsize = 3)->void:
 	in_game = true
 	var level = levels[level_index].instantiate()
+	if level.has_node("SolarSystemGenerator"):
+		level.get_node("SolarSystemGenerator").size = solarsize
 	get_tree().root.remove_child(caller)
 	caller.queue_free()
 	get_tree().root.add_child(level)
