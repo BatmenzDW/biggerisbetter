@@ -7,6 +7,8 @@ var planet
 var upgrades = []
 var currentitem = -1
 
+var is_panel_clicked = false
+
 # Use the "Upgrade ID' field in an Upgrade Struct
 func handleupgrade(id):
 	match id:
@@ -88,8 +90,11 @@ func _ready():
 	visible = false;
 func _process(delta: float) -> void:
 	if(planet !=null):
-		$Panel/PlanetInfo.text = "Planet Health :\n\n" 
-		$Panel/PlanetInfo.text += "Planet Polulation = " + str(planet.planetPopulation)
+		$Panel/PlanetInfo.text = "Health :\n\n" 
+		if planet.planetPopulation < 0:
+			$Panel/PlanetInfo.text += "Inhabitable"
+		else:
+			$Panel/PlanetInfo.text += "Polulation: " + str(planet.planetPopulation)
 		$Panel/Healthbar.value = planet.planetHealth
 		$Panel/Healthbar.max_value = planet.maxHealth
 func open():
@@ -121,3 +126,12 @@ func _on_item_list_item_selected(index):
 func _on_buy_pressed():
 	buyitem(currentitem)
 	
+
+#handle movement
+func _on_panel_gui_input(event):
+	if event is InputEventMouseButton:
+		is_panel_clicked = event.pressed
+		
+	if event is InputEventMouseMotion && is_panel_clicked:
+		global_position += event.relative
+	pass # Replace with function body.

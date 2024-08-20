@@ -5,6 +5,8 @@ var data : BuildingUpgradeCostResource
 
 var is_open := false
 
+var is_panel_clicked = false
+
 func _ready():
 	# Game._MONEYCHEATHECKYEAH()
 	showitem((get_parent() as Building).buildingLevel)
@@ -81,3 +83,13 @@ func showitem(current_lvl:int):
 func _on_sell_pressed() -> void:
 	Game.toggle_pause()
 	(get_parent() as Building).sell()
+
+
+#handle movement
+func _on_panel_gui_input(event):
+	if event is InputEventMouseButton:
+		is_panel_clicked = event.pressed
+		
+	if event is InputEventMouseMotion && is_panel_clicked:
+		global_position += event.relative
+	pass # Replace with function body.

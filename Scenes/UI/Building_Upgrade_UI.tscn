@@ -129,6 +129,7 @@ mouse_filter = 1
 text = "X"
 metadata/_edit_use_anchors_ = true
 
+[connection signal="gui_input" from="Panel" to="." method="_on_panel_gui_input"]
 [connection signal="pressed" from="Panel/MarginContainer4/Buy" to="." method="_on_buy_pressed"]
 [connection signal="pressed" from="Panel/MarginContainer5/Sell" to="." method="_on_sell_pressed"]
 [connection signal="pressed" from="Panel/Close" to="." method="_on_close_pressed"]
