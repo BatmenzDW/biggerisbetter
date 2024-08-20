@@ -95,7 +95,7 @@ func place() -> bool:
 			scale = Vector2(1/orbiting.scale.x, 1/orbiting.scale.y)		# counter-scale to keep size
 		
 			Game.clock.connect(_clock)
-			res_inc()
+			res_inc(1)
 			return true
 		else:
 			print("Can't afford")
@@ -104,46 +104,130 @@ func place() -> bool:
 		print("Can't build due to overlap.")
 		return false
 
-func res_inc():
+func res_inc(lvl: int):
 	match self.buildingName:
 		"Drill":
-			Game.oil += 10
-			Game.crystal -= 1
+			match lvl:
+				1:
+					Game.oil += 10
+					Game.crystal -= 1
+				2:	
+					Game.oil += 50
+					Game.metal -= 5
+					Game.crystal += 1
+				3:
+					Game.oil +=  65
+					Game.metal -= 5
+					
 		"Metal Mine":
-			Game.metal += 10
-			Game.crystal -= 1
+			match lvl:
+				1:
+					Game.metal += 10
+					Game.crystal -= 1
+				2:	
+					Game.metal += 20
+					Game.crystal -= 1
+				3:
+					Game.metal += 20
+			
 		"Crystal Mine":
-			Game.oil -= 1
-			Game.metal -= 1
-			Game.crystal += 5
+			match lvl:
+				1:
+					Game.oil -= 1
+					Game.metal -= 1
+					Game.crystal += 5
+				2:	
+					Game.oil -=4
+					Game.metal -= 4
+					Game.crystal += 10
+				3:
+					Game.oil -= 5
+					Game.metal -= 5
+					Game.crystal += 35
+			
 		"Factory":
-			Game.oil -= 10
-			Game.crystal -= 1
-			Game.fund += 1000		
+			match lvl:
+				1:
+					Game.oil -= 10
+					Game.crystal -= 1
+					Game.fund += 1000	
+				2:	
+					Game.oil -= 40
+					Game.metal -=50
+					Game.crystal -= 2
+					Game.fund += 9000	
+				3:
+					Game.oil += 20
+					Game.metal +=20
+					Game.crystal += 1
+					Game.fund += 2500	
+				
 	Game._update_score()
 
-func res_dec():
+func res_dec(lvl:int):
 	match self.buildingName:
 		"Drill":
-			Game.oil -= 10
-			Game.crystal += 1
+			match lvl:
+				1:
+					Game.oil -= 10
+					Game.crystal += 1
+				2:	
+					Game.oil -= 60
+					Game.metal += 5
+				3:
+					Game.oil -=  125
+					Game.metal += 10
+					
 		"Metal Mine":
-			Game.metal -= 10
-			Game.crystal += 1
+			match lvl:
+				1:
+					Game.metal -= 10
+					Game.crystal += 1
+				2:	
+					Game.metal -= 30
+					Game.crystal += 1
+				3:
+					Game.metal -= 50
+					Game.crystal += 2
+			
 		"Crystal Mine":
-			Game.oil += 1
-			Game.metal += 1
-			Game.crystal -= 5
+			match lvl:
+				1:
+					Game.oil += 1
+					Game.metal += 1
+					Game.crystal -= 5
+				2:	
+					Game.oil +=5
+					Game.metal += 5
+					Game.crystal -= 15
+				3:
+					Game.oil += 10
+					Game.metal += 10
+					Game.crystal -= 50
+			
 		"Factory":
-			Game.oil += 10
-			Game.crystal += 1
-			Game.fund -= 1000		
+			match lvl:
+				1:
+					Game.oil += 10
+					Game.crystal += 1
+					Game.fund -= 1000	
+				2:	
+					Game.oil += 50
+					Game.metal +=50
+					Game.crystal += 3
+					Game.fund -= 10000	
+				3:
+					Game.oil += 30
+					Game.metal +=30
+					Game.crystal += 2
+					Game.fund -= 12500		
 	Game._update_score()
 	
 			
 func remove(refund:bool=true) -> void:
 	if refund:
-		res_dec()
+		res_dec(self.buildingLevel)
+		#print(self.buildingLevel)
 		_refund()
 	get_parent().remove_child(self)
 	queue_free()
@@ -231,18 +315,19 @@ func get_nearest_placement(point: Vector2):
 	
 	for p in PlanetManager.loadedPlanets:
 		# math to get nearest point on planet
-		var center = p.global_position
-		var r = p.get_radius() + get_size().y/2
-		var V = point - center
-		var nearest = center + V / V.length() * r
-		var dist = (point - nearest).length()
-		
-		if dist < min_dist:
-			min_dist = dist
-			closest = nearest
-			orbitalRadius = r
-			nearestOrbit = p
-			orbitDelta = center.angle_to_point(nearest)
+		if(p != null):
+			var center = p.global_position
+			var r = p.get_radius() + get_size().y/2
+			var V = point - center
+			var nearest = center + V / V.length() * r
+			var dist = (point - nearest).length()
+			
+			if dist < min_dist:
+				min_dist = dist
+				closest = nearest
+				orbitalRadius = r
+				nearestOrbit = p
+				orbitDelta = center.angle_to_point(nearest)
 	
 	#print(closest)
 	#print(min_dist)
@@ -254,7 +339,7 @@ func get_size():
 func upgrade(data:BuildingUpgradeCostResource) -> bool:
 	if not Game.purchase_upgrade(data):
 		return false
-	
+	res_inc(data.level)
 	buildingLevel = data.level
 	sprite.texture = data.new_texture
 	productionCost = data.prodCost

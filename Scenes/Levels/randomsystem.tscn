@@ -107,10 +107,10 @@ script = ExtResource("7_vh4m5")
 
 [node name="Panel" type="Panel" parent="CanvasLayer"]
 process_mode = 3
-offset_left = 34.0
-offset_top = 557.0
-offset_right = 303.0
-offset_bottom = 622.0
+offset_left = 10.0
+offset_top = 560.0
+offset_right = 279.0
+offset_bottom = 625.0
 mouse_filter = 2
 
 [node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/Panel"]

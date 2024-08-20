@@ -93,7 +93,7 @@ func _ready() -> void:
 	Game.set_funds(startingFunds)
 	
 	# testing
-	#Game._MONEYCHEATHECKYEAH()
+	Game._MONEYCHEATHECKYEAH()
 
 func _select_building(index: int):
 	#print("selected: " + str(index))
@@ -129,7 +129,7 @@ func _on_slow_pressed() -> void:
 func _on_normal_pressed() -> void:
 	Engine.time_scale = 1
 	speed_label.text = "1x Speed"
-
+ 
 func _on_fast_pressed() -> void:
 	Engine.time_scale = 2
 	speed_label.text = "2x Speed"
