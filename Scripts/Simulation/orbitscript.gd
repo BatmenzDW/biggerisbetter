@@ -97,6 +97,10 @@ func take_damage():
 	
 	if(planetHealth <= 0 ):
 		planetPopulation = -1;
+		for i in range (6, self.get_child_count()):
+			if(get_child(i) != null):
+				self.get_child(i).res_dec(self.get_child(i).buildingLevel)
+				
 		PlanetManager.unload_planet(self)
 		$ToolTipHandler.destroy()
 		Game.update_score.emit()
