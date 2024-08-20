@@ -23,5 +23,5 @@ func _on_start_game_pressed():
 
 func _on_back_pressed():
 	$GameOptions.visible = false
-	$Main.visible = true
+	$VBoxContainer/CenterContainer.visible  = true
 	pass # Replace with function body.
