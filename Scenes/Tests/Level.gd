@@ -93,7 +93,7 @@ func _ready() -> void:
 	Game.set_funds(startingFunds)
 	
 	# testing
-	Game._MONEYCHEATHECKYEAH()
+	#Game._MONEYCHEATHECKYEAH()
 
 func _select_building(index: int):
 	#print("selected: " + str(index))
