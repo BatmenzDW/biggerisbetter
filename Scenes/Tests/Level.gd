@@ -8,6 +8,7 @@ class_name Level
 @export var startingFunds : int = 5000
 
 var buildings_pre: Array[PackedScene] = [
+	null,
 	preload("res://Scenes/Buildings/drill.tscn"), 
 	preload("res://Scenes/Buildings/MetalMine.tscn"), 
 	preload("res://Scenes/Buildings/CrystalMine.tscn"),
@@ -48,7 +49,7 @@ func _input(event: InputEvent) -> void:
 					building = buildings_pre[buildingIndex].instantiate()
 				add_child(building)
 	if (event.is_action_pressed("next_building") or event.is_action_pressed("previous_building")):
-		if building == null:
+		if building == null and buildingIndex != 0:
 			return
 		if building is LandingPad:
 			return
@@ -85,6 +86,14 @@ func _ready() -> void:
 func _select_building(index: int):
 	#print("selected: " + str(index))
 	buildingIndex = index
+	if buildingIndex == 0:
+		if building != null:
+			if building is LandingPad:
+				(building as LandingPad).parent.remove()
+			#SignalBus.building_deselected_input.emit()
+			remove_child(building)
+			building.queue_free()
+		return
 	if building != null:
 		remove_child(building)
 		building.queue_free()
