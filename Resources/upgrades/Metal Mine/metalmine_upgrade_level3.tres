@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="BuildingUpgradeCostResource" load_steps=5 format=3 uid="uid://blbsmi1foqwnt"]
 
-[ext_resource type="Texture2D" uid="uid://bmqttskjje2ty" path="res://Assets/programmer-art/MineA_lvl3.png" id="1_5vdfy"]
+[ext_resource type="Texture2D" uid="uid://bo1w3r38fx0py" path="res://Assets/Art/Structures/metalmine3.png" id="1_x41qt"]
 [ext_resource type="Script" path="res://Resources/production/ProdCostResource.gd" id="2_vkgca"]
 [ext_resource type="Script" path="res://Resources/upgrades/BuildingUpgradeResource.gd" id="3_arinq"]
 
@@ -21,7 +21,7 @@ script = ExtResource("3_arinq")
 name = "Metal Mine Level 3"
 level = 3
 description = ""
-new_texture = ExtResource("1_5vdfy")
+new_texture = ExtResource("1_x41qt")
 oil = 3750
 metal = 0
 crystal = 1500

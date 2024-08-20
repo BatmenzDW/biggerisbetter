@@ -1,8 +1,8 @@
 [gd_resource type="Resource" script_class="BuildingUpgradeCostResource" load_steps=5 format=3 uid="uid://cga5nndhs1mpq"]
 
 [ext_resource type="Script" path="res://Resources/upgrades/BuildingUpgradeResource.gd" id="1_2p2xa"]
+[ext_resource type="Texture2D" uid="uid://da83ymvt836uy" path="res://Assets/Art/Structures/drill3.png" id="1_3rxcs"]
 [ext_resource type="Script" path="res://Resources/production/ProdCostResource.gd" id="1_j2g7d"]
-[ext_resource type="Texture2D" uid="uid://b7765elf0y4lx" path="res://Assets/programmer-art/Drill_lvl3.png" id="1_n5n5o"]
 
 [sub_resource type="Resource" id="Resource_2r37d"]
 script = ExtResource("1_j2g7d")
@@ -21,7 +21,7 @@ script = ExtResource("1_2p2xa")
 name = "Drill Level 3"
 level = 3
 description = ""
-new_texture = ExtResource("1_n5n5o")
+new_texture = ExtResource("1_3rxcs")
 oil = 0
 metal = 3000
 crystal = 1500
