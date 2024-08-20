@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=3 uid="uid://bcqa6janq7yg6"]
+[gd_scene load_steps=29 format=3 uid="uid://bcqa6janq7yg6"]
 
 [ext_resource type="Script" path="res://Scenes/Tests/Level.gd" id="1_hw2ry"]
 [ext_resource type="PackedScene" uid="uid://hei26womwwbo" path="res://Scenes/spacebg.tscn" id="2_tlof5"]
@@ -6,7 +6,7 @@
 [ext_resource type="Script" path="res://Scripts/Simulation/SolarSystemGenerator.gd" id="4_laqh6"]
 [ext_resource type="PackedScene" uid="uid://dukcd67uwqgot" path="res://Scenes/ui.tscn" id="5_bh5wy"]
 [ext_resource type="PackedScene" uid="uid://bti1pvm65vyjw" path="res://Scenes/Prefabs/star.tscn" id="5_idcq7"]
-[ext_resource type="PackedScene" uid="uid://dq1l3u5vo3t8q" path="res://Scenes/Prefabs/asteroid_spawner.tscn" id="6_oqjlt"]
+[ext_resource type="PackedScene" path="res://Scenes/Prefabs/asteroid_spawner.tscn" id="6_oqjlt"]
 [ext_resource type="Script" path="res://Scripts/ScoreLabel.gd" id="7_vh4m5"]
 [ext_resource type="PackedScene" uid="uid://bctacysimcl0t" path="res://Scenes/UI/BuildingUI.tscn" id="8_4hu5r"]
 [ext_resource type="AudioStream" uid="uid://b6msbv0f6lku4" path="res://Audio/MainBGM.mp3" id="10_aocfj"]
@@ -18,6 +18,7 @@
 [ext_resource type="Texture2D" uid="uid://xvjngbpc6w5u" path="res://Assets/programmer-art/Speed_Icon3_pressed.png" id="15_ed5te"]
 [ext_resource type="Texture2D" uid="uid://dolyoxqjrpjw8" path="res://Assets/programmer-art/Pause_Icon.png" id="16_yllrh"]
 [ext_resource type="Texture2D" uid="uid://b14wir44mcfl1" path="res://Assets/programmer-art/Pause_Icon_pressed.png" id="17_icka4"]
+[ext_resource type="PackedScene" uid="uid://b7gkbdnsukyb3" path="res://Scenes/UI/info_panel.tscn" id="18_jy7vd"]
 
 [sub_resource type="InputEventKey" id="InputEventKey_7hpti"]
 device = -1
@@ -54,11 +55,12 @@ events = [SubResource("InputEventKey_0thv6")]
 [sub_resource type="LabelSettings" id="LabelSettings_iaimi"]
 
 [node name="SolarSystem" type="Node2D"]
-process_mode = 1
+process_mode = 3
 script = ExtResource("1_hw2ry")
 startingCrystal = 500
 
 [node name="SpaceBG" parent="." instance=ExtResource("2_tlof5")]
+process_mode = 1
 
 [node name="Camera2D" type="Camera2D" parent="."]
 process_mode = 3
@@ -66,19 +68,24 @@ editor_draw_screen = false
 script = ExtResource("3_tmx8u")
 
 [node name="SolarSystemGenerator" type="Node" parent="." node_paths=PackedStringArray("star", "solar_system")]
+process_mode = 1
 script = ExtResource("4_laqh6")
 star = NodePath("../Star")
 solar_system = NodePath("../SolarSystem")
 size = 3
 
 [node name="Star" parent="." node_paths=PackedStringArray("ui") instance=ExtResource("5_idcq7")]
+process_mode = 1
 ui = NodePath("../UI")
 
 [node name="SolarSystem" type="Node2D" parent="."]
+process_mode = 1
 
 [node name="Asteroid Spawner" parent="." instance=ExtResource("6_oqjlt")]
+process_mode = 1
 
 [node name="Asteroid Field" type="Node2D" parent="."]
+process_mode = 1
 
 [node name="UI" parent="." instance=ExtResource("5_bh5wy")]
 unique_name_in_owner = true
@@ -153,7 +160,15 @@ offset_bottom = 555.0
 text = "1x Speed"
 label_settings = SubResource("LabelSettings_iaimi")
 
+[node name="InfoPanel" parent="CanvasLayer" instance=ExtResource("18_jy7vd")]
+visible = false
+offset_left = 99.0
+offset_top = 102.0
+offset_right = -187.0
+offset_bottom = -153.0
+
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+process_mode = 3
 stream = ExtResource("10_aocfj")
 autoplay = true
 
