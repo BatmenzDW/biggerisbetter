@@ -1,10 +1,10 @@
 [gd_scene load_steps=8 format=3 uid="uid://bctacysimcl0t"]
 
-[ext_resource type="Texture2D" uid="uid://csndkg5t82hag" path="res://Assets/programmer-art/Drill.png" id="1_e53a0"]
 [ext_resource type="Script" path="res://Scenes/UI/BuildingUi.gd" id="1_o05qb"]
-[ext_resource type="Texture2D" uid="uid://b757rssjb5scw" path="res://Assets/programmer-art/MineA.png" id="3_arhd2"]
-[ext_resource type="Texture2D" uid="uid://beng3g15enpe8" path="res://Assets/programmer-art/MineB.png" id="4_skqya"]
-[ext_resource type="Texture2D" uid="uid://bt536cqtjdaho" path="res://Assets/programmer-art/factory.png" id="5_gbla3"]
+[ext_resource type="Texture2D" uid="uid://claussrv72a6o" path="res://Assets/Art/Structures/drill1.png" id="2_p4axm"]
+[ext_resource type="Texture2D" uid="uid://bd0oqdnjsito4" path="res://Assets/Art/Structures/metalmine1.png" id="3_tmeax"]
+[ext_resource type="Texture2D" uid="uid://cw8oxbk6t7d5b" path="res://Assets/Art/Structures/crystalmine1.png" id="4_8ov1h"]
+[ext_resource type="Texture2D" uid="uid://gh643oe6wach" path="res://Assets/Art/Structures/factory1.png" id="5_s1bmw"]
 [ext_resource type="Texture2D" uid="uid://b3wl1bbihkm6h" path="res://Assets/programmer-art/turret.png" id="6_calyb"]
 [ext_resource type="Texture2D" uid="uid://cyfe645u8ox2q" path="res://Assets/programmer-art/Rocket.png" id="7_clrac"]
 
@@ -46,13 +46,13 @@ same_column_width = true
 icon_mode = 0
 fixed_icon_size = Vector2i(64, 64)
 item_0/text = "Drill ($250)"
-item_0/icon = ExtResource("1_e53a0")
+item_0/icon = ExtResource("2_p4axm")
 item_1/text = "Metal Mine ($300)"
-item_1/icon = ExtResource("3_arhd2")
+item_1/icon = ExtResource("3_tmeax")
 item_2/text = "Crystal Mine ($500)"
-item_2/icon = ExtResource("4_skqya")
+item_2/icon = ExtResource("4_8ov1h")
 item_3/text = "Factory ($750)"
-item_3/icon = ExtResource("5_gbla3")
+item_3/icon = ExtResource("5_s1bmw")
 item_4/text = "Turret ($500)"
 item_4/icon = ExtResource("6_calyb")
 item_5/text = "Rocket ($1000)"

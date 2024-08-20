@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="BuildingUpgradeCostResource" load_steps=5 format=3 uid="uid://d0qr6embdancx"]
 
-[ext_resource type="Texture2D" uid="uid://da7kf8s55o6hc" path="res://Assets/programmer-art/Drill_lvl2.png" id="1_deucg"]
+[ext_resource type="Texture2D" uid="uid://d0slmtyiiduhf" path="res://Assets/Art/Structures/drill2.png" id="1_hc2jm"]
 [ext_resource type="Script" path="res://Resources/production/ProdCostResource.gd" id="2_6k0c3"]
 [ext_resource type="Script" path="res://Resources/upgrades/BuildingUpgradeResource.gd" id="3_tcyti"]
 
@@ -21,7 +21,7 @@ script = ExtResource("3_tcyti")
 name = "Drill Level 2"
 level = 2
 description = "Drills 3 times faster for 2x the crystal"
-new_texture = ExtResource("1_deucg")
+new_texture = ExtResource("1_hc2jm")
 oil = 0
 metal = 1000
 crystal = 500
