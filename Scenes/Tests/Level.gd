@@ -71,6 +71,8 @@ func _ready() -> void:
 	SignalBus.building_selected_gui.connect(_select_building)
 	SignalBus.max_rocket_built.connect(_on_rocket_maxed)
 	Game.clock.connect(_clock)
+	Game.paused.connect(_on_paused)
+	Game.unpaused.connect(_on_unpaused)
 	
 	Game.set_oil(startingOil)
 	Game.set_metal(startingMetal)
@@ -110,3 +112,17 @@ func _on_normal_pressed() -> void:
 func _on_fast_pressed() -> void:
 	Engine.time_scale = 2
 	speed_label.text = "2x Speed"
+
+
+func _on_pause_pressed() -> void:
+	Engine.time_scale = 0
+	_on_paused()
+
+var _prev_speed_label := ""
+
+func _on_paused() -> void:
+	_prev_speed_label = speed_label.text
+	speed_label.text = "Paused"
+
+func _on_unpaused() -> void:
+	speed_label.text = _prev_speed_label

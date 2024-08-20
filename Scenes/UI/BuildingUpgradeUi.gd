@@ -21,15 +21,20 @@ func open():
 	if not is_open:
 		showitem((get_parent() as Building).buildingLevel)
 		visible = true
-		Game.toggle_pause()
+		Game.toggle_pause(true)
 		is_open = true
 
 func close():
 	data = null
 	visible = false
 	is_open = false
-	Game.toggle_pause()
-	
+	Game.toggle_pause(false)
+
+func close_quiet():
+	data = null
+	visible = false
+	is_open = false
+
 func _on_close_pressed():
 	if is_open:
 		close()
