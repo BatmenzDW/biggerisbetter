@@ -10,6 +10,7 @@
 [node name="Area2D" instance=ExtResource("1_g6e1a")]
 texture_filter = 1
 buildingName = "Metal Mine"
+description = "Mines metal, at the cost of crystals"
 upgrades = Array[ExtResource("2_f1yja")]([ExtResource("3_tecfs"), ExtResource("4_pkbf5")])
 buildCost = 300
 productionCost = ExtResource("2_pkj5f")

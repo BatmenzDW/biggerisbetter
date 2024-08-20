@@ -13,6 +13,7 @@ script = ExtResource("2_0fwn4")
 damage = 5.0
 crystal_cost = 1
 buildingName = "Turret"
+description = "Shoots asteroids, at the cost of crystals"
 upgrades = Array[ExtResource("3_6sthx")]([ExtResource("4_0w6se"), ExtResource("5_kcbvf")])
 buildCost = 500
 productionCost = null
@@ -35,5 +36,5 @@ polygon = PackedVector2Array(-25, 0, -750, 375, -750, -375)
 [node name="LaserEmitter" type="Node2D" parent="." index="4"]
 position = Vector2(-27, 0)
 
-[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." index="8"]
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." index="7"]
 stream = ExtResource("7_7ea77")

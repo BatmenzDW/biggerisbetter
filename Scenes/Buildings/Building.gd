@@ -40,6 +40,8 @@ var is_placing: bool = true
 
 var contents: Array[Item] = []
 
+var tooltip := ""
+
 var clock_cycles = 0
 var max_cycles = 1
 
@@ -54,7 +56,7 @@ func _physics_process(delta: float) -> void:
 		_update_placing_position()
 	else:
 		if ui:
-			var panel = (ui.get_node("Building Label") as Panel)
+			var panel = (ui.get_node("LabelContainer") as Control)
 			if panel:
 				if panel.visible:
 					panel.global_position = get_global_mouse_position() + tooltipoffset
@@ -110,7 +112,7 @@ func _ready() -> void:
 	SignalBus.building_upgrades_opened.connect(_on_other_clicked)
 	
 	ui = get_tree().root.get_node("SolarSystem/UI")
-	button.tooltip_text = _make_tooltip()
+	tooltip = _make_tooltip()
 	#print(button.tooltip_text)
 	
 	# debug
@@ -127,7 +129,9 @@ func _ready() -> void:
 		_check_placement()
 
 func _update_tooltip() -> void:
-	button.tooltip_text = _make_tooltip()
+	tooltip = _make_tooltip()
+	if ui:
+		(ui.get_node("LabelContainer/MarginContainer/Label") as Label).text = tooltip
 
 func _make_tooltip() -> String:
 	var tt = buildingName + " lvl" + str(buildingLevel) + "\n" +\
@@ -257,14 +261,12 @@ func _on_mouse_entered() -> void:
 	show_tooltip = true
 	#print("entered " + buildingName)
 	if ui:
-		(ui.get_node("Building Label/Label") as Label).text = button.tooltip_text
-		(ui.get_node("Building Label") as Panel).show()
+		(ui.get_node("LabelContainer/MarginContainer/Label") as Label).text = tooltip
+		(ui.get_node("LabelContainer") as Control).show()
 
 
 func _on_mouse_exited() -> void:
-	if is_placing:
-		return
 	show_tooltip = false
 	#print("exited " + buildingName)
 	if ui:
-		(ui.get_node("Building Label") as Panel).hide()
+		(ui.get_node("LabelContainer") as Control).hide()
