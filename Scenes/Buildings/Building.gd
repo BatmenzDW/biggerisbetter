@@ -93,7 +93,9 @@ func place() -> bool:
 			get_parent().remove_child(self)
 			orbiting.add_child(self)
 			scale = Vector2(1/orbiting.scale.x, 1/orbiting.scale.y)		# counter-scale to keep size
+		
 			Game.clock.connect(_clock)
+			res_inc()
 			return true
 		else:
 			print("Can't afford")
@@ -102,8 +104,46 @@ func place() -> bool:
 		print("Can't build due to overlap.")
 		return false
 
+func res_inc():
+	match self.buildingName:
+		"Drill":
+			Game.oil += 10
+			Game.crystal -= 1
+		"Metal Mine":
+			Game.metal += 10
+			Game.crystal -= 1
+		"Crystal Mine":
+			Game.oil -= 1
+			Game.metal -= 1
+			Game.crystal += 5
+		"Factory":
+			Game.oil -= 10
+			Game.crystal -= 1
+			Game.fund += 1000		
+	Game._update_score()
+
+func res_dec():
+	match self.buildingName:
+		"Drill":
+			Game.oil -= 10
+			Game.crystal += 1
+		"Metal Mine":
+			Game.metal -= 10
+			Game.crystal += 1
+		"Crystal Mine":
+			Game.oil += 1
+			Game.metal += 1
+			Game.crystal -= 5
+		"Factory":
+			Game.oil += 10
+			Game.crystal += 1
+			Game.fund -= 1000		
+	Game._update_score()
+	
+			
 func remove(refund:bool=true) -> void:
 	if refund:
+		res_dec()
 		_refund()
 	get_parent().remove_child(self)
 	queue_free()

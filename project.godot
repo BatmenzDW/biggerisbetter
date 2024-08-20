@@ -26,7 +26,6 @@ PlanetManager="*res://Scripts/Singleton/PlanetManager.gd"
 
 [display]
 
-window/size/mode=3
 window/stretch/mode="canvas_items"
 
 [dotnet]
