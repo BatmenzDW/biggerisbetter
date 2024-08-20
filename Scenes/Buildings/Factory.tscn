@@ -9,6 +9,7 @@
 
 [node name="Area2D" instance=ExtResource("1_ywi4y")]
 buildingName = "Factory"
+description = "Allows the population to turn resources into funds"
 upgrades = Array[ExtResource("2_3ycf2")]([ExtResource("3_j0su3"), ExtResource("4_go583")])
 buildCost = 750
 productionCost = ExtResource("2_lfkm7")

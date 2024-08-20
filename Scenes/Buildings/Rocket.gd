@@ -35,7 +35,7 @@ func _clock() -> void:
 	if loaded_population < max_load and landing_pad.orbiting:
 		#print("loading population")
 		_load_population()
-		button.tooltip_text = _make_tooltip()
+		_update_tooltip()
 	if loaded_population >= max_load and landing_pad.orbiting:
 		print("launching")
 		_launch()

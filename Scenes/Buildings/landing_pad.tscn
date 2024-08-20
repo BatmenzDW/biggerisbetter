@@ -7,6 +7,7 @@
 [node name="Building" instance=ExtResource("1_50hsk")]
 script = ExtResource("2_bkbos")
 buildingName = "Landing Pad"
+description = "place for rocket to land"
 productionCost = null
 
 [node name="Sprite" parent="." index="0"]
@@ -14,6 +15,3 @@ texture = ExtResource("3_nspqq")
 
 [node name="Collider" parent="." index="1"]
 position = Vector2(28, 0)
-
-[node name="Tooltip" parent="." index="2"]
-offset_left = 0.0

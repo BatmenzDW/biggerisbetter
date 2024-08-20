@@ -31,7 +31,6 @@ offset_left = -31.0
 offset_top = -31.0
 offset_right = 31.0
 offset_bottom = 31.0
-tooltip_text = "Default Tooltip"
 mouse_filter = 1
 theme = SubResource("Theme_2t1cm")
 theme_type_variation = &"FlatButton"
