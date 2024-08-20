@@ -5,10 +5,11 @@ class_name Building
 @onready var collider: CollisionShape2D = $Collider
 
 @onready var sprite: Sprite2D = $Sprite
-@onready var tooltip: Control = $Tooltip
+@onready var button: Button = $Button
 
 @export var buildingName := "Drill"
 @export var buildingHealth := 100
+@export var description: String
 
 @export var upgrades : Array[BuildingUpgradeCostResource] = []
 @onready var upgrade_ui: BuildingUpgradeUI = $Upgrade_UI
@@ -21,7 +22,7 @@ var nearestOrbit : Orbitable
 
 var orbitalRadius : float = 0.0 # How far from planet to orbit
 
-var orbitDelta := 0.0 # How far it is into a full orbit 0-1
+var orbitDelta := 0.0 # How far it is into a full orbit 0-TAU
 
 @export var mass := 1.0
 
@@ -33,6 +34,8 @@ var orbitDelta := 0.0 # How far it is into a full orbit 0-1
 
 @export var productionCost : ProdCostResource
 
+@export var ui : Control
+
 var is_placing: bool = true
 
 var contents: Array[Item] = []
@@ -43,11 +46,19 @@ var max_cycles = 1
 #const SNAP: Vector2 = Vector2(32, 32)
 const EPSILON = 0.5
 const MAX_FLOAT = 1.79769e308
+const tooltipoffset: Vector2 = Vector2(10, 0)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta: float) -> void:
 	if is_placing:
 		_update_placing_position()
+	else:
+		if ui:
+			var panel = (ui.get_node("Building Label") as Panel)
+			if panel:
+				if panel.visible:
+					panel.global_position = get_global_mouse_position() + tooltipoffset
+
 	# Handle orbit
 	if orbiting: 
 		orbitDelta += delta * oribalPeriod
@@ -96,8 +107,11 @@ func remove(refund:bool=true) -> void:
 	queue_free()
 
 func _ready() -> void:
-	tooltip.tooltip_text = _make_tooltip()
-	#print(tooltip.tooltip_text)
+	SignalBus.building_upgrades_opened.connect(_on_other_clicked)
+	
+	ui = get_tree().root.get_node("SolarSystem/UI")
+	button.tooltip_text = _make_tooltip()
+	#print(button.tooltip_text)
 	
 	# debug
 	#if get_tree().root.get_node("Building") == self:
@@ -112,8 +126,12 @@ func _ready() -> void:
 		look_at(nearestOrbit.global_position)
 		_check_placement()
 
+func _update_tooltip() -> void:
+	button.tooltip_text = _make_tooltip()
+
 func _make_tooltip() -> String:
-	var tt = buildingName + str(buildingLevel) + "\n\n" +\
+	var tt = buildingName + " lvl" + str(buildingLevel) + "\n" +\
+		description + "\n\n" +\
 		"Production Cost: \n"
 	if productionCost.oil > 0:
 		tt += "    Oil: " + str(productionCost.oil) + "\n"
@@ -202,11 +220,18 @@ func upgrade(data:BuildingUpgradeCostResource) -> bool:
 	crystalCost += data.crystal
 	fundsCost += data.funds
 	
+	_update_tooltip()
+	
 	return true
 
 
+func _on_other_clicked(other:Building) -> void:
+	if other != self:
+		upgrade_ui.close_quiet()
+
 func _on_clicked() -> void:
 	if not is_placing:
+		SignalBus.building_upgrades_opened.emit(self)
 		upgrade_ui.rotation = TAU - global_rotation
 		upgrade_ui.open()
 
@@ -223,3 +248,23 @@ func _refund() -> void:
 
 func sell() -> void:
 	remove()
+
+var show_tooltip := false
+
+func _on_mouse_entered() -> void:
+	if is_placing:
+		return
+	show_tooltip = true
+	#print("entered " + buildingName)
+	if ui:
+		(ui.get_node("Building Label/Label") as Label).text = button.tooltip_text
+		(ui.get_node("Building Label") as Panel).show()
+
+
+func _on_mouse_exited() -> void:
+	if is_placing:
+		return
+	show_tooltip = false
+	#print("exited " + buildingName)
+	if ui:
+		(ui.get_node("Building Label") as Panel).hide()

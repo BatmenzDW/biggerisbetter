@@ -25,20 +25,13 @@ texture = ExtResource("1_jke4u")
 visible = false
 shape = SubResource("RectangleShape2D_x7hap")
 
-[node name="Tooltip" type="Control" parent="."]
-layout_mode = 3
-anchors_preset = 0
-offset_left = -31.0
-offset_top = -31.0
-offset_right = 31.0
-offset_bottom = 31.0
-
 [node name="Button" type="Button" parent="."]
-process_mode = 1
+process_mode = 3
 offset_left = -31.0
 offset_top = -31.0
 offset_right = 31.0
 offset_bottom = 31.0
+tooltip_text = "Default Tooltip"
 mouse_filter = 1
 theme = SubResource("Theme_2t1cm")
 theme_type_variation = &"FlatButton"
@@ -46,4 +39,6 @@ theme_type_variation = &"FlatButton"
 [node name="Upgrade_UI" parent="." instance=ExtResource("4_l8am0")]
 visible = false
 
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]
 [connection signal="pressed" from="Button" to="." method="_on_clicked"]
