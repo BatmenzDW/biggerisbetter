@@ -13,7 +13,7 @@ funds = 0
 minPopulation = 0
 oil_output = 0
 metal_output = 0
-crystal_output = 10
+crystal_output = 15
 funds_output = 0
 
 [resource]
