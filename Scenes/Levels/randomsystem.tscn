@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://bcqa6janq7yg6"]
+[gd_scene load_steps=28 format=3 uid="uid://bcqa6janq7yg6"]
 
 [ext_resource type="Script" path="res://Scenes/Tests/Level.gd" id="1_hw2ry"]
 [ext_resource type="PackedScene" uid="uid://hei26womwwbo" path="res://Scenes/spacebg.tscn" id="2_tlof5"]
@@ -16,6 +16,40 @@
 [ext_resource type="Texture2D" uid="uid://b56hdrw4fcvxe" path="res://Assets/programmer-art/Speed_Icon3.png" id="12_0hcdi"]
 [ext_resource type="Texture2D" uid="uid://c1fxwioql3a5y" path="res://Assets/programmer-art/Speed_Icon2_pressed.png" id="13_5vshh"]
 [ext_resource type="Texture2D" uid="uid://xvjngbpc6w5u" path="res://Assets/programmer-art/Speed_Icon3_pressed.png" id="15_ed5te"]
+[ext_resource type="Texture2D" uid="uid://dolyoxqjrpjw8" path="res://Assets/programmer-art/Pause_Icon.png" id="16_yllrh"]
+[ext_resource type="Texture2D" uid="uid://b14wir44mcfl1" path="res://Assets/programmer-art/Pause_Icon_pressed.png" id="17_icka4"]
+
+[sub_resource type="InputEventKey" id="InputEventKey_7hpti"]
+device = -1
+keycode = 49
+unicode = 49
+
+[sub_resource type="Shortcut" id="Shortcut_rlfpi"]
+events = [SubResource("InputEventKey_7hpti")]
+
+[sub_resource type="InputEventKey" id="InputEventKey_vh6bx"]
+device = -1
+keycode = 50
+unicode = 50
+
+[sub_resource type="Shortcut" id="Shortcut_k2nas"]
+events = [SubResource("InputEventKey_vh6bx")]
+
+[sub_resource type="InputEventKey" id="InputEventKey_xrjf0"]
+device = -1
+keycode = 51
+unicode = 51
+
+[sub_resource type="Shortcut" id="Shortcut_5v2gu"]
+events = [SubResource("InputEventKey_xrjf0")]
+
+[sub_resource type="InputEventKey" id="InputEventKey_0thv6"]
+device = -1
+keycode = 52
+unicode = 52
+
+[sub_resource type="Shortcut" id="Shortcut_15v64"]
+events = [SubResource("InputEventKey_0thv6")]
 
 [sub_resource type="LabelSettings" id="LabelSettings_iaimi"]
 
@@ -68,7 +102,7 @@ script = ExtResource("7_vh4m5")
 process_mode = 3
 offset_left = 34.0
 offset_top = 557.0
-offset_right = 235.0
+offset_right = 303.0
 offset_bottom = 622.0
 mouse_filter = 2
 
@@ -81,25 +115,35 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/Panel/MarginContainer"]
+texture_filter = 1
 layout_mode = 2
 
 [node name="Slow" type="TextureButton" parent="CanvasLayer/Panel/MarginContainer/HBoxContainer"]
 texture_filter = 3
 layout_mode = 2
+shortcut = SubResource("Shortcut_rlfpi")
 texture_normal = ExtResource("10_lbtiy")
 texture_pressed = ExtResource("11_yoi4a")
 
 [node name="Normal" type="TextureButton" parent="CanvasLayer/Panel/MarginContainer/HBoxContainer"]
 texture_filter = 3
 layout_mode = 2
+shortcut = SubResource("Shortcut_k2nas")
 texture_normal = ExtResource("11_q8hro")
 texture_pressed = ExtResource("13_5vshh")
 
 [node name="Fast" type="TextureButton" parent="CanvasLayer/Panel/MarginContainer/HBoxContainer"]
 texture_filter = 3
 layout_mode = 2
+shortcut = SubResource("Shortcut_5v2gu")
 texture_normal = ExtResource("12_0hcdi")
 texture_pressed = ExtResource("15_ed5te")
+
+[node name="Pause" type="TextureButton" parent="CanvasLayer/Panel/MarginContainer/HBoxContainer"]
+layout_mode = 2
+shortcut = SubResource("Shortcut_15v64")
+texture_normal = ExtResource("16_yllrh")
+texture_pressed = ExtResource("17_icka4")
 
 [node name="Speed Label" type="Label" parent="CanvasLayer"]
 offset_left = 35.0
@@ -116,3 +160,4 @@ autoplay = true
 [connection signal="pressed" from="CanvasLayer/Panel/MarginContainer/HBoxContainer/Slow" to="." method="_on_slow_pressed"]
 [connection signal="pressed" from="CanvasLayer/Panel/MarginContainer/HBoxContainer/Normal" to="." method="_on_normal_pressed"]
 [connection signal="pressed" from="CanvasLayer/Panel/MarginContainer/HBoxContainer/Fast" to="." method="_on_fast_pressed"]
+[connection signal="pressed" from="CanvasLayer/Panel/MarginContainer/HBoxContainer/Pause" to="." method="_on_pause_pressed"]

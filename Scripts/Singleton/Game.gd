@@ -2,6 +2,8 @@ extends Node
 
 signal clock
 signal update_score
+signal paused
+signal unpaused
 
 const start_menu = preload("res://Scenes/UI/start_menu.tscn")
 const game_over_screen = preload("res://Scenes/UI/game_over.tscn")
@@ -166,5 +168,8 @@ func _MONEYCHEATHECKYEAH():
 	set_crystal(999999)
 
 
-func toggle_pause():
-	get_tree().paused = not get_tree().paused
+func toggle_pause(pause=-1):
+	if pause is not int:
+		get_tree().paused = pause
+	else:
+		get_tree().paused = not get_tree().paused

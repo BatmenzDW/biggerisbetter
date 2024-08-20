@@ -22,7 +22,7 @@ var nearestOrbit : Orbitable
 
 var orbitalRadius : float = 0.0 # How far from planet to orbit
 
-var orbitDelta := 0.0 # How far it is into a full orbit 0-1
+var orbitDelta := 0.0 # How far it is into a full orbit 0-TAU
 
 @export var mass := 1.0
 
@@ -107,6 +107,8 @@ func remove(refund:bool=true) -> void:
 	queue_free()
 
 func _ready() -> void:
+	SignalBus.building_upgrades_opened.connect(_on_other_clicked)
+	
 	ui = get_tree().root.get_node("SolarSystem/UI")
 	button.tooltip_text = _make_tooltip()
 	#print(button.tooltip_text)
@@ -223,8 +225,13 @@ func upgrade(data:BuildingUpgradeCostResource) -> bool:
 	return true
 
 
+func _on_other_clicked(other:Building) -> void:
+	if other != self:
+		upgrade_ui.close_quiet()
+
 func _on_clicked() -> void:
 	if not is_placing:
+		SignalBus.building_upgrades_opened.emit(self)
 		upgrade_ui.rotation = TAU - global_rotation
 		upgrade_ui.open()
 
