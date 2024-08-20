@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="BuildingUpgradeCostResource" load_steps=5 format=3 uid="uid://b6o0kn0w1js3d"]
 
-[ext_resource type="Texture2D" uid="uid://dk50k2sus88um" path="res://Assets/programmer-art/Rocket_lvl4.png" id="1_wgue7"]
+[ext_resource type="Texture2D" uid="uid://dk50k2sus88um" path="res://Assets/programmer-art/Rocket_lvl4.png" id="1_vjqli"]
 [ext_resource type="Script" path="res://Resources/production/ProdCostResource.gd" id="2_fx5qi"]
 [ext_resource type="Script" path="res://Resources/upgrades/BuildingUpgradeResource.gd" id="3_tqwrm"]
 
@@ -21,7 +21,7 @@ script = ExtResource("3_tqwrm")
 name = "Rocket Level 4"
 level = 4
 description = "Win the Game"
-new_texture = ExtResource("1_wgue7")
+new_texture = ExtResource("1_vjqli")
 oil = 20000
 metal = 20000
 crystal = 20000

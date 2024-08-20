@@ -9,6 +9,12 @@ const start_menu = preload("res://Scenes/UI/start_menu.tscn")
 const game_over_screen = preload("res://Scenes/UI/game_over.tscn")
 const WIN_SCREEN = preload("res://Scenes/UI/win_screen.tscn")
 
+#test
+var oil = 0
+var metal = 0
+var crystal = 0
+var fund = 0
+
 var levels = [
 	preload("res://Scenes/Levels/randomsystem.tscn"),
 ]

@@ -13,6 +13,8 @@ class_name SolarSystemGenerator
 
 @export var planetscale = 0.5
 @export var moonscale = 0.25
+var numplanet
+var nummoon = 0
 
 @export_range (1, 3) var size: int
 
@@ -47,6 +49,7 @@ func generate_system():
 			
 	var planetct = randi_range(planetmin, planetmax)
 	
+	
 	for i in range(planetct):
 		var newplan = planetprefab.instantiate()
 		newplan.orbiting = star
@@ -72,6 +75,7 @@ func generate_system():
 		var moonroll = randi_range(1,3)
 		if moonroll == 3:
 			var newmoon = planetprefab.instantiate()
+			nummoon+=1
 			newmoon.orbiting = newplan
 			newmoon.ui = newplan.ui
 			newmoon.scale *= moonscale
@@ -95,5 +99,8 @@ func generate_system():
 		
 		
 		pass
-	
+	set_numplanet(planetct, nummoon)
 	pass
+
+func set_numplanet(plan,moon):
+	numplanet = plan + moon

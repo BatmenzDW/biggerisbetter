@@ -49,9 +49,9 @@ theme_override_constants/margin_bottom = 8
 
 [node name="RichTextLabel" type="RichTextLabel" parent="MarginContainer/Panel/MarginContainer/VBoxContainer/MarginContainer2"]
 layout_mode = 2
-text = "Objective:
-	Produce resources until you can afford a level 4 rocket.
-	Don't let your planets be destroyed by asteroids."
+text = "!!! HOW TO WIN !!!
+	- Produce resources until you can afford a level 4 rocket.
+	- Don't let your planets be destroyed by asteroids."
 
 [node name="MarginContainer" type="MarginContainer" parent="MarginContainer/Panel/MarginContainer/VBoxContainer"]
 layout_mode = 2
@@ -70,6 +70,8 @@ text = "Controls:
 	I 				-- start building
 	U/O			-- previous/next building
 	1/2/3/4	-- change game speed
+	right click + drag = move camera
+	scroll wheel = zoom in/out
 	
 	Click on a planet/building to open the upgrade menu for it.
 
