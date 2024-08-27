@@ -50,7 +50,7 @@ theme_override_constants/margin_bottom = 8
 [node name="RichTextLabel" type="RichTextLabel" parent="MarginContainer/Panel/MarginContainer/VBoxContainer/MarginContainer2"]
 layout_mode = 2
 text = "!!! HOW TO WIN !!!
-	- Produce resources until you can afford a level 4 rocket.
+	- Produce resources until you can afford a rocket.
 	- Don't let your planets be destroyed by asteroids."
 
 [node name="MarginContainer" type="MarginContainer" parent="MarginContainer/Panel/MarginContainer/VBoxContainer"]

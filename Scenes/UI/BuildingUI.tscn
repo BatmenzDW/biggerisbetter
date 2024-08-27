@@ -59,7 +59,7 @@ item_4/text = "Fund Factory ($750)"
 item_4/icon = ExtResource("5_s1bmw")
 item_5/text = "Turret ($500)"
 item_5/icon = ExtResource("6_calyb")
-item_6/text = "Rocket ($1000)"
+item_6/text = "Rocket ($100m)"
 item_6/icon = ExtResource("7_clrac")
 
 [connection signal="item_selected" from="MarginContainer/HBoxContainer/ItemList" to="." method="_on_item_list_item_selected"]

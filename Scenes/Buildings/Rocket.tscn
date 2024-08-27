@@ -16,7 +16,7 @@ max_load = 100.0
 buildingName = "Rocket"
 description = "Launches population from one planet to another. \\nCould eventually allow for interstellar travel..."
 upgrades = Array[ExtResource("3_ggbwb")]([ExtResource("4_3vmqy"), ExtResource("5_c45x3"), ExtResource("6_l8wq7")])
-buildCost = 1000
+buildCost = 100000000
 productionCost = null
 
 [node name="Sprite" parent="." index="0"]

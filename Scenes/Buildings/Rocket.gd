@@ -75,3 +75,22 @@ func upgrade(data:BuildingUpgradeCostResource) -> bool:
 	fundsCost += data.funds
 	
 	return true
+
+# alt win condition for jam
+func place() -> bool:
+	if _check_placement():
+		if Game.spend_funds(buildCost):
+			is_placing = false
+			orbiting = nearestOrbit
+			get_parent().remove_child(self)
+			orbiting.add_child(self)
+			scale = Vector2(1/orbiting.scale.x, 1/orbiting.scale.y)		# counter-scale to keep size
+		
+			SignalBus.max_rocket_built.emit()
+			return true
+		else:
+			print("Can't afford")
+			return false
+	else:
+		print("Can't build due to overlap.")
+		return false
