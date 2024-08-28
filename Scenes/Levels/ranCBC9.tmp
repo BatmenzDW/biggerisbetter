@@ -110,7 +110,7 @@ script = ExtResource("7_vh4m5")
 process_mode = 3
 offset_left = 10.0
 offset_top = 560.0
-offset_right = 280.0
+offset_right = 279.0
 offset_bottom = 625.0
 mouse_filter = 2
 
@@ -169,11 +169,10 @@ offset_right = -187.0
 offset_bottom = -153.0
 
 [node name="PlanetHealthUI" parent="CanvasLayer" instance=ExtResource("20_f7fjj")]
-offset_left = 330.0
-offset_top = 560.0
-offset_right = 925.0
-offset_bottom = 660.0
-scale = Vector2(0.8, 0.8)
+offset_left = 294.0
+offset_top = 585.0
+offset_right = 294.0
+offset_bottom = 585.0
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 process_mode = 3

@@ -128,7 +128,7 @@ offset_right = 288.0
 offset_bottom = 241.0
 theme_override_styles/background = SubResource("StyleBoxFlat_g2p31")
 theme_override_styles/fill = SubResource("StyleBoxFlat_3rklw")
-value = 60.0
+value = 50.0
 
 [node name="Upgrades" type="Node" parent="."]
 
