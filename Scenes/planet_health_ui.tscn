@@ -24,6 +24,19 @@ offset_right = 605.0
 offset_bottom = 110.0
 texture = ExtResource("2_iha8b")
 
+[node name="Sun" type="Panel" parent="."]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+offset_right = 100.0
+offset_bottom = 100.0
+
+[node name="NinePatchRect2" type="NinePatchRect" parent="Sun"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 0
+offset_right = 100.0
+offset_bottom = 100.0
+texture = ExtResource("2_1mhev")
+
 [node name="GridContainer" type="GridContainer" parent="."]
 layout_mode = 0
 offset_left = 110.0
@@ -32,16 +45,3 @@ offset_bottom = 100.0
 theme_override_constants/h_separation = 10
 theme_override_constants/v_separation = 10
 columns = 9
-
-[node name="Sun" type="Panel" parent="."]
-custom_minimum_size = Vector2(100, 100)
-layout_mode = 2
-offset_right = 60.0
-offset_bottom = 60.0
-
-[node name="NinePatchRect" type="NinePatchRect" parent="Sun"]
-custom_minimum_size = Vector2(100, 100)
-layout_mode = 0
-offset_right = 60.0
-offset_bottom = 60.0
-texture = ExtResource("2_1mhev")

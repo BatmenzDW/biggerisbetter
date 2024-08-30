@@ -23,11 +23,12 @@ var spr2 : Sprite2D 			 # This gets created later
 var sprwidth = 0				 # Reference to how wide the planet sprite is
 
 var scroll := 0.0				 # Scroll offset (From 0-1)
-
+var skins = [ptext,ptext1, ptext2,ptext3,ptext4,ptext5,ptext6,ptext7,ptext8,ptext9]
+var skinpick
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	var skins = [ptext,ptext1, ptext2,ptext3,ptext4,ptext5,ptext6,ptext7,ptext8,ptext9]
-	var skinpick = randi()% skins.size()
+	
+	skinpick = randi()% skins.size()
 
 	spr1.texture = skins[skinpick]
 	

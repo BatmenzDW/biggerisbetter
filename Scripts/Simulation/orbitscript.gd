@@ -56,11 +56,17 @@ func _ready():
 
 func _physics_process(delta: float) -> void:
 	
+	
 	# Handle orbit
 	if orbiting: 
 		orbitDelta += delta * orbitalPeriod
 		orbitDelta = wrapf(orbitDelta, 0, 1)
 		if(orbiting == null):#if centre planet dies before moon, mooon also dies
+			
+			for i in range (6, self.get_child_count()):
+				if(get_child(i) != null):
+					self.get_child(i).res_dec(self.get_child(i).buildingLevel)
+				
 			$ToolTipHandler.destroy()
 			queue_free()
 		else: 
@@ -99,8 +105,8 @@ func take_damage():
 		planetPopulation = -1;
 		for i in range (6, self.get_child_count()):
 			if(get_child(i) != null):
-				self.get_child(i).res_dec(self.get_child(i).buildingLevel)
-				
+				self.get_child(i).res_dec(self.get_child(i).buildingLevel)					
+					
 		PlanetManager.unload_planet(self)
 		$ToolTipHandler.destroy()
 		Game.update_score.emit()
@@ -110,7 +116,7 @@ func gain_health(i = 20):
 	planetHealth += i 
 	if(planetHealth >= maxHealth ):
 		planetHealth = maxHealth;
-	print("gained")
+	#print("gained")
 
 
 func _on_population_growth_timeout() -> void:

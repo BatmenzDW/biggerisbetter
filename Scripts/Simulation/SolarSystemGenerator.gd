@@ -81,7 +81,7 @@ func generate_system():
 			newmoon.scale *= moonscale
 			var mnameidx = randi_range(0, len(planetnames.text)-1)
 		
-			newmoon.planetName = planetnames.text[pnameidx]
+			newmoon.planetName = planetnames.text[mnameidx]
 		
 			newmoon.orbitDelta = randf()
 			newmoon.orbitalRadius = 100
