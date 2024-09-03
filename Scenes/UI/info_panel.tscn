@@ -66,7 +66,7 @@ theme_override_constants/margin_bottom = 8
 layout_mode = 2
 text = "Controls:
 	Tab			-- opens manual
-	P				-- place currently selected building
+	LMB    	-- place currently selected building
 	I 				-- start building
 	U/O			-- previous/next building
 	1/2/3/4	-- change game speed
@@ -75,4 +75,5 @@ text = "Controls:
 	
 	Click on a planet/building to open the upgrade menu for it.
 
-	Buildings can also be selected on the sidebar."
+	Buildings can be selected on the sidebar.
+	Click on planet Health HUD to access all planets from one place"
