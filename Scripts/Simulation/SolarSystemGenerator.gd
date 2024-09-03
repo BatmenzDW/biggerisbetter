@@ -90,7 +90,7 @@ func generate_system():
 			newmoon.mass = 0.4
 			newmoon.planetHealth = 50
 			newmoon.maxHealth = 50
-			newmoon.planetPopulation = -1
+			newmoon.planetPopulation = 50
 			
 			if newmoon.has_node("Line2D"):
 				newmoon.get_node("Line2D").visible = false

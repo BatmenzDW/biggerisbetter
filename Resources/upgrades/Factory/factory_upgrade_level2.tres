@@ -14,7 +14,7 @@ minPopulation = 100
 oil_output = 0
 metal_output = 0
 crystal_output = 0
-funds_output = 250
+funds_output = 1250
 
 [resource]
 script = ExtResource("3_cp3je")

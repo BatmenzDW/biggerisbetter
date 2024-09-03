@@ -77,7 +77,7 @@ func _input(event: InputEvent) -> void:
 var info_pause = false
 
 func _process(delta: float) -> void:
-	#print(Game.overlap)
+	print(Game.overlap)
 	pass
 
 func _ready() -> void:

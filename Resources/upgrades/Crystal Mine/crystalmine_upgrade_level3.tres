@@ -6,8 +6,8 @@
 
 [sub_resource type="Resource" id="Resource_2r37d"]
 script = ExtResource("2_no2gp")
-oil = 10
-metal = 10
+oil = 15
+metal = 15
 crystal = 0
 funds = 70
 minPopulation = 0

@@ -113,13 +113,13 @@ func res_inc(lvl: int):
 					Game.crystal -= 1
 				2:	
 					Game.oil += 20
-					Game.metal -= 3
-					Game.crystal -= 2
+					Game.metal -= 5
+					Game.crystal -= 4
 					Game.fund -= 25
 				3:
 					Game.oil +=  40
-					Game.metal -= 2
-					Game.crystal -=3
+					Game.metal -= 5
+					Game.crystal -=5
 					Game.fund -=45
 					
 		"Metal Mine":
@@ -129,13 +129,13 @@ func res_inc(lvl: int):
 					Game.crystal -= 1
 				2:	
 					Game.metal += 20
-					Game.crystal -= 2
-					Game.oil -= 3
+					Game.crystal -= 4
+					Game.oil -= 5
 					Game.fund -= 25
 				3:
 					Game.metal +=  40
-					Game.oil -= 2
-					Game.crystal -=3
+					Game.oil -= 5
+					Game.crystal -=5
 					Game.fund -= 45
 			
 		"Crystal Mine":
@@ -145,13 +145,13 @@ func res_inc(lvl: int):
 					Game.metal -= 5
 					Game.crystal += 10
 				2:	
-					Game.oil -= 2
-					Game.metal -= 2
+					Game.oil -= 5
+					Game.metal -= 5
 					Game.fund -=25
 					Game.crystal += 15
 				3:
-					Game.oil -= 3
-					Game.metal -= 3
+					Game.oil -= 5
+					Game.metal -= 5
 					Game.crystal += 25
 					Game.fund -= 45
 			
@@ -166,12 +166,12 @@ func res_inc(lvl: int):
 					Game.oil -= 2
 					Game.metal -= 2
 					Game.crystal -= 2
-					Game.fund += 150	
+					Game.fund += 1150	
 				3:
 					Game.oil -= 5
 					Game.metal -= 5 
 					Game.crystal -= 5
-					Game.fund += 475	
+					Game.fund += 3850
 				
 	Game._update_score()
 
@@ -184,13 +184,13 @@ func res_dec(lvl:int):
 					Game.crystal += 1
 				2:	
 					Game.oil -= 35
-					Game.metal += 3
-					Game.crystal += 3
+					Game.metal += 5
+					Game.crystal += 5
 					Game.fund +=25
 				3:
 					Game.oil -=  75
-					Game.metal += 5
-					Game.crystal +=6
+					Game.metal += 10
+					Game.crystal += 10
 					Game.fund += 70
 					
 		"Metal Mine":
@@ -199,15 +199,15 @@ func res_dec(lvl:int):
 					Game.metal -= 15
 					Game.crystal += 1
 				2:	
-					Game.oil +=3
+					Game.oil += 5
 					Game.metal -= 35
-					Game.crystal += 3
+					Game.crystal += 5
 					Game.fund += 25
 				3:
 					Game.metal -= 75
-					Game.oil +=5
-					Game.fun += 70
-					Game.crystal += 6
+					Game.oil += 10
+					Game.fund += 70
+					Game.crystal += 10
 			
 		"Crystal Mine":
 			match lvl:
@@ -216,14 +216,14 @@ func res_dec(lvl:int):
 					Game.metal += 5
 					Game.crystal -= 10
 				2:	
-					Game.oil +=7
-					Game.metal += 7
+					Game.oil += 10
+					Game.metal += 10
 					Game.crystal -= 25
 					Game.fund += 25
 				3:
-					Game.oil += 10
-					Game.metal += 10
-					Game.crystal -= 55
+					Game.oil += 15
+					Game.metal += 15
+					Game.crystal -= 50
 					Game.fund += 70
 			
 		"Factory":
@@ -235,14 +235,14 @@ func res_dec(lvl:int):
 					Game.fund -= 100	
 				2:	
 					Game.oil += 5
-					Game.metal +=5
+					Game.metal += 5
 					Game.crystal += 6
-					Game.fund -= 250	
+					Game.fund -= 1250	
 				3:
 					Game.oil += 10
 					Game.metal +=10
 					Game.crystal += 11
-					Game.fund -= 750		
+					Game.fund -= 5000		
 	Game._update_score()
 	
 			

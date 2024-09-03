@@ -15,8 +15,6 @@ func handleupgrade(id):
 		"20health":
 			planet.gain_health(20)
 		
-		"1population":
-			planet.growth += 1
 			
 		"20resist":
 			planet.damage -= (.2 * planet.damage)

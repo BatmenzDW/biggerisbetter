@@ -10,7 +10,7 @@
 
 [node name="Turret" instance=ExtResource("1_02lsy")]
 script = ExtResource("2_0fwn4")
-damage = 5.0
+damage = 4.0
 crystal_cost = 1
 buildingName = "Turret"
 description = "Shoots asteroids, at the cost of crystals"
