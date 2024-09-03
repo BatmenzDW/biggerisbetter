@@ -1,19 +1,19 @@
 [gd_resource type="Resource" script_class="BuildingUpgradeCostResource" load_steps=5 format=3 uid="uid://b0fo14dwce7mk"]
 
-[ext_resource type="Texture2D" uid="uid://qg5xeaufixpa" path="res://Assets/Art/Structures/crystalmine2.png" id="1_j0lmn"]
+[ext_resource type="Texture2D" uid="uid://qg5xeaufixpa" path="res://Assets/Art/Structures/crystalmine2.png" id="1_sc7j8"]
 [ext_resource type="Script" path="res://Resources/production/ProdCostResource.gd" id="2_8l3ts"]
 [ext_resource type="Script" path="res://Resources/upgrades/BuildingUpgradeResource.gd" id="3_2gdtj"]
 
 [sub_resource type="Resource" id="Resource_2r37d"]
 script = ExtResource("2_8l3ts")
-oil = 5
-metal = 5
+oil = 7
+metal = 7
 crystal = 0
-funds = 0
+funds = 25
 minPopulation = 0
 oil_output = 0
 metal_output = 0
-crystal_output = 15
+crystal_output = 25
 funds_output = 0
 
 [resource]
@@ -21,11 +21,11 @@ script = ExtResource("3_2gdtj")
 name = "Crystal Mine Level 2"
 level = 2
 description = ""
-new_texture = ExtResource("1_j0lmn")
-oil = 1500
-metal = 1500
+new_texture = ExtResource("1_sc7j8")
+oil = 175
+metal = 175
 crystal = 0
-funds = 1500
+funds = 6000
 prodCost = SubResource("Resource_2r37d")
 damage = 0
 load_percent = 0.0

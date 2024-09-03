@@ -8,7 +8,7 @@
 [ext_resource type="Resource" uid="uid://uetiynjwkbft" path="res://Resources/upgrades/Turret/turret_upgrade_level3.tres" id="5_kcbvf"]
 [ext_resource type="AudioStream" uid="uid://di7pvy8kw211d" path="res://Audio/Laser.mp3" id="7_7ea77"]
 
-[node name="Area2D" instance=ExtResource("1_02lsy")]
+[node name="Turret" instance=ExtResource("1_02lsy")]
 script = ExtResource("2_0fwn4")
 damage = 5.0
 crystal_cost = 1

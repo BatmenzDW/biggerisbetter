@@ -4,12 +4,12 @@
 
 [resource]
 script = ExtResource("1_f05u1")
-oil = 10
-metal = 0
-crystal = 1
+oil = 3
+metal = 3
+crystal = 4
 funds = 0
 minPopulation = 50
 oil_output = 0
 metal_output = 0
 crystal_output = 0
-funds_output = 1000
+funds_output = 100

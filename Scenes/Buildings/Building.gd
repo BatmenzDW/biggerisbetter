@@ -86,7 +86,7 @@ func _update_placing_position() -> void:
 
 func place() -> bool:
 	#print("Placing " + buildingName)
-	if _check_placement():
+	if _check_placement() and Game.overlap == 0:
 		if Game.spend_funds(buildCost):
 			is_placing = false
 			orbiting = nearestOrbit
@@ -109,58 +109,69 @@ func res_inc(lvl: int):
 		"Drill":
 			match lvl:
 				1:
-					Game.oil += 10
+					Game.oil += 15
 					Game.crystal -= 1
 				2:	
-					Game.oil += 50
-					Game.metal -= 5
-					Game.crystal += 1
+					Game.oil += 20
+					Game.metal -= 3
+					Game.crystal -= 2
+					Game.fund -= 25
 				3:
-					Game.oil +=  65
-					Game.metal -= 5
+					Game.oil +=  40
+					Game.metal -= 2
+					Game.crystal -=3
+					Game.fund -=45
 					
 		"Metal Mine":
 			match lvl:
 				1:
-					Game.metal += 10
+					Game.metal += 15
 					Game.crystal -= 1
 				2:	
 					Game.metal += 20
-					Game.crystal -= 1
+					Game.crystal -= 2
+					Game.oil -= 3
+					Game.fund -= 25
 				3:
-					Game.metal += 20
+					Game.metal +=  40
+					Game.oil -= 2
+					Game.crystal -=3
+					Game.fund -= 45
 			
 		"Crystal Mine":
 			match lvl:
 				1:
-					Game.oil -= 1
-					Game.metal -= 1
-					Game.crystal += 5
-				2:	
-					Game.oil -=4
-					Game.metal -= 4
-					Game.crystal += 10
-				3:
 					Game.oil -= 5
 					Game.metal -= 5
-					Game.crystal += 35
+					Game.crystal += 10
+				2:	
+					Game.oil -= 2
+					Game.metal -= 2
+					Game.fund -=25
+					Game.crystal += 15
+				3:
+					Game.oil -= 3
+					Game.metal -= 3
+					Game.crystal += 25
+					Game.fund -= 45
 			
 		"Factory":
 			match lvl:
 				1:
-					Game.oil -= 10
-					Game.crystal -= 1
-					Game.fund += 1000	
+					Game.oil -= 3
+					Game.metal -=3
+					Game.crystal -= 4
+					Game.fund += 100	
 				2:	
-					Game.oil -= 40
-					Game.metal -=50
+					Game.oil -= 2
+					Game.metal -= 2
 					Game.crystal -= 2
-					Game.fund += 9000	
+					Game.fund += 150	
 				3:
-					Game.oil += 20
-					Game.metal +=20
-					Game.crystal += 1
-					Game.fund += 2500	
+					Game.oil -= 5
+					Game.metal -= 5 
+					Game.crystal -= 5
+					Game.fund += 475	
 				
 	Game._update_score()
 
@@ -169,58 +180,69 @@ func res_dec(lvl:int):
 		"Drill":
 			match lvl:
 				1:
-					Game.oil -= 10
+					Game.oil -= 15
 					Game.crystal += 1
 				2:	
-					Game.oil -= 60
-					Game.metal += 5
+					Game.oil -= 35
+					Game.metal += 3
+					Game.crystal += 3
+					Game.fund +=25
 				3:
-					Game.oil -=  125
-					Game.metal += 10
+					Game.oil -=  75
+					Game.metal += 5
+					Game.crystal +=6
+					Game.fund += 70
 					
 		"Metal Mine":
 			match lvl:
 				1:
-					Game.metal -= 10
+					Game.metal -= 15
 					Game.crystal += 1
 				2:	
-					Game.metal -= 30
-					Game.crystal += 1
+					Game.oil +=3
+					Game.metal -= 35
+					Game.crystal += 3
+					Game.fund += 25
 				3:
-					Game.metal -= 50
-					Game.crystal += 2
+					Game.metal -= 75
+					Game.oil +=5
+					Game.fun += 70
+					Game.crystal += 6
 			
 		"Crystal Mine":
 			match lvl:
 				1:
-					Game.oil += 1
-					Game.metal += 1
-					Game.crystal -= 5
-				2:	
-					Game.oil +=5
+					Game.oil += 5
 					Game.metal += 5
-					Game.crystal -= 15
+					Game.crystal -= 10
+				2:	
+					Game.oil +=7
+					Game.metal += 7
+					Game.crystal -= 25
+					Game.fund += 25
 				3:
 					Game.oil += 10
 					Game.metal += 10
-					Game.crystal -= 50
+					Game.crystal -= 55
+					Game.fund += 70
 			
 		"Factory":
 			match lvl:
 				1:
-					Game.oil += 10
-					Game.crystal += 1
-					Game.fund -= 1000	
+					Game.oil += 3
+					Game.metal += 3
+					Game.crystal += 4
+					Game.fund -= 100	
 				2:	
-					Game.oil += 50
-					Game.metal +=50
-					Game.crystal += 3
-					Game.fund -= 10000	
+					Game.oil += 5
+					Game.metal +=5
+					Game.crystal += 6
+					Game.fund -= 250	
 				3:
-					Game.oil += 30
-					Game.metal +=30
-					Game.crystal += 2
-					Game.fund -= 12500		
+					Game.oil += 10
+					Game.metal +=10
+					Game.crystal += 11
+					Game.fund -= 750		
 	Game._update_score()
 	
 			
@@ -355,8 +377,11 @@ func upgrade(data:BuildingUpgradeCostResource) -> bool:
 
 
 func _on_other_clicked(other:Building) -> void:
+	
 	if other != self:
-		upgrade_ui.close_quiet()
+		if(upgrade_ui.is_open):
+			Game.overlap -= 1 
+			upgrade_ui.close_quiet()
 
 func _on_clicked() -> void:
 	if not is_placing:
@@ -381,17 +406,23 @@ func sell() -> void:
 var show_tooltip := false
 
 func _on_mouse_entered() -> void:
-	if is_placing:
-		return
-	show_tooltip = true
-	#print("entered " + buildingName)
-	if ui:
-		(ui.get_node("LabelContainer/MarginContainer/Label") as Label).text = tooltip
-		(ui.get_node("LabelContainer") as Control).show()
+	
+	if !is_placing:
+		self.get_parent().get_parent().get_parent().get_node("CanvasLayer").get_node("BuildingUI").previndex = self.get_parent().get_parent().get_parent().get_node("CanvasLayer").get_node("BuildingUI").buildindex
+		self.get_parent().get_parent().get_parent().get_node("CanvasLayer").get_node("BuildingUI")._on_item_list_item_selected(0)
+		
+		show_tooltip = true
+		#print("entered " + buildingName)
+		if ui:
+			(ui.get_node("LabelContainer/MarginContainer/Label") as Label).text = tooltip
+			(ui.get_node("LabelContainer") as Control).show()
 
 
 func _on_mouse_exited() -> void:
 	show_tooltip = false
+	if !is_placing:
+		if(get_node("Upgrade_UI").visible == false):
+			self.get_parent().get_parent().get_parent().get_node("CanvasLayer").get_node("BuildingUI")._on_item_list_item_selected(self.get_parent().get_parent().get_parent().get_node("CanvasLayer").get_node("BuildingUI").previndex)
 	#print("exited " + buildingName)
 	if ui:
 		(ui.get_node("LabelContainer") as Control).hide()

@@ -68,7 +68,7 @@ func _process(_delta):
 			if(upgrade.visible != true):
 				upgrade.open()
 				upgrade.visible = true
-				upgrade.global_position = get_global_mouse_position() - Vector2(288,156)
+				upgrade.global_position = get_parent().get_parent().get_parent().get_node("Camera2D").position - Vector2(288,156)
 				upgrade.nplanet(planet)
 		
 	if pl:
@@ -79,10 +79,17 @@ func _process(_delta):
 func _on_mouse_entered():
 	mouseover = true
 	shouldtooltip = true
+	if(get_parent().get_parent().get_parent().get_node("CanvasLayer").get_node("BuildingUI").buildindex != 0):
+		get_parent().get_parent().get_parent().get_node("CanvasLayer").get_node("BuildingUI").previndex = get_parent().get_parent().get_parent().get_node("CanvasLayer").get_node("BuildingUI").buildindex 
+	get_parent().get_parent().get_parent().get_node("CanvasLayer").get_node("BuildingUI")._on_item_list_item_selected(0)
+	Game.overlap += 1
 	pass # Replace with function body.
 
 
 func _on_mouse_exited():
+	if(get_parent().get_parent().get_parent().get_node("UI").get_node("Upgrade_UI").visible == false):
+		get_parent().get_parent().get_parent().get_node("CanvasLayer").get_node("BuildingUI")._on_item_list_item_selected(get_parent().get_parent().get_parent().get_node("CanvasLayer").get_node("BuildingUI").previndex)
+	Game.overlap -=1
 	if mouseover:
 		mouseover = false 
 	

@@ -4,12 +4,12 @@
 
 [resource]
 script = ExtResource("1_sgrbc")
-oil = 1
-metal = 1
+oil = 5
+metal = 5
 crystal = 0
 funds = 0
 minPopulation = 0
 oil_output = 0
 metal_output = 0
-crystal_output = 5
+crystal_output = 10
 funds_output = 0

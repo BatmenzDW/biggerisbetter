@@ -86,9 +86,11 @@ func buyitem(i):
 
 func _ready():
 	# Game._MONEYCHEATHECKYEAH()
+	SignalBus.connect("planet_ui_close",_on_close_pressed)
 	updatelist()
 	visible = false;
 func _process(delta: float) -> void:
+	
 	if(planet !=null):
 		$Panel/PlanetInfo.text = "Health :\n\n" 
 		if planet.planetPopulation < 0:
@@ -97,18 +99,34 @@ func _process(delta: float) -> void:
 			$Panel/PlanetInfo.text += "Polulation: " + str(planet.planetPopulation)
 		$Panel/Healthbar.value = planet.planetHealth
 		$Panel/Healthbar.max_value = planet.maxHealth
+		
 func open():
+	
 	updatelist()
+	Game.overlap +=1
+	if(get_parent().get_parent().get_node("CanvasLayer").get_node("BuildingUI").buildindex != 0):
+		get_parent().get_parent().get_node("CanvasLayer").get_node("BuildingUI").previndex = get_parent().get_parent().get_node("CanvasLayer").get_node("BuildingUI").buildindex
+	get_parent().get_parent().get_node("CanvasLayer").get_node("BuildingUI")._on_item_list_item_selected(0)
+	
+	SignalBus.emit_signal("building_upgrade_ui_close")
 	visible = true;
-	Game.toggle_pause()
+	if(get_tree().paused == false):
+		Game.toggle_pause()
 
 func close():
 	visible = false
+	Game.toggle_pause()
 	
+
 	
 func _on_close_pressed():
+	#if(visible == true):
+		#Game.overlap -= 1
+	Game.overlap -=1
 	visible = false;
+	get_parent().get_parent().get_node("CanvasLayer").get_node("BuildingUI")._on_item_list_item_selected(get_parent().get_parent().get_node("CanvasLayer").get_node("BuildingUI").previndex)
 	Game.toggle_pause()
+	
 	
 func nplanet(body):
 	planet = body

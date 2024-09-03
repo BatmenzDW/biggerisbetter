@@ -1,5 +1,8 @@
 extends Control
 
+var buildindex = 0
+var previndex = 0
+
 @onready var list: ItemList = $MarginContainer/HBoxContainer/ItemList
 
 # Called when the node enters the scene tree for the first time.
@@ -21,6 +24,8 @@ func _process(_delta: float) -> void:
 
 func _on_item_list_item_selected(index: int) -> void:
 	SignalBus.building_selected_gui.emit(index)
+	_select(index)
+	buildindex = index
 
 
 func _deselect():
@@ -28,3 +33,11 @@ func _deselect():
 
 func _select(index:int):
 	list.select(index)
+
+
+func _on_item_list_mouse_entered() -> void:
+	Game.overlap += 1
+
+
+func _on_item_list_mouse_exited() -> void:
+	Game.overlap -= 1

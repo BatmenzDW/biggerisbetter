@@ -7,7 +7,7 @@
 [ext_resource type="Resource" uid="uid://cue2c830lpiyr" path="res://Resources/upgrades/Crystal Mine/crystalmine_upgrade_level3.tres" id="4_irtjm"]
 [ext_resource type="Texture2D" uid="uid://cw8oxbk6t7d5b" path="res://Assets/Art/Structures/crystalmine1.png" id="6_wt5iu"]
 
-[node name="Area2D" instance=ExtResource("1_wx6v6")]
+[node name="CrystalMine" instance=ExtResource("1_wx6v6")]
 buildingName = "Crystal Mine"
 description = "Generates crystals, at the cost of oil and metal"
 upgrades = Array[ExtResource("2_m41g6")]([ExtResource("3_rq3df"), ExtResource("4_irtjm")])

@@ -8,27 +8,25 @@
 custom_minimum_size = Vector2(595, 100)
 layout_mode = 3
 anchors_preset = 0
-offset_left = 10.0
-offset_top = 10.0
-offset_right = 605.0
-offset_bottom = 110.0
+offset_right = 615.0
+offset_bottom = 120.0
 script = ExtResource("1_blugb")
 
 [node name="NinePatchRect" type="NinePatchRect" parent="."]
 modulate = Color(1, 1, 1, 0.235294)
 custom_minimum_size = Vector2(615, 100)
 layout_mode = 1
-offset_left = -10.0
-offset_top = -10.0
-offset_right = 605.0
-offset_bottom = 110.0
+offset_right = 615.0
+offset_bottom = 120.0
 texture = ExtResource("2_iha8b")
 
 [node name="Sun" type="Panel" parent="."]
 custom_minimum_size = Vector2(100, 100)
 layout_mode = 2
-offset_right = 100.0
-offset_bottom = 100.0
+offset_left = 10.0
+offset_top = 10.0
+offset_right = 110.0
+offset_bottom = 110.0
 
 [node name="NinePatchRect2" type="NinePatchRect" parent="Sun"]
 custom_minimum_size = Vector2(100, 100)
@@ -39,9 +37,18 @@ texture = ExtResource("2_1mhev")
 
 [node name="GridContainer" type="GridContainer" parent="."]
 layout_mode = 0
-offset_left = 110.0
-offset_right = 595.0
-offset_bottom = 100.0
+offset_left = 120.0
+offset_top = 10.0
+offset_right = 605.0
+offset_bottom = 110.0
 theme_override_constants/h_separation = 10
 theme_override_constants/v_separation = 10
 columns = 9
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 0
+offset_right = 8.0
+offset_bottom = 8.0
+
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]

@@ -9,6 +9,7 @@ var is_panel_clicked = false
 
 func _ready():
 	# Game._MONEYCHEATHECKYEAH()
+	SignalBus.connect("building_upgrade_ui_close", close)
 	showitem((get_parent() as Building).buildingLevel)
 	visible = false
 
@@ -16,19 +17,40 @@ func _on_buy_pressed():
 	if is_open:
 		buyitem()
 		close()
+		_ready()
+		open()
 
 func open():
+	if(self.get_parent().get_parent().get_parent().get_parent().get_node("CanvasLayer").get_node("BuildingUI").buildindex != 0):
+		self.get_parent().get_parent().get_parent().get_parent().get_node("CanvasLayer").get_node("BuildingUI").previndex = self.get_parent().get_parent().get_parent().get_parent().get_node("CanvasLayer").get_node("BuildingUI").buildindex
+	self.get_parent().get_parent().get_parent().get_parent().get_node("CanvasLayer").get_node("BuildingUI")._on_item_list_item_selected(0)
+	
+	if(get_parent().get_parent().get_parent().get_parent().get_node("UI").get_node("Upgrade_UI").visible == true):
+		SignalBus.emit_signal("planet_ui_close")
+	
+	self.global_position = get_parent().get_parent().get_parent().get_parent().get_node("Camera2D").position - Vector2 (148, 156)
+	
+	Game.overlap += 1
 	if not is_open:
 		showitem((get_parent() as Building).buildingLevel)
 		visible = true
+		
+		#if(get_tree().paused == false):
+			#Game.overlap += 1
+			
 		Game.toggle_pause(true)
+		
 		is_open = true
 
 func close():
-	data = null
-	visible = false
-	is_open = false
-	Game.toggle_pause(false)
+	if is_open:
+		self.get_parent().get_parent().get_parent().get_parent().get_node("CanvasLayer").get_node("BuildingUI")._on_item_list_item_selected(self.get_parent().get_parent().get_parent().get_parent().get_node("CanvasLayer").get_node("BuildingUI").previndex)
+		Game.overlap -= 1
+		data = null
+		visible = false
+		is_open = false
+		Game.toggle_pause(false)
+	
 
 func close_quiet():
 	data = null
@@ -87,7 +109,10 @@ func showitem(current_lvl:int):
 
 func _on_sell_pressed() -> void:
 	Game.toggle_pause()
+	#Game.overlap -=1
+	_on_close_pressed()
 	(get_parent() as Building).sell()
+	
 
 
 #handle movement
