@@ -14,6 +14,7 @@ var oil = 0
 var metal = 0
 var crystal = 0
 var fund = 0
+var overlap = 0
 
 var levels = [
 	preload("res://Scenes/Levels/randomsystem.tscn"),

@@ -1,273 +1,54 @@
 [gd_scene load_steps=4 format=3 uid="uid://dvwvhl5yx7dv0"]
 
 [ext_resource type="Script" path="res://Scripts/PlanetHealthUi.gd" id="1_blugb"]
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3wfou"]
-bg_color = Color(0.509286, 0.509286, 0.509286, 1)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_g36bk"]
-bg_color = Color(0.835294, 0.109804, 0.141176, 1)
+[ext_resource type="Texture2D" uid="uid://45ou2nug6iya" path="res://Assets/vinny-approval-awaiting/Star.png" id="2_1mhev"]
+[ext_resource type="Texture2D" uid="uid://dmacetcd676w6" path="res://Assets/programmer-art/Upgrade_UI.png" id="2_iha8b"]
 
 [node name="PlanetHealthUI" type="Control"]
+custom_minimum_size = Vector2(595, 100)
 layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_right = -982.0
-offset_bottom = -638.0
-grow_horizontal = 2
-grow_vertical = 2
+anchors_preset = 0
+offset_right = 615.0
+offset_bottom = 120.0
 script = ExtResource("1_blugb")
+
+[node name="NinePatchRect" type="NinePatchRect" parent="."]
+modulate = Color(1, 1, 1, 0.235294)
+custom_minimum_size = Vector2(615, 100)
+layout_mode = 1
+offset_right = 615.0
+offset_bottom = 120.0
+texture = ExtResource("2_iha8b")
+
+[node name="Sun" type="Panel" parent="."]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+offset_left = 10.0
+offset_top = 10.0
+offset_right = 110.0
+offset_bottom = 110.0
+
+[node name="NinePatchRect2" type="NinePatchRect" parent="Sun"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 0
+offset_right = 100.0
+offset_bottom = 100.0
+texture = ExtResource("2_1mhev")
 
 [node name="GridContainer" type="GridContainer" parent="."]
 layout_mode = 0
-offset_right = 160.0
-offset_bottom = 10.0
-theme_override_constants/h_separation = 0
-theme_override_constants/v_separation = 0
-columns = 17
+offset_left = 120.0
+offset_top = 10.0
+offset_right = 605.0
+offset_bottom = 110.0
+theme_override_constants/h_separation = 10
+theme_override_constants/v_separation = 10
+columns = 9
 
-[node name="Panel Sun" type="Panel" parent="GridContainer"]
-custom_minimum_size = Vector2(40, 40)
-layout_mode = 2
-
-[node name="Panel" type="Panel" parent="GridContainer"]
-process_mode = 4
-visible = false
-custom_minimum_size = Vector2(40, 40)
-layout_mode = 2
-
-[node name="ProgressBar" type="ProgressBar" parent="GridContainer/Panel"]
+[node name="Button" type="Button" parent="."]
 layout_mode = 0
-offset_top = 23.0
-offset_right = 200.0
-offset_bottom = 53.0
-scale = Vector2(0.2, 0.2)
-theme_override_styles/background = SubResource("StyleBoxFlat_3wfou")
-theme_override_styles/fill = SubResource("StyleBoxFlat_g36bk")
-value = 50.0
+offset_right = 8.0
+offset_bottom = 8.0
 
-[node name="Panel2" type="Panel" parent="GridContainer"]
-process_mode = 4
-visible = false
-custom_minimum_size = Vector2(40, 40)
-layout_mode = 2
-
-[node name="ProgressBar" type="ProgressBar" parent="GridContainer/Panel2"]
-offset_top = 23.0
-offset_right = 200.0
-offset_bottom = 53.0
-scale = Vector2(0.2, 0.2)
-theme_override_styles/background = SubResource("StyleBoxFlat_3wfou")
-theme_override_styles/fill = SubResource("StyleBoxFlat_g36bk")
-value = 50.0
-
-[node name="Panel3" type="Panel" parent="GridContainer"]
-process_mode = 4
-visible = false
-custom_minimum_size = Vector2(40, 40)
-layout_mode = 2
-
-[node name="ProgressBar" type="ProgressBar" parent="GridContainer/Panel3"]
-offset_top = 23.0
-offset_right = 200.0
-offset_bottom = 53.0
-scale = Vector2(0.2, 0.2)
-theme_override_styles/background = SubResource("StyleBoxFlat_3wfou")
-theme_override_styles/fill = SubResource("StyleBoxFlat_g36bk")
-value = 50.0
-
-[node name="Panel4" type="Panel" parent="GridContainer"]
-process_mode = 4
-visible = false
-custom_minimum_size = Vector2(40, 40)
-layout_mode = 2
-
-[node name="ProgressBar" type="ProgressBar" parent="GridContainer/Panel4"]
-offset_top = 23.0
-offset_right = 200.0
-offset_bottom = 53.0
-scale = Vector2(0.2, 0.2)
-theme_override_styles/background = SubResource("StyleBoxFlat_3wfou")
-theme_override_styles/fill = SubResource("StyleBoxFlat_g36bk")
-value = 50.0
-
-[node name="Panel5" type="Panel" parent="GridContainer"]
-process_mode = 4
-visible = false
-custom_minimum_size = Vector2(40, 40)
-layout_mode = 2
-
-[node name="ProgressBar" type="ProgressBar" parent="GridContainer/Panel5"]
-offset_top = 23.0
-offset_right = 200.0
-offset_bottom = 53.0
-scale = Vector2(0.2, 0.2)
-theme_override_styles/background = SubResource("StyleBoxFlat_3wfou")
-theme_override_styles/fill = SubResource("StyleBoxFlat_g36bk")
-value = 50.0
-
-[node name="Panel6" type="Panel" parent="GridContainer"]
-process_mode = 4
-visible = false
-custom_minimum_size = Vector2(40, 40)
-layout_mode = 2
-
-[node name="ProgressBar" type="ProgressBar" parent="GridContainer/Panel6"]
-offset_top = 23.0
-offset_right = 200.0
-offset_bottom = 53.0
-scale = Vector2(0.2, 0.2)
-theme_override_styles/background = SubResource("StyleBoxFlat_3wfou")
-theme_override_styles/fill = SubResource("StyleBoxFlat_g36bk")
-value = 50.0
-
-[node name="Panel7" type="Panel" parent="GridContainer"]
-process_mode = 4
-visible = false
-custom_minimum_size = Vector2(40, 40)
-layout_mode = 2
-
-[node name="ProgressBar" type="ProgressBar" parent="GridContainer/Panel7"]
-offset_top = 23.0
-offset_right = 200.0
-offset_bottom = 53.0
-scale = Vector2(0.2, 0.2)
-theme_override_styles/background = SubResource("StyleBoxFlat_3wfou")
-theme_override_styles/fill = SubResource("StyleBoxFlat_g36bk")
-value = 50.0
-
-[node name="Panel8" type="Panel" parent="GridContainer"]
-process_mode = 4
-visible = false
-custom_minimum_size = Vector2(40, 40)
-layout_mode = 2
-
-[node name="ProgressBar" type="ProgressBar" parent="GridContainer/Panel8"]
-offset_top = 23.0
-offset_right = 200.0
-offset_bottom = 53.0
-scale = Vector2(0.2, 0.2)
-theme_override_styles/background = SubResource("StyleBoxFlat_3wfou")
-theme_override_styles/fill = SubResource("StyleBoxFlat_g36bk")
-value = 50.0
-
-[node name="Panel9" type="Panel" parent="GridContainer"]
-process_mode = 4
-visible = false
-custom_minimum_size = Vector2(40, 40)
-layout_mode = 2
-
-[node name="ProgressBar" type="ProgressBar" parent="GridContainer/Panel9"]
-offset_top = 23.0
-offset_right = 200.0
-offset_bottom = 53.0
-scale = Vector2(0.2, 0.2)
-theme_override_styles/background = SubResource("StyleBoxFlat_3wfou")
-theme_override_styles/fill = SubResource("StyleBoxFlat_g36bk")
-value = 50.0
-
-[node name="Panel10" type="Panel" parent="GridContainer"]
-process_mode = 4
-visible = false
-custom_minimum_size = Vector2(40, 40)
-layout_mode = 2
-
-[node name="ProgressBar" type="ProgressBar" parent="GridContainer/Panel10"]
-offset_top = 23.0
-offset_right = 200.0
-offset_bottom = 53.0
-scale = Vector2(0.2, 0.2)
-theme_override_styles/background = SubResource("StyleBoxFlat_3wfou")
-theme_override_styles/fill = SubResource("StyleBoxFlat_g36bk")
-value = 50.0
-
-[node name="Panel11" type="Panel" parent="GridContainer"]
-process_mode = 4
-visible = false
-custom_minimum_size = Vector2(40, 40)
-layout_mode = 2
-
-[node name="ProgressBar" type="ProgressBar" parent="GridContainer/Panel11"]
-offset_top = 23.0
-offset_right = 200.0
-offset_bottom = 53.0
-scale = Vector2(0.2, 0.2)
-theme_override_styles/background = SubResource("StyleBoxFlat_3wfou")
-theme_override_styles/fill = SubResource("StyleBoxFlat_g36bk")
-value = 50.0
-
-[node name="Panel12" type="Panel" parent="GridContainer"]
-process_mode = 4
-visible = false
-custom_minimum_size = Vector2(40, 40)
-layout_mode = 2
-
-[node name="ProgressBar" type="ProgressBar" parent="GridContainer/Panel12"]
-offset_top = 23.0
-offset_right = 200.0
-offset_bottom = 53.0
-scale = Vector2(0.2, 0.2)
-theme_override_styles/background = SubResource("StyleBoxFlat_3wfou")
-theme_override_styles/fill = SubResource("StyleBoxFlat_g36bk")
-value = 50.0
-
-[node name="Panel13" type="Panel" parent="GridContainer"]
-process_mode = 4
-visible = false
-custom_minimum_size = Vector2(40, 40)
-layout_mode = 2
-
-[node name="ProgressBar" type="ProgressBar" parent="GridContainer/Panel13"]
-offset_top = 23.0
-offset_right = 200.0
-offset_bottom = 53.0
-scale = Vector2(0.2, 0.2)
-theme_override_styles/background = SubResource("StyleBoxFlat_3wfou")
-theme_override_styles/fill = SubResource("StyleBoxFlat_g36bk")
-value = 50.0
-
-[node name="Panel14" type="Panel" parent="GridContainer"]
-process_mode = 4
-visible = false
-custom_minimum_size = Vector2(40, 40)
-layout_mode = 2
-
-[node name="ProgressBar" type="ProgressBar" parent="GridContainer/Panel14"]
-offset_top = 23.0
-offset_right = 200.0
-offset_bottom = 53.0
-scale = Vector2(0.2, 0.2)
-theme_override_styles/background = SubResource("StyleBoxFlat_3wfou")
-theme_override_styles/fill = SubResource("StyleBoxFlat_g36bk")
-value = 50.0
-
-[node name="Panel15" type="Panel" parent="GridContainer"]
-process_mode = 4
-visible = false
-custom_minimum_size = Vector2(40, 40)
-layout_mode = 2
-
-[node name="ProgressBar" type="ProgressBar" parent="GridContainer/Panel15"]
-offset_top = 23.0
-offset_right = 200.0
-offset_bottom = 53.0
-scale = Vector2(0.2, 0.2)
-theme_override_styles/background = SubResource("StyleBoxFlat_3wfou")
-theme_override_styles/fill = SubResource("StyleBoxFlat_g36bk")
-value = 50.0
-
-[node name="Panel16" type="Panel" parent="GridContainer"]
-process_mode = 4
-visible = false
-custom_minimum_size = Vector2(40, 40)
-layout_mode = 2
-
-[node name="ProgressBar" type="ProgressBar" parent="GridContainer/Panel16"]
-offset_top = 23.0
-offset_right = 200.0
-offset_bottom = 53.0
-scale = Vector2(0.2, 0.2)
-theme_override_styles/background = SubResource("StyleBoxFlat_3wfou")
-theme_override_styles/fill = SubResource("StyleBoxFlat_g36bk")
-value = 50.0
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]

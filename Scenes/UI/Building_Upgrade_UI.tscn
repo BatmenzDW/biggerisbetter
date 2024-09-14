@@ -8,6 +8,8 @@ process_mode = 3
 z_index = 1
 layout_mode = 3
 anchors_preset = 0
+offset_right = 296.0
+offset_bottom = 313.0
 mouse_filter = 1
 script = ExtResource("1_6qc8o")
 

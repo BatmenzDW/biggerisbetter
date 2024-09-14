@@ -76,6 +76,10 @@ func _input(event: InputEvent) -> void:
 
 var info_pause = false
 
+func _process(delta: float) -> void:
+	print(Game.overlap)
+	pass
+
 func _ready() -> void:
 	# testing
 	#asteroid_spawner.process_mode = Node.PROCESS_MODE_DISABLED
@@ -147,3 +151,35 @@ func _on_paused() -> void:
 
 func _on_unpaused() -> void:
 	speed_label.text = _prev_speed_label
+
+
+func _on_slow_mouse_entered() -> void:
+	Game.overlap +=1
+
+
+func _on_slow_mouse_exited() -> void:
+	Game.overlap -=1
+
+
+func _on_normal_mouse_entered() -> void:
+	Game.overlap +=1
+
+
+func _on_normal_mouse_exited() -> void:
+	Game.overlap -=1
+
+
+func _on_fast_mouse_entered() -> void:
+	Game.overlap +=1
+
+
+func _on_fast_mouse_exited() -> void:
+	Game.overlap -=1
+
+
+func _on_pause_mouse_entered() -> void:
+	Game.overlap +=1
+
+
+func _on_pause_mouse_exited() -> void:
+	Game.overlap -=1

@@ -105,15 +105,12 @@ offset_bottom = 44.0
 script = ExtResource("7_vh4m5")
 
 [node name="BuildingUI" parent="CanvasLayer" instance=ExtResource("8_4hu5r")]
-process_mode = 1
-offset_left = 955.0
-offset_right = 0.0
 
 [node name="Panel" type="Panel" parent="CanvasLayer"]
 process_mode = 3
 offset_left = 10.0
 offset_top = 560.0
-offset_right = 280.0
+offset_right = 279.0
 offset_bottom = 625.0
 mouse_filter = 2
 
@@ -172,27 +169,17 @@ offset_right = -187.0
 offset_bottom = -153.0
 
 [node name="PlanetHealthUI" parent="CanvasLayer" instance=ExtResource("20_f7fjj")]
-process_mode = 3
-offset_left = 330.0
-offset_top = 550.0
-offset_right = 945.0
-offset_bottom = 670.0
-scale = Vector2(0.8, 0.8)
+offset_left = 294.0
+offset_top = 585.0
+offset_right = 294.0
+offset_bottom = 585.0
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 process_mode = 3
 stream = ExtResource("10_aocfj")
 autoplay = true
 
-[connection signal="mouse_entered" from="CanvasLayer/Panel/MarginContainer/HBoxContainer/Slow" to="." method="_on_slow_mouse_entered"]
-[connection signal="mouse_exited" from="CanvasLayer/Panel/MarginContainer/HBoxContainer/Slow" to="." method="_on_slow_mouse_exited"]
 [connection signal="pressed" from="CanvasLayer/Panel/MarginContainer/HBoxContainer/Slow" to="." method="_on_slow_pressed"]
-[connection signal="mouse_entered" from="CanvasLayer/Panel/MarginContainer/HBoxContainer/Normal" to="." method="_on_normal_mouse_entered"]
-[connection signal="mouse_exited" from="CanvasLayer/Panel/MarginContainer/HBoxContainer/Normal" to="." method="_on_normal_mouse_exited"]
 [connection signal="pressed" from="CanvasLayer/Panel/MarginContainer/HBoxContainer/Normal" to="." method="_on_normal_pressed"]
-[connection signal="mouse_entered" from="CanvasLayer/Panel/MarginContainer/HBoxContainer/Fast" to="." method="_on_fast_mouse_entered"]
-[connection signal="mouse_exited" from="CanvasLayer/Panel/MarginContainer/HBoxContainer/Fast" to="." method="_on_fast_mouse_exited"]
 [connection signal="pressed" from="CanvasLayer/Panel/MarginContainer/HBoxContainer/Fast" to="." method="_on_fast_pressed"]
-[connection signal="mouse_entered" from="CanvasLayer/Panel/MarginContainer/HBoxContainer/Pause" to="." method="_on_pause_mouse_entered"]
-[connection signal="mouse_exited" from="CanvasLayer/Panel/MarginContainer/HBoxContainer/Pause" to="." method="_on_pause_mouse_exited"]
 [connection signal="pressed" from="CanvasLayer/Panel/MarginContainer/HBoxContainer/Pause" to="." method="_on_pause_pressed"]

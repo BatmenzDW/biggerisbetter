@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="BuildingUpgradeCostResource" load_steps=5 format=3 uid="uid://bw1wklnfa0fxe"]
 
-[ext_resource type="Texture2D" uid="uid://mg3mpn8yuip4" path="res://Assets/programmer-art/turret_lvl2.png" id="1_s7smh"]
+[ext_resource type="Texture2D" uid="uid://mg3mpn8yuip4" path="res://Assets/programmer-art/turret_lvl2.png" id="1_nn4pp"]
 [ext_resource type="Script" path="res://Resources/production/ProdCostResource.gd" id="2_10nrd"]
 [ext_resource type="Script" path="res://Resources/upgrades/BuildingUpgradeResource.gd" id="3_o6j4p"]
 
@@ -21,7 +21,7 @@ script = ExtResource("3_o6j4p")
 name = "Turret Level 2"
 level = 2
 description = ""
-new_texture = ExtResource("1_s7smh")
+new_texture = ExtResource("1_nn4pp")
 oil = 1500
 metal = 1500
 crystal = 0

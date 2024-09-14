@@ -45,10 +45,9 @@ offset_right = 1.0
 theme_override_colors/guide_color = Color(0.847059, 1, 0, 1)
 theme_override_colors/font_selected_color = Color(0.0398584, 0.391035, 0.391032, 1)
 theme_override_colors/font_color = Color(0.315174, 0.717154, 0.512113, 1)
-item_count = 3
+item_count = 2
 item_0/text = "Upgrade 1"
-item_1/text = "Upgrade 2"
-item_2/text = "Upgrade 3"
+item_1/text = "Upgrade 3"
 metadata/_edit_use_anchors_ = true
 
 [node name="CostTitle" type="Label" parent="Panel"]
@@ -128,28 +127,22 @@ offset_right = 288.0
 offset_bottom = 241.0
 theme_override_styles/background = SubResource("StyleBoxFlat_g2p31")
 theme_override_styles/fill = SubResource("StyleBoxFlat_3rklw")
-value = 60.0
+value = 50.0
 
 [node name="Upgrades" type="Node" parent="."]
 
 [node name="Health" parent="Upgrades" instance=ExtResource("2_pqwi4")]
 upgrade = "+20 Health"
-metal = 2000
-funds = 15000
+metal = 500
+funds = 6000
 upgrade_id = "20health"
-
-[node name="Population Growth" parent="Upgrades" instance=ExtResource("2_pqwi4")]
-upgrade = "+1% Population Growth"
-oil = 1000
-crystal = 200
-funds = 25000
-upgrade_id = "1population"
 
 [node name="Resistiance" parent="Upgrades" instance=ExtResource("2_pqwi4")]
 upgrade = "+20% Resistiance"
-oil = 10000
-metal = 20000
-funds = 50000
+oil = 700
+metal = 800
+crystal = 600
+funds = 12000
 upgrade_id = "20resist"
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]

@@ -13,6 +13,7 @@ const UPGRADE_UI = preload("res://Scenes/Upgrade_UI.tscn")
 @export var planetPopulation := 100 # -1 for inhabitable
 @onready var audio_stream_player_2d: AudioStreamPlayer2D = $AudioStreamPlayer2D
 
+
 @export var orbiting : Node2D # Planet or star that this planet is orbiting. None for static
 
 @export var orbitalPeriod := 0.1 # How fast planet orbits
@@ -37,6 +38,7 @@ var damage = 15
 
 const EPSILON = 0.001
 
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	if get_parent().has_node("Asteroid Field"):
@@ -52,15 +54,20 @@ func _ready():
 ## Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta) -> void:
 	#
-	#
 
 func _physics_process(delta: float) -> void:
+	
 	
 	# Handle orbit
 	if orbiting: 
 		orbitDelta += delta * orbitalPeriod
 		orbitDelta = wrapf(orbitDelta, 0, 1)
 		if(orbiting == null):#if centre planet dies before moon, mooon also dies
+			
+			for i in range (6, self.get_child_count()):
+				if(get_child(i) != null):
+					self.get_child(i).res_dec(self.get_child(i).buildingLevel)
+				
 			$ToolTipHandler.destroy()
 			queue_free()
 		else: 
@@ -99,8 +106,8 @@ func take_damage():
 		planetPopulation = -1;
 		for i in range (6, self.get_child_count()):
 			if(get_child(i) != null):
-				self.get_child(i).res_dec(self.get_child(i).buildingLevel)
-				
+				self.get_child(i).res_dec(self.get_child(i).buildingLevel)					
+					
 		PlanetManager.unload_planet(self)
 		$ToolTipHandler.destroy()
 		Game.update_score.emit()
@@ -110,11 +117,14 @@ func gain_health(i = 20):
 	planetHealth += i 
 	if(planetHealth >= maxHealth ):
 		planetHealth = maxHealth;
-	print("gained")
+	#print("gained")
 
 
 func _on_population_growth_timeout() -> void:
-	planetPopulation += ((.1 * growth) * planetPopulation) 
+	if planetPopulation < 10000:
+		planetPopulation += (.1 * planetPopulation) 
+	else:
+		planetPopulation += 1000
 
 
 #func _on_area_2d_body_entered(body: RigidBody2D) -> void:

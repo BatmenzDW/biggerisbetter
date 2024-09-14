@@ -14,6 +14,8 @@ layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_right = -955.0
+offset_bottom = 13.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
@@ -63,3 +65,5 @@ item_6/text = "Rocket ($100m)"
 item_6/icon = ExtResource("7_clrac")
 
 [connection signal="item_selected" from="MarginContainer/HBoxContainer/ItemList" to="." method="_on_item_list_item_selected"]
+[connection signal="mouse_entered" from="MarginContainer/HBoxContainer/ItemList" to="." method="_on_item_list_mouse_entered"]
+[connection signal="mouse_exited" from="MarginContainer/HBoxContainer/ItemList" to="." method="_on_item_list_mouse_exited"]

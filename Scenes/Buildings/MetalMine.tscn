@@ -7,7 +7,7 @@
 [ext_resource type="Resource" uid="uid://blbsmi1foqwnt" path="res://Resources/upgrades/Metal Mine/metalmine_upgrade_level3.tres" id="4_pkbf5"]
 [ext_resource type="Texture2D" uid="uid://bd0oqdnjsito4" path="res://Assets/Art/Structures/metalmine1.png" id="6_nxxe4"]
 
-[node name="Area2D" instance=ExtResource("1_g6e1a")]
+[node name="MetalMine" instance=ExtResource("1_g6e1a")]
 texture_filter = 1
 buildingName = "Metal Mine"
 description = "Mines metal, at the cost of crystals"

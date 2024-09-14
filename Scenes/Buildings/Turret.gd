@@ -10,7 +10,7 @@ const LASER = preload("res://Scenes/Prefabs/laser.tscn")
 
 var laser: Line2D
 
-@export var damage := 5.0
+@export var damage := 4.0
 @export var crystal_cost := 1
 
 func _clock() -> void:

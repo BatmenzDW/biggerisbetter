@@ -1,31 +1,31 @@
-[gd_resource type="Resource" script_class="BuildingUpgradeCostResource" load_steps=5 format=3 uid="uid://p2fpc11pu4qi"]
+[gd_resource type="Resource" script_class="BuildingUpgradeCostResource" load_steps=5 format=3 uid="uid://dvi24cwn07hsd"]
 
-[ext_resource type="Texture2D" uid="uid://c8i1mvf2m8q6f" path="res://Assets/Art/Structures/factory2.png" id="1_ongvb"]
+[ext_resource type="Texture2D" uid="uid://c8i1mvf2m8q6f" path="res://Assets/Art/Structures/factory2.png" id="1_dsxah"]
 [ext_resource type="Script" path="res://Resources/production/ProdCostResource.gd" id="2_ejvfw"]
 [ext_resource type="Script" path="res://Resources/upgrades/BuildingUpgradeResource.gd" id="3_cp3je"]
 
 [sub_resource type="Resource" id="Resource_2r37d"]
 script = ExtResource("2_ejvfw")
-oil = 50
-metal = 50
-crystal = 3
+oil = 5
+metal = 5
+crystal = 6
 funds = 0
-minPopulation = 200
+minPopulation = 100
 oil_output = 0
 metal_output = 0
 crystal_output = 0
-funds_output = 10000
+funds_output = 1250
 
 [resource]
 script = ExtResource("3_cp3je")
-name = "Factory Level 3"
-level = 3
+name = "Factory Level 2"
+level = 2
 description = ""
-new_texture = ExtResource("1_ongvb")
-oil = 5000
-metal = 5000
-crystal = 5000
-funds = 5000
+new_texture = ExtResource("1_dsxah")
+oil = 200
+metal = 200
+crystal = 500
+funds = 1000
 prodCost = SubResource("Resource_2r37d")
 damage = 0
 load_percent = 0.0
